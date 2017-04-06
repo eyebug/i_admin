@@ -16,9 +16,6 @@ class BaseModel {
     }
 
     protected function initParam($paramList) {
-        $paramList['package'] = Enum_System::RPC_REQUEST_PACKAGE;
-        $paramList['partnerid'] = $this->partnerId;
-        $paramList['otaId'] = $this->partnerId;
         return $paramList;
     }
 

@@ -14,19 +14,19 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
         // 把配置保存起来
         $arrConfig = Yaf_Application::app()->getConfig();
         Yaf_Registry::set('sysConfig', $arrConfig);
-	
-	$loginInfo = array();
+        
+        $loginInfo = array();
         $sId = Util_Http::getCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_SID);
         $aId = Util_Http::getCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_AID);
         if ($sId && $aId) {
             $memKey = Auth_Login::genLoginMemKey($sId, $aId);
-            $cacheOb = Cache_MemoryCache::getInstance();
+            $cacheOb = Cache_Redis::getInstance();
             $tmpJson = $cacheOb->get($memKey);
             if ($tmpJson) {
                 $tmp = json_decode($tmpJson, true);
                 if (is_array($tmp) && count($tmp) > 0) {
                     $loginInfo = $tmp;
-                    $cacheOb->replace($memKey, $tmpJson, Enum_Login::LOGIN_TIMEOUT);
+                    $cacheOb->set($memKey, $tmpJson, Enum_Login::LOGIN_TIMEOUT);
                     $cookieTime = time() + Enum_Login::LOGIN_TIMEOUT;
                     Util_Http::setCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_AID, $aId, $cookieTime);
                     Util_Http::setCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_SID, $sId, $cookieTime);

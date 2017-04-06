@@ -426,6 +426,55 @@ class Util_Tools {
         $idList = $idList ? $idList : array();
         return array_unique(array_filter($idList, "intval"));
     }
+
+    public static function getDebugServiceHost() {
+        if ($_SERVER['SERVER_ADDR'] == '127.0.0.1') {
+            $serviceHostGet = $_GET['debugService'];
+            $serviceHostCookie = Util_Http::getCookie('debugService');
+            if ($serviceHostGet && $serviceHostCookie != $serviceHostGet) {
+                Util_Http::setCookie('debugService', $serviceHostGet);
+            }
+            $serviceHost = $serviceHostGet ? $serviceHostGet : $serviceHostCookie;
+        }
+        return $serviceHost;
+    }
+
+    public static function getDebugServiceAddress() {
+        $debugStatusGet = $_GET['nobug'];
+        $debugStatusCookie = Util_Http::getCookie('debugServiceAddress');
+        if ($debugStatusGet && $debugStatusCookie != $debugStatusGet) {
+            Util_Http::setCookie('debugServiceAddress', $debugStatusGet);
+        }
+        $debugStatus = $debugStatusGet ? $debugStatusGet : $debugStatusCookie;
+        if (Util_Http::isAjax() && $debugStatus == 'ajax') {
+            return true;
+        } elseif ($debugStatus == 'all') {
+            return true;
+        }
+        return false;
+    }
+
+    public static function isJsFileDebug() {
+        return $_SERVER['SERVER_ADDR'] == '127.0.0.1';
+    }
+
+    public static function debugEcho($echo, $exit = 0) {
+        $debugCookie = "ypDebug";
+        if (Util_Http::getCookie($debugCookie) == 'a') {
+            var_dump($echo);
+            if ($exit) {
+                exit();
+            }
+        } else {
+            if ($_GET[$debugCookie] == "a") {
+                Util_Http::setCookie($debugCookie, 'a');
+                var_dump($echo);
+                if ($exit) {
+                    exit();
+                }
+            }
+        }
+    }
 }
 
 ?>

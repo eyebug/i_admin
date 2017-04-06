@@ -228,5 +228,33 @@ class Util_Http {
         $context = stream_context_create($opts);
         return file_get_contents($url, null, $context);
     }
+
+    public static function isAjax() {
+        return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest');
+    }
+
+    public static function checkHttps() {
+        if ($_SERVER['SERVER_ADDR'] == '127.0.0.1' || Yaf_Registry::get('sysDebug')) {
+            return false;
+        }
+        if ($_SERVER['SERVER_PORT'] == '8601') {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static function getClientOs() {
+        $os = "";
+        $agent = $_SERVER['HTTP_USER_AGENT'];
+        if (preg_match('/win/i', $agent)) {
+            $os = 'window';
+        } elseif (preg_match('/mac/i', $agent)) {
+            $os = 'mac';
+        } else {
+            $os = 'other';
+        }
+        return $os;
+    }
 }
 ?>

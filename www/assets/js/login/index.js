@@ -34,7 +34,7 @@ ypAdminOTA.loginIndex = (function($, ypRecordVar) {
             timeout : 1000,
         });
         xhr.done(function() {
-            location.href = "/index/index";
+//            location.href = "/index/index";
         }).fail(function(data) {
             showMsg(data.msg);
         });

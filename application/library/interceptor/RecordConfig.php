@@ -3,11 +3,10 @@
 class Interceptor_RecordConfig {
 
     private static $config = array(
-        'Orderajax' => array(
+        'Loginajax' => array(
             'moduleType' => 1,
             'action' => array(
-                'changestatus' => 1,
-                'confirm' => 1
+                'dologin' => 1
             )
         )
     );

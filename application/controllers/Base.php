@@ -8,12 +8,11 @@ class BaseController extends \Yaf_Controller_Abstract {
         $this->setPageWebConfig();
         $this->userInfo = Yaf_Registry::get('loginInfo');
         $this->setPageHeaderInfo($this->userInfo);
-        $this->setPageMenuList($this->userInfo);
     }
 
     private function setPageWebConfig() {
         $sysConfig = Yaf_Registry::get('sysConfig');
-        $webConfig['layoutPath'] = $sysConfig->application->layout_path;
+        $webConfig['layoutPath'] = $sysConfig->application->layout->directory;
         $webConfig['domain'] = $sysConfig->web->domain;
         $webConfig['imgDomain'] = $sysConfig->web->img_domain;
         $webConfig['assertPath'] = $sysConfig->web->assert_path;
@@ -25,13 +24,6 @@ class BaseController extends \Yaf_Controller_Abstract {
         $headerInfo['userName'] = $loginInfo['realName'] ? $loginInfo['realName'] : $loginInfo['userName'];
         $headerInfo['partnerName'] = $loginInfo['partnerName'];
         $this->getView()->assign('headerInfo', $headerInfo);
-    }
-
-    private function setPageMenuList($loginInfo) {
-        $loginModel = new LoginModel();
-        $paramList['id'] = $loginInfo['id'];
-        $menuList = $loginModel->getRuleList($paramList);
-        $this->_view->assign('menuList', $menuList['data']);
     }
 
     /**

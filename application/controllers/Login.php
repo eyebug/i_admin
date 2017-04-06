@@ -12,7 +12,7 @@ class LoginController extends \BaseController {
      * ---
      */
     public function indexAction() {
-	if (Auth_Login::checkLogin()) {
+        if (Auth_Login::checkLogin()) {
             Util_Tools::redirect("/");
         }
         $this->_view->display('login/index.phtml');

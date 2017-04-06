@@ -12,7 +12,6 @@ class LoginajaxController extends \BaseController {
         
         $model = new LoginModel();
         $result = $model->doLogin($paramList);
-        
         $this->echoJson($result);
     }
 }

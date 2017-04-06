@@ -25,7 +25,7 @@ class LoginModel extends \BaseModel {
                 break;
             }
             $params['password'] = Enum_Login::getMd5Pass($params['password']);
-            $result = $this->rpcClient->getResultRaw('U001', $params);
+            $result = $this->rpcClient->getResultRaw('AU001', $params);
         } while (false);
         return $result;
     }
@@ -51,17 +51,10 @@ class LoginModel extends \BaseModel {
                 $result = $errorResult;
                 break;
             }
-            if (empty($userInfo['partnerId'])) {
-                $result = $errorResult;
-                break;
-            }
             $auth = Auth_Login::genSIdAndAId($userInfo['id']);
-            $partnerList = $this->rpcClient->getResultRaw('P001', array())['data']['list'];
-            $partnerList = array_column($partnerList, 'name', 'id');
             $userInfo['sId'] = $auth['sId'];
-            $userInfo['partnerName'] = $partnerList[$userInfo['partnerId']];
             $key = Auth_Login::genLoginMemKey($auth['sId'], $auth['aId']);
-            $cache = Cache_MemoryCache::getInstance();
+            $cache = Cache_Redis::getInstance();
             if (! $cache->set($key, json_encode($userInfo), Enum_Login::LOGIN_TIMEOUT)) {
                 $result = $errorResult;
                 break;
@@ -98,26 +91,5 @@ class LoginModel extends \BaseModel {
             Util_Http::setCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_AID, '', time());
             return true;
         }
-    }
-
-    /**
-     * 根据用户获取权限列表
-     *
-     * @return Ambigous
-     */
-    public function getRuleList($paramList) {
-        $params = $this->initParam($paramList);
-        do {
-            if (empty($params['id'])) {
-                $result = array(
-                    'code' => 1,
-                    'msg' => '用户ID错误'
-                );
-                break;
-            }
-            $params['project'] = Enum_System::RULE_MENU_PROJECT_ID;
-            $result = $this->rpcClient->getResultRaw('U002', $params, true, 10, false, 1800);
-        } while (false);
-        return $result;
     }
 }
