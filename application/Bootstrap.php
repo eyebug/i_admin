@@ -14,7 +14,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
         // 把配置保存起来
         $arrConfig = Yaf_Application::app()->getConfig();
         Yaf_Registry::set('sysConfig', $arrConfig);
-        
+
         $loginInfo = array();
         $sId = Util_Http::getCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_SID);
         $aId = Util_Http::getCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_AID);

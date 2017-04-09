@@ -22,7 +22,6 @@ class BaseController extends \Yaf_Controller_Abstract {
 
     private function setPageHeaderInfo($loginInfo) {
         $headerInfo['userName'] = $loginInfo['realName'] ? $loginInfo['realName'] : $loginInfo['userName'];
-        $headerInfo['partnerName'] = $loginInfo['partnerName'];
         $this->getView()->assign('headerInfo', $headerInfo);
     }
 
@@ -53,5 +52,46 @@ class BaseController extends \Yaf_Controller_Abstract {
     protected function jump404() {
         header('Location:/error/notfound');
         exit();
+    }
+
+    /**
+     * 获取GET
+     *
+     * @param string $key
+     *            GET的key，为空返回整个$_GET
+     * @param string $isJsonStr
+     *            是否为json字符串，json字符串还原防注入的转译
+     */
+    protected function getGet($key = "", $isJsonStr = false) {
+        if ($key) {
+            if ($this->getRequest()->getParam($key)) {
+                return $this->getRequest()->getParam($key);
+            }
+            if ($isJsonStr) {
+                return Util_Http::revertInject($_GET[$key]);
+            }
+            return $_GET[$key];
+        } else {
+            return $_GET;
+        }
+    }
+
+    /**
+     * 获取POST
+     *
+     * @param string $key
+     *            POST的key，为空返回整个$_POST
+     * @param string $isJsonStr
+     *            是否为json字符串，json字符串还原防注入的转译
+     */
+    protected function getPost($key = "", $isJsonStr = false) {
+        if ($key) {
+            if ($isJsonStr) {
+                return Util_Http::revertInject($_POST[$key]);
+            }
+            return $_POST[$key];
+        } else {
+            return $_POST;
+        }
     }
 }

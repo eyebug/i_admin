@@ -1,23 +1,26 @@
 /**
  * @author 张福顺
- * @date 2015-11-20
- * @back 开发背景：OTA及AL后台大量的雷同列表，JS出现大量重复逻辑
+ * @back 开发背景：后台大量的雷同列表，JS出现大量重复逻辑
  * @description 说明：用于雷同产品管理列表的场景，可实现列表的初始化加载、筛选等逻辑
  */
 var YP = YP || {};
-YP.list = (function($) {
+YP.list = function() {
 
     var ypList = {};
     var ajax = YP.ajax;
-    var listParams = {
+    ypList.listParams = {
         colCount : 9,// table中td数量
         listUrl : '',// 列表ajax请求地址
+        autoLoad : true,
+        initSearch : true,
         params : {// 列表ajax参数
             page : 1,
-            limit : 10,
+            limit : 10
         },
+        ajaxMethod : 'POST',
         pageDomObject : $("#pageDiv"),// 分页html元素对象
         listDomObject : $("#listContent"),// 列表主体元素对象
+        listFilterDomObject : $("#listFilter"),// 列表主体元素对象
         searchButtonDomObject : $("#searchBtn"),// 筛选搜索按钮元素对象
         listTemplate : 'list_tpl',// 列表模版名称
         pageTemplate : 'listPage_tpl',// 分页模版名称
@@ -27,15 +30,41 @@ YP.list = (function($) {
         },
         listFail : function(data) {// 失败回调
         },
+        handlerParams : function(params) {// 请求前处理参数
+            return params;
+        }
     }
 
     /**
      * 初始化
      */
     ypList.init = function(option) {
-        option = $.extend(listParams, option);
-        loadList();
+        option = $.extend(ypList.listParams, option);
+        if (option.autoLoad) {
+            var filterParams = {
+                page : 1
+            };
+            ypList.listParams.listFilterDomObject.find("[op=filterCase]:visible").each(function(key, value) {
+                var $filterDom = $(value), $filterId = $filterDom.attr('id'), $filterValue = $filterDom.val(), $filterKey = $filterDom.data('paramkey');
+                var $filterKey = $filterKey ? $filterKey : $filterId;
+                if ($filterDom.attr('type') == 'checkbox') {
+                    $filterValue = $filterDom.is(':checked') ? 1 : 0;
+                    filterParams[$filterKey] = $filterValue;
+                } else if ($filterDom.attr('type') == 'radio') {
+                    if ($filterDom.is(':checked')) {
+                        filterParams[$filterKey] = $filterValue;
+                    }
+                } else {
+                    filterParams[$filterKey] = $filterValue;
+                }
+            });
+            ypList.updateParams(filterParams);
+            loadList();
+        }
         initPageChange();
+        if (option.initSearch) {
+            initSearch();
+        }
     };
 
     /**
@@ -44,30 +73,30 @@ YP.list = (function($) {
     ypList.writeListData = function(data) {
         var html = '';
         if (data.data.list.length > 0) {
-            html = template(listParams.listTemplate, data.data);
-            var pageHtml = template(listParams.pageTemplate, data.data.pageData);
-            listParams.pageDomObject.html(pageHtml).show();
+            html = template(ypList.listParams.listTemplate, data.data);
+            var pageHtml = template(ypList.listParams.pageTemplate, data.data.pageData);
+            ypList.listParams.pageDomObject.html(pageHtml).show();
         } else {
-            html = template(listParams.noDataTemplate, {
-                colCount : listParams.colCount
+            html = template(ypList.listParams.noDataTemplate, {
+                colCount : ypList.listParams.colCount
             });
-            listParams.pageDomObject.hide();
+            ypList.listParams.pageDomObject.hide();
         }
-        listParams.listDomObject.html(html);
+        ypList.listParams.listDomObject.html(html);
     }
 
     /**
      * 重置搜索按钮
      */
     ypList.resetSearchButton = function() {
-        listParams.searchButtonDomObject.button('reset');
+        ypList.listParams.searchButtonDomObject.button('reset');
     };
 
     /**
      * 更新参数
      */
     ypList.updateParams = function(option) {
-        option = $.extend(listParams.params, option);
+        option = $.extend(ypList.listParams.params, option);
     };
 
     /**
@@ -77,20 +106,44 @@ YP.list = (function($) {
         loadList();
     }
 
+    function initSearch() {
+        // 执行筛选
+        ypList.listParams.searchButtonDomObject.on('click', function() {
+            var filterParams = {
+                page : 1
+            };
+            ypList.listParams.listFilterDomObject.find("[op=filterCase]:visible").each(function(key, value) {
+                var $filterDom = $(value), $filterId = $filterDom.attr('id'), $filterValue = $filterDom.val(), $filterKey = $filterDom.data('paramkey');
+                var $filterKey = $filterKey ? $filterKey : $filterId;
+                if ($filterDom.attr('type') == 'checkbox') {
+                    $filterValue = $filterDom.is(':checked') ? 1 : 0;
+                    filterParams[$filterKey] = $filterValue;
+                } else if ($filterDom.attr('type') == 'radio') {
+                    if ($filterDom.is(':checked')) {
+                        filterParams[$filterKey] = $filterValue;
+                    }
+                } else {
+                    filterParams[$filterKey] = $filterValue;
+                }
+            });
+            ypList.updateParams(filterParams);
+            ypList.reLoadList();
+        });
+    }
     /**
      * 初始化分页信息
      */
     function initPageChange() {
-        listParams.pageDomObject.on("click", "a[op=prevPage]", function() {
-            listParams.params['page'] = parseInt(listParams.params['page']) - 1;
+        ypList.listParams.pageDomObject.on("click", "a[op=prevPage]", function() {
+            ypList.listParams.params['page'] = parseInt(ypList.listParams.params['page']) - 1;
             loadList();
         });
-        listParams.pageDomObject.on("click", "a[op=nextPage]", function() {
-            listParams.params['page'] = parseInt(listParams.params['page']) + 1;
+        ypList.listParams.pageDomObject.on("click", "a[op=nextPage]", function() {
+            ypList.listParams.params['page'] = parseInt(ypList.listParams.params['page']) + 1;
             loadList();
         });
-        listParams.pageDomObject.on("click", "a[op=jumpTo]", function() {
-            listParams.params['page'] = listParams.pageDomObject.find("input[op=jumpPage]").val();
+        ypList.listParams.pageDomObject.on("click", "a[op=jumpTo]", function() {
+            ypList.listParams.params['page'] = ypList.listParams.pageDomObject.find("input[op=jumpPage]").val();
             loadList();
         });
     }
@@ -99,30 +152,31 @@ YP.list = (function($) {
      * 加载列表
      */
     function loadList() {
-        listParams.searchButtonDomObject.button('loading');
-        listParams.listDomObject.html(template(listParams.loadingTemplate, {
-            colCount : listParams.colCount
+        ypList.listParams.searchButtonDomObject.button('loading');
+        ypList.listParams.listDomObject.html(template(ypList.listParams.loadingTemplate, {
+            colCount : ypList.listParams.colCount
         }));
+        ypList.listParams.params = ypList.listParams.handlerParams(ypList.listParams.params);
         var xhr = ajax.ajax({
-            url : listParams.listUrl,
-            type : "POST",
-            data : listParams.params,
+            url : ypList.listParams.listUrl,
+            type : ypList.listParams.ajaxMethod,
+            data : ypList.listParams.params,
             cache : false,
             dataType : "json",
-            timeout : 10000
+            timeout : 100000
         });
         xhr.done(function(data) {
-            listParams.listSuccess(data);
+            ypList.listParams.listSuccess(data);
             ypList.resetSearchButton();
         }).fail(function(data) {
-            listParams.listFail(data);
-            html = template(listParams.noDataTemplate, {
-                colCount : listParams.colCount
+            ypList.listParams.listFail(data);
+            html = template(ypList.listParams.noDataTemplate, {
+                colCount : ypList.listParams.colCount
             });
-            listParams.listDomObject.html(html);
+            ypList.listParams.listDomObject.html(html);
             ypList.resetSearchButton();
         });
     }
 
     return ypList;
-})(jQuery);
+};

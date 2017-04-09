@@ -14,4 +14,14 @@ class LoginajaxController extends \BaseController {
         $result = $model->doLogin($paramList);
         $this->echoJson($result);
     }
+
+    public function changePassAction() {
+        $paramList['userId'] = $this->userInfo['id'];
+        $paramList['oldPass'] = $this->getPost('oldPass');
+        $paramList['newPass'] = $this->getPost('newPass');
+        
+        $loginModel = new LoginModel();
+        $result = $loginModel->changePass($paramList);
+        $this->echoJson($result);
+    }
 }

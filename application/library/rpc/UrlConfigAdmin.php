@@ -18,6 +18,11 @@ class Rpc_UrlConfigAdmin {
                     'required' => true,
                     'format' => 'string',
                     'style' => 'interface'
+                ),
+                'ip' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
                 )
             )
         ),
@@ -70,6 +75,133 @@ class Rpc_UrlConfigAdmin {
                 'admintype' => array(
                     'required' => true,
                     'format' => 'int',
+                    'style' => 'interface'
+                )
+            )
+        ),
+        'AU003' => array(
+            'name' => '修改登录密码',
+            'method' => 'changePass',
+            'auth' => true,
+            'url' => 'http://api-dev.easyiservice.com/IserviceAdministrator/changePass',
+            'param' => array(
+                'userid' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'oldpass' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'newpass' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                )
+            )
+        ),
+        'AU004' => array(
+            'name' => '修改登录密码',
+            'method' => 'changePass',
+            'auth' => true,
+            'url' => 'http://api-dev.easyiservice.com/IserviceAdministrator/getIserviceAdministratorList',
+            'param' => array(
+                'id' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'username' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'status' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'page' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'limit' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                )
+            )
+        ),
+        'AU005' => array(
+            'name' => '新建管理员',
+            'method' => 'addIserviceAdministrator',
+            'auth' => true,
+            'url' => 'http://api-dev.easyiservice.com/IserviceAdministrator/addIserviceAdministrator',
+            'param' => array(
+                'username' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'realname' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'password' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'status' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'remark' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                )
+            )
+        ),
+        'AU006' => array(
+            'name' => '更新管理员',
+            'method' => 'updateIserviceAdministratorById',
+            'auth' => true,
+            'url' => 'http://api-dev.easyiservice.com/IserviceAdministrator/updateIserviceAdministratorById',
+            'param' => array(
+                'id' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'username' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'realname' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'password' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'status' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'remark' => array(
+                    'required' => false,
+                    'format' => 'string',
                     'style' => 'interface'
                 )
             )

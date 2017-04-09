@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <?php include($webConfig['layoutPath'] . '/common/meta.phtml')?>
+</head>
+<body>
+    <?php include($webConfig['layoutPath'] . '/common/header.phtml')?>
+    <div class="container container-main">
+        <div class="row-fluid">
+            <?php include($webConfig['layoutPath'] . '/common/nav.phtml')?>
+            <div class="span10">
+                <div class="cont-mod">
+                    <div class="page-header page-header-custom">
+                        <h1 class="h1-custom">修改密码</h1>
+                    </div>
+                    <div class="reservation">
+                        <form class="form-horizontal" id='changePassForm'>
+                            <div class="control-group" style='margin-top: 20px;' op='editFiled'>
+                                <label class="control-label" for="edit_oldPass">旧密码：</label>
+                                <div class="controls">
+                                    <input type="password" name="oldPass" id="edit_oldPass" placeholder="请输入旧密码" data-title="旧密码">
+                                </div>
+                            </div>
+                            <div class="control-group" op='editFiled'>
+                                <label class="control-label" for="edit_newPass">新密码：</label>
+                                <div class="controls">
+                                    <input type="password" name="newPass" id="edit_newPass" placeholder="请输入新密码" data-title="新密码">
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls">
+                                    <button type="button" class="btn btn-info" id='saveChangePass' data-loading-text="保存中...">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var YP_GLOBAL_VARS = { 
+        userid : '<?php echo $userId;?>',
+    };
+    </script>
+    <?php include($webConfig['layoutPath'].'/common/record.phtml')?>
+    <script src="<?php echo $webConfig['imgDomain'];?>js/common/yp_form.js"></script>
+    <script src="<?php echo $webConfig['imgDomain'];?>js/login/changePass.js"></script>
+</body>
+</html>

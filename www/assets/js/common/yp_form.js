@@ -1,11 +1,10 @@
 /**
  * @author 张福顺
- * @date 2015-11-20
- * @back 开发背景：OTA及AL后台大量的雷同列表弹出层的编辑也，JS出现大量重复逻辑
+ * @back 开发背景：后台大量的雷同列表弹出层的编辑也，JS出现大量重复逻辑
  * @description 说明：用于雷同产品管理列表编辑的场景，可实现在列表点击添加和编辑写入表单默认数据、提交表单的必填验证、表单提交
  */
 var YP = YP || {};
-YP.form = (function($) {
+YP.form = function() {
 
     var ypForm = {};
     var ajax = YP.ajax, ypRecord = YP.record;
@@ -207,4 +206,4 @@ YP.form = (function($) {
     }
 
     return ypForm;
-})(jQuery);
+};

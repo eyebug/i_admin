@@ -1,14 +1,14 @@
-var ypAdminOTA = ypAdminOTA || {};
-ypAdminOTA.loginIndex = (function($, ypRecordVar) {
+var iAdmin = iAdmin || {};
+iAdmin.loginIndex = (function ($, ypRecordVar) {
 
     var ajax = YP.ajax;
 
     function initLogin() {
         var user = $("#userName"), pass = $("#userPass"), buttonDom = $("#submitForm");
-        buttonDom.on('click', function() {
+        buttonDom.on('click', function () {
             var params = {
-                username : user.val(),
-                password : pass.val(),
+                username: user.val(),
+                password: pass.val(),
             };
             if (!params['username']) {
                 showMsg('用户名不能为空！');
@@ -26,16 +26,16 @@ ypAdminOTA.loginIndex = (function($, ypRecordVar) {
     function doLogin(params) {
         var url = '/loginajax/doLogin';
         var xhr = ajax.ajax({
-            url : url,
-            type : 'POST',
-            data : params,
-            cache : false,
-            dataType : 'json',
-            timeout : 1000,
+            url: url,
+            type: 'POST',
+            data: params,
+            cache: false,
+            dataType: 'json',
+            timeout: 1000,
         });
-        xhr.done(function() {
-//            location.href = "/index/index";
-        }).fail(function(data) {
+        xhr.done(function () {
+            location.href = "/index/index";
+        }).fail(function (data) {
             showMsg(data.msg);
         });
     }
@@ -52,10 +52,10 @@ ypAdminOTA.loginIndex = (function($, ypRecordVar) {
     }
 
     return {
-        init : init
+        init: init
     };
 })(jQuery, YP_RECORD_VARS);
 
-$(function() {
-    ypAdminOTA.loginIndex.init();
+$(function () {
+    iAdmin.loginIndex.init();
 })

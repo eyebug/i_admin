@@ -25,6 +25,7 @@ class LoginModel extends \BaseModel {
                 break;
             }
             $params['password'] = Enum_Login::getMd5Pass($params['password']);
+            $params['ip'] = Util_Http::getIP();
             $result = $this->rpcClient->getResultRaw('AU001', $params);
         } while (false);
         return $result;
@@ -91,5 +92,35 @@ class LoginModel extends \BaseModel {
             Util_Http::setCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_AID, '', time());
             return true;
         }
+    }
+
+    /**
+     * 修改用户密码
+     * ---
+     *
+     * @param $oldPass 原密码            
+     * @param $newPass 新密码            
+     * @return array
+     */
+    public function changePass($paramList) {
+        $params = $this->initParam($paramList);
+        
+        do {
+            $params['userid'] = intval($paramList['userId']);
+            $params['oldpass'] = trim($paramList['oldPass']);
+            $params['newpass'] = trim($paramList['newPass']);
+            
+            if (! $params['userid'] || ! $params['oldpass'] || ! $params['newpass']) {
+                $result = array(
+                    'code' => 1,
+                    'msg' => '参数错误'
+                );
+                break;
+            }
+            $params['oldpass'] = Enum_Login::getMd5Pass($params['oldpass']);
+            $params['newpass'] = Enum_Login::getMd5Pass($params['newpass']);
+            $result = $this->rpcClient->getResultRaw('AU003', $params);
+        } while (false);
+        return $result;
     }
 }

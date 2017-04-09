@@ -258,7 +258,7 @@ class Rpc_HttpDao {
      */
     private function getAuthParam() {
         $param = array(
-            'timestamp' => array(
+            'time' => array(
                 'required' => true,
                 'format' => 'string',
                 'style' => 'interface',

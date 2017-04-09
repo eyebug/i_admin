@@ -6,7 +6,8 @@ class Interceptor_RecordConfig {
         'Loginajax' => array(
             'moduleType' => 1,
             'action' => array(
-                'dologin' => 1
+                'dologin' => 1,
+                'changepass' => 2
             )
         )
     );

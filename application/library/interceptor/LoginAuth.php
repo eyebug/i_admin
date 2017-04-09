@@ -13,29 +13,6 @@ class Interceptor_LoginAuth extends Interceptor_Base {
                 Util_Tools::redirect('/login/');
             }
         }
-        $loginModel = new LoginModel();
-        $menuList = $loginModel->getRuleList($loginInfo)['data'];
-        $url = '/' . $request->getControllerName() . '/' . $request->getActionName();
-        $flag = strtolower($url) == '/index/index' ? true : false;
-        foreach ($menuList as $v1) {
-            foreach ($v1['list'] as $v2) {
-                if (strtolower($url) == strtolower($v2['url']) && $v2['checked']) {
-                    $flag = true;
-                    break 2;
-                }
-                if ($v2['list']) {
-                    foreach ($v2['list'] as $v3) {
-                        if (strtolower($url) == strtolower($v3['url']) && $v3['checked']) {
-                            $flag = true;
-                            break 3;
-                        }
-                    }
-                }
-            }
-        }
-        if (! $flag) {
-            $this->denyAccess();
-        }
     }
 
     /**
