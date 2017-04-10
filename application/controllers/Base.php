@@ -22,13 +22,14 @@ class BaseController extends \Yaf_Controller_Abstract {
 
     private function setPageHeaderInfo($loginInfo) {
         $headerInfo['userName'] = $loginInfo['realName'] ? $loginInfo['realName'] : $loginInfo['userName'];
+        $headerInfo['adminPermission'] = $loginInfo['createAdmin'] ? 0 : 1;
         $this->getView()->assign('headerInfo', $headerInfo);
     }
 
     /**
      * 输出json
      *
-     * @param array $data            
+     * @param array $data
      */
     public function echoJson($data) {
         $response = $this->getResponse();
