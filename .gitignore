@@ -1,5 +1,6 @@
 .buildpath
 .project
 .settings/
+.idea/
 env/
 .DS_Store
