@@ -103,8 +103,8 @@ class Rpc_UrlConfigAdmin {
             )
         ),
         'AU004' => array(
-            'name' => '修改登录密码',
-            'method' => 'changePass',
+            'name' => '获取帐号列表',
+            'method' => 'getIserviceAdministratorList',
             'auth' => true,
             'url' => 'http://api-dev.easyiservice.com/IserviceAdministrator/getIserviceAdministratorList',
             'param' => array(

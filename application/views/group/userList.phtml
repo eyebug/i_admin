@@ -2,6 +2,7 @@
 <html>
 <head>
     <?php include($webConfig['layoutPath'] . '/common/meta.phtml') ?>
+    <link type="text/css" rel="stylesheet" href="<?php echo $webConfig['imgDomain']; ?>css/select2.min.css"/>
 </head>
 <body>
 <?php include($webConfig['layoutPath'] . '/common/header.phtml') ?>
@@ -12,12 +13,13 @@
             <div class="cont-mod">
                 <div class="page-header page-header-custom">
                     <h1 class="h1-custom">
-                        集团列表
+                        管理员列表
                         <button id="createData" class="btn btn-info" style="margin-left: 5px;" type="button"
                                 data-toggle="modal" data-target="#editor">新建
                         </button>
                     </h1>
                 </div>
+                <?php include($webConfig['layoutPath'] . '/group/userList_filter.phtml') ?>
                 <div class="cont-mod">
                     <div class="page-header page-header-custom"></div>
                     <div class="reservation">
@@ -27,9 +29,13 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>中文名</th>
-                                        <th>英文名</th>
-                                        <th>接口地址</th>
+                                        <th>集团</th>
+                                        <th>用户名</th>
+                                        <th>真实姓名</th>
+                                        <th>状态</th>
+                                        <th>最后登录时间</th>
+                                        <th>最后登录ip</th>
+                                        <th>创建时间</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
@@ -44,31 +50,37 @@
         </div>
     </div>
 </div>
-<?php include($webConfig['layoutPath'].'/group/groupList_edit.phtml');?>
+<?php include($webConfig['layoutPath'] . '/group/userList_edit.phtml'); ?>
 <script type="text/javascript">
     var YP_GLOBAL_VARS = {
-        checkParams : '<?php echo json_encode(Enum_Group::getGroupMustInput());?>',
-        listUrl : '/groupajax/getGroupList',
-        createBaseUrl : '/groupajax/createGroup',
-        updateBaseUrl : '/groupajax/updateGroup',
+        checkParams: '<?php echo json_encode(Enum_Admin::getAdminUserMustInput());?>',
+        listUrl: '/groupajax/getUserList',
+        createBaseUrl: '/groupajax/createUser',
+        updateBaseUrl: '/groupajax/updateUser',
     };
 </script>
-
 <?php include($webConfig['layoutPath'] . '/common/list_common.phtml'); ?>
 <?php include($webConfig['layoutPath'] . '/common/record.phtml') ?>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_list.js"></script>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_form.js"></script>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/lib/art.js"></script>
-<script src="<?php echo $webConfig['imgDomain']; ?>js/group/groupList.js"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/lib/select2/select2.full.min.js" type="text/javascript"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/lib/select2/zh-CN.js" type="text/javascript"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/group/userList.js"></script>
 </body>
 </html>
 <script id="dataList_tpl" type="text/html">
     {{each list as info i}}
     <tr dataId="{{info.id}}">
         <td type="id" data-value="{{info.id}}">{{info.id}}</td>
-        <td type="name" data-value="{{info.name}}">{{info.name}}</td>
-        <td type="enname" data-value="{{info.enname}}">{{info.enname}}</td>
-        <td type="porturl" data-value="{{info.port_url}}">{{info.port_url}}</td>
+        <td type="groupId" data-value="{{info.groupId}}">{{info.groupName}}</td>
+        <td type="username" data-value="{{info.userName}}">{{info.userName}}</td>
+        <td type="realname" data-value="{{info.realName}}">{{info.realName}}</td>
+        <td type="remark" data-value="{{info.remark}}" style="display:none;"></td>
+        <td type="status" data-value="{{info.status}}">{{info.statusShow}}</td>
+        <td>{{info.lastLoginTime}}</td>
+        <td>{{info.lastLoginIp}}</td>
+        <td>{{info.createTime}}</td>
         <td>
             <button op="editDataOne" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">修改</button>
         </td>
