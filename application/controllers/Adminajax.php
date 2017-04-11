@@ -45,6 +45,7 @@ class AdminajaxController extends \BaseController {
      */
     public function createAction() {
         $paramList = $this->handlerSaveParams();
+        $paramList['createadmin'] = $this->userInfo['id'];
         $result = $this->adminModel->saveDataInfo($paramList);
         $this->echoJson($result);
     }

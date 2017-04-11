@@ -1,7 +1,7 @@
 var iAdmin = iAdmin || {};
 iAdmin.groupUserList = (function ($, ypGlobal) {
 
-    var ajax = YP.ajax, tips = YP.alert, ypForm = new YP.form;
+    var ajax = YP.ajax, tips = YP.alert, userList = new YP.list, ypForm = new YP.form;
     var searchButton = $("#searchBtn");
 
     /**
@@ -13,7 +13,6 @@ iAdmin.groupUserList = (function ($, ypGlobal) {
             language: 'zh-CN'
         });
 
-        var userList = new YP.list;
         userList.init({
             colCount: 9,
             autoLoad: true,
@@ -49,7 +48,7 @@ iAdmin.groupUserList = (function ($, ypGlobal) {
                 return saveParams;
             },
             saveSuccess: function (data) {
-                ypList.reLoadList();
+                userList.reLoadList();
             },
             saveFail: function (data) {
                 tips.show(data.msg);
@@ -60,11 +59,7 @@ iAdmin.groupUserList = (function ($, ypGlobal) {
             ypForm.writeEditor({
                 editorDom: $("#listEditor")
             });
-            var checkParams = eval(ypGlobal.checkParams);
-            checkParams.push('password');
-            ypForm.updateParams({
-                checkParams: checkParams
-            });
+            $("#groupEdit").show();
         });
         // 编辑产品
         $("#dataList").on('click', 'button[op=editDataOne]', function () {
@@ -80,10 +75,7 @@ iAdmin.groupUserList = (function ($, ypGlobal) {
                 editorDom: $("#listEditor"),
                 writeData: dataList
             });
-            var checkParams = eval(ypGlobal.checkParams);
-            ypForm.updateParams({
-                checkParams: checkParams
-            });
+            $("#groupEdit").hide();
             detailModal.modal('show');
         });
     }

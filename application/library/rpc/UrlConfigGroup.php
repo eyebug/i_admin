@@ -110,6 +110,87 @@ class Rpc_UrlConfigGroup {
                 )
             )
         ),
+        'GU005' => array(
+            'name' => '新建管理员',
+            'method' => 'addAdministrator',
+            'auth' => true,
+            'url' => 'http://api-dev.easyiservice.com/Administrator/addAdministrator',
+            'param' => array(
+                'username' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'realname' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'password' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'status' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'groupid' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'createadmin' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'remark' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                )
+            )
+        ),
+        'GU006' => array(
+            'name' => '更新管理员',
+            'method' => 'updateAdministratorById',
+            'auth' => true,
+            'url' => 'http://api-dev.easyiservice.com/Administrator/updateAdministratorById',
+            'param' => array(
+                'id' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'username' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'realname' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'password' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'status' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'remark' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                )
+            )
+        )
     );
 
     /**

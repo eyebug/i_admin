@@ -16,6 +16,16 @@
                             <input type="text" id="edit_username" placeholder="用户名" class="span3" data-title="用户名">
                         </div>
                     </div>
+                    <div class="control-group" op="editFiled" id="groupEdit">
+                        <label class="control-label" for="edit_groupid">集团：</label>
+                        <div class="controls">
+                            <select id="edit_groupid" data-title="状态">
+                                <?php foreach ($groupList as $group) { ?>
+                                    <option value="<?php echo $group['id']; ?>"><?php echo $group['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
                     <div class="control-group" op="editFiled">
                         <label class="control-label" for="edit_realname">真实姓名：</label>
                         <div class="controls">

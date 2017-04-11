@@ -2,26 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd306756-76e1-4672-a2a0-fa16d0f061f7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Groupajax.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/library/convertor/Group.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/library/enum/Group.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/library/rpc/UrlConfigGroup.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/Group.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/group/groupList_edit.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/group/userList.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/group/userList_edit.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/group/userList_filter.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/js/group/groupList.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/js/group/userList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/easyiservice.iml" afterPath="$PROJECT_DIR$/.idea/easyiservice.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Group.php" afterPath="$PROJECT_DIR$/application/controllers/Group.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/library/enum/Request.php" afterPath="$PROJECT_DIR$/application/library/enum/Request.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/library/rpc/HttpDao.php" afterPath="$PROJECT_DIR$/application/library/rpc/HttpDao.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Adminajax.php" afterPath="$PROJECT_DIR$/application/controllers/Adminajax.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Groupajax.php" afterPath="$PROJECT_DIR$/application/controllers/Groupajax.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/library/rpc/UrlConfigAdmin.php" afterPath="$PROJECT_DIR$/application/library/rpc/UrlConfigAdmin.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/userList_edit.phtml" afterPath="$PROJECT_DIR$/application/views/admin/userList_edit.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/common/nav.phtml" afterPath="$PROJECT_DIR$/application/views/common/nav.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/group/groupList.phtml" afterPath="$PROJECT_DIR$/application/views/group/groupList.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/library/rpc/UrlConfigGroup.php" afterPath="$PROJECT_DIR$/application/library/rpc/UrlConfigGroup.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Group.php" afterPath="$PROJECT_DIR$/application/models/Group.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/group/userList.phtml" afterPath="$PROJECT_DIR$/application/views/group/userList.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/group/userList_edit.phtml" afterPath="$PROJECT_DIR$/application/views/group/userList_edit.phtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/js/group/userList.js" afterPath="$PROJECT_DIR$/www/assets/js/group/userList.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -48,8 +37,68 @@
       <file leaf-file-name="userList.phtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/group/userList.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-162">
-              <caret line="21" column="80" lean-forward="false" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="80" />
+            <state relative-caret-position="381">
+              <caret line="55" column="78" lean-forward="false" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Groupajax.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Groupajax.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UrlConfigGroup.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/library/rpc/UrlConfigGroup.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="155" column="14" lean-forward="false" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HttpDao.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/library/rpc/HttpDao.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="537">
+              <caret line="162" column="17" lean-forward="false" selection-start-line="162" selection-start-column="17" selection-end-line="162" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Group.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Group.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="641">
+              <caret line="66" column="49" lean-forward="false" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Adminajax.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Adminajax.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="47" column="58" lean-forward="false" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Admin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Admin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -65,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userList_edit.phtml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="userList_edit.phtml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/group/userList_edit.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="29" column="26" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="29" selection-end-column="26" />
+            <state relative-caret-position="269">
+              <caret line="18" column="75" lean-forward="false" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -78,8 +127,8 @@
       <file leaf-file-name="userList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/assets/js/group/userList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="60" column="43" lean-forward="true" selection-start-line="60" selection-start-column="43" selection-end-line="60" selection-end-column="43" />
+            <state relative-caret-position="332">
+              <caret line="50" column="24" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -109,6 +158,9 @@
       <find>GU004</find>
       <find>groupid</find>
       <find>ypForm</find>
+      <find>modelDom</find>
+      <find>detailModal</find>
+      <find>GU006</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -144,17 +196,18 @@
         <option value="$PROJECT_DIR$/application/views/group/groupList.phtml" />
         <option value="$PROJECT_DIR$/application/views/group/groupList_edit.phtml" />
         <option value="$PROJECT_DIR$/application/views/common/nav.phtml" />
-        <option value="$PROJECT_DIR$/application/library/rpc/HttpDao.php" />
         <option value="$PROJECT_DIR$/application/controllers/Group.php" />
+        <option value="$PROJECT_DIR$/application/library/convertor/Group.php" />
+        <option value="$PROJECT_DIR$/application/views/group/userList_filter.phtml" />
+        <option value="$PROJECT_DIR$/application/views/group/userList_edit.phtml" />
+        <option value="$PROJECT_DIR$/application/views/group/userList.phtml" />
+        <option value="$PROJECT_DIR$/www/assets/js/group/userList.js" />
+        <option value="$PROJECT_DIR$/application/controllers/Adminajax.php" />
         <option value="$PROJECT_DIR$/application/controllers/Groupajax.php" />
+        <option value="$PROJECT_DIR$/application/library/rpc/UrlConfigGroup.php" />
         <option value="$PROJECT_DIR$/application/library/rpc/UrlConfigAdmin.php" />
         <option value="$PROJECT_DIR$/application/models/Group.php" />
-        <option value="$PROJECT_DIR$/application/library/rpc/UrlConfigGroup.php" />
-        <option value="$PROJECT_DIR$/application/library/convertor/Group.php" />
-        <option value="$PROJECT_DIR$/www/assets/js/group/userList.js" />
-        <option value="$PROJECT_DIR$/application/views/group/userList.phtml" />
-        <option value="$PROJECT_DIR$/application/views/group/userList_edit.phtml" />
-        <option value="$PROJECT_DIR$/application/views/group/userList_filter.phtml" />
+        <option value="$PROJECT_DIR$/application/library/rpc/HttpDao.php" />
       </list>
     </option>
   </component>
@@ -720,7 +773,7 @@
       <workItem from="1491711399226" duration="8030000" />
       <workItem from="1491720423687" duration="1730000" />
       <workItem from="1491794684822" duration="3253000" />
-      <workItem from="1491806802834" duration="13358000" />
+      <workItem from="1491806802834" duration="16859000" />
     </task>
     <task id="LOCAL-00001" summary="后台管理列表">
       <created>1491805445873</created>
@@ -736,11 +789,18 @@
       <option name="project" value="LOCAL" />
       <updated>1491807549869</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="集团管理列表">
+      <created>1491824164932</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1491824164932</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26371000" />
+    <option name="totallyTimeSpent" value="29872000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -819,21 +879,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="后台管理列表" />
-    <option name="LAST_COMMIT_MESSAGE" value="后台管理列表" />
+    <MESSAGE value="集团管理列表" />
+    <option name="LAST_COMMIT_MESSAGE" value="集团管理列表" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="42" column="45" lean-forward="true" selection-start-line="42" selection-start-column="45" selection-end-line="42" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1017,14 +1070,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Base.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1065,14 +1110,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/library/rpc/HttpDao.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="46" column="29" lean-forward="false" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/assets/js/admin/userList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -1085,22 +1122,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="50" column="29" lean-forward="false" selection-start-line="50" selection-start-column="20" selection-end-line="50" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Adminajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="27" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="5" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="13" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -1129,42 +1150,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Group.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="41" column="59" lean-forward="false" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/library/rpc/UrlConfigGroup.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="78" column="88" lean-forward="false" selection-start-line="78" selection-start-column="88" selection-end-line="78" selection-end-column="88" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/library/rpc/UrlConfigAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="183" column="39" lean-forward="false" selection-start-line="183" selection-start-column="39" selection-end-line="183" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Base.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="30" column="30" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Groupajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="45" lean-forward="false" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
           <folding />
         </state>
       </provider>
@@ -1193,10 +1182,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/assets/js/group/userList.js">
+    <entry file="file://$PROJECT_DIR$/application/views/group/userList_edit.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="60" column="43" lean-forward="true" selection-start-line="60" selection-start-column="43" selection-end-line="60" selection-end-column="43" />
+        <state relative-caret-position="269">
+          <caret line="18" column="75" lean-forward="false" selection-start-line="18" selection-start-column="66" selection-end-line="18" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/assets/js/common/yp_form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="148" column="35" lean-forward="false" selection-start-line="148" selection-start-column="27" selection-end-line="148" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -1211,16 +1208,80 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/group/userList.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-162">
-          <caret line="21" column="80" lean-forward="false" selection-start-line="21" selection-start-column="65" selection-end-line="21" selection-end-column="80" />
+        <state relative-caret-position="381">
+          <caret line="55" column="78" lean-forward="false" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="78" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/group/userList_edit.phtml">
+    <entry file="file://$PROJECT_DIR$/www/assets/js/group/userList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="26" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="29" selection-end-column="26" />
+        <state relative-caret-position="332">
+          <caret line="50" column="24" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="36" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Adminajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="47" column="58" lean-forward="false" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="35" column="59" lean-forward="false" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/library/rpc/UrlConfigAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="197" column="39" lean-forward="false" selection-start-line="197" selection-start-column="39" selection-end-line="197" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Groupajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Group.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="66" column="49" lean-forward="false" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/library/rpc/UrlConfigGroup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="155" column="14" lean-forward="false" selection-start-line="155" selection-start-column="9" selection-end-line="155" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/library/rpc/HttpDao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="162" column="17" lean-forward="false" selection-start-line="162" selection-start-column="17" selection-end-line="162" selection-end-column="17" />
           <folding />
         </state>
       </provider>

@@ -161,6 +161,11 @@ class Rpc_UrlConfigAdmin {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
+                'createadmin' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
                 'remark' => array(
                     'required' => false,
                     'format' => 'string',
@@ -190,7 +195,7 @@ class Rpc_UrlConfigAdmin {
                     'style' => 'interface'
                 ),
                 'password' => array(
-                    'required' => true,
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
@@ -211,8 +216,8 @@ class Rpc_UrlConfigAdmin {
     /**
      * 根据接口编号获取接口配置
      *
-     * @param string $interfaceId            
-     * @param string $configKey            
+     * @param string $interfaceId
+     * @param string $configKey
      * @return multitype:multitype:string multitype:multitype:boolean string
      *         |boolean
      */
