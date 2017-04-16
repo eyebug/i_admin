@@ -247,6 +247,7 @@ class Rpc_HttpDao {
             $sign = Auth_Login::genSign($paramPart);
             $paramPart['sign'] = $sign;
             $requestUrl['param'] = $paramPart;
+            $interfaceConfig['url'] = Enum_System::getServiceApiUrlByLink($interfaceConfig['url']);
             $requestUrl['url'] = $interfaceConfig['url'] . '?';
         }
         return $requestUrl;

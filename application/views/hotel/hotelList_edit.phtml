@@ -1,0 +1,107 @@
+<div class="modal hide fade yulong" id="editor" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     mf="modalfix" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">集团编辑</h4>
+            </div>
+            <div class="modal-body" id="detailBody" mf="modalfix">
+                <form class="form-horizontal" id="listEditor">
+                    <input type="hidden" id="edit_id" value="0">
+                    <div class="control-group" op="editFiled" id="groupEdit">
+                        <label class="control-label" for="edit_groupid">集团：</label>
+                        <div class="controls">
+                            <select id="edit_groupid" data-title="集团">
+                                <?php foreach ($groupList as $group) { ?>
+                                    <option value="<?php echo $group['id']; ?>"><?php echo $group['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_nameLang1">物业名称：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_nameLang1" placeholder="物业名称" class="span4" data-title="物业名称">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled" id="groupEdit">
+                        <label class="control-label" for="edit_cityid">城市：</label>
+                        <div class="controls">
+                            <select id="edit_cityid" data-title="城市">
+                                <?php foreach ($cityList as $city) { ?>
+                                    <option value="<?php echo $city['id']; ?>"><?php echo $city['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_propertyinterfid">PropertyInterfID：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_propertyinterfid" placeholder="PropertyInterfID" class="span4" data-title="PropertyInterfID">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_lng">经度：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_lng" placeholder="经度" class="span4" data-title="经度">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_lat">纬度：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_lat" placeholder="纬度" class="span4" data-title="纬度">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_tel">前台电话：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_tel" placeholder="前台电话" class="span4" data-title="前台电话">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_website">公寓网址：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_website" placeholder="公寓网址" class="span4" data-title="公寓网址">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_logo">公寓LOGO：</label>
+                        <div class="controls">
+                            <img src="" id="edit_logo_show" style="max-height: 80px;"/>
+                            <input type="file" id="edit_logo" placeholder="公寓LOGO" class="span4" data-title="公寓LOGO">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_indexBackground">APP首页背景图：</label>
+                        <div class="controls">
+                            <img src="" id="edit_indexBackground_show" style="max-height: 80px;"/>
+                            <input type="file" id="edit_indexBackground" placeholder="APP首页背景图" class="span4" data-title="APP首页背景图">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_status">状态：</label>
+                        <div class="controls">
+                            <select id="edit_status" data-title="状态">
+                                <option value="0">禁用</option>
+                                <option value="1">启用</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_bookurl">预定地址：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_bookurl" placeholder="预定地址" class="span7" data-title="预定地址">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" id="saveListData" data-loading-text="保存中...">保存</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id='closeEditor'>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,10 +22,10 @@ class BaseModel {
     /**
      * 设置分页
      *
-     * @param array $param            
-     * @param int $page            
-     * @param int $limit            
-     * @param number $limitDefault            
+     * @param array $param
+     * @param int $page
+     * @param int $limit
+     * @param number $limitDefault
      */
     protected function setPageParam(&$params, $page, $limit, $limitDefault = 4) {
         $limit = intval($limit);
@@ -33,8 +33,24 @@ class BaseModel {
         $params['page'] = empty($page) ? 1 : intval($page);
     }
 
+    /**
+     * 抛出异常
+     * @param $name
+     * @param $code
+     * @throws Exception
+     */
     protected function throwException($name, $code) {
         throw new Exception($name, $code);
+    }
+
+    /**
+     * 获取可用的语言列表
+     * @return array
+     */
+    public function getLanguageList() {
+        $result = $this->rpcClient->getResultRaw('B001', array(), true, 3600 * 12);
+        $languageList = $result['code'] ? array() : $result['data']['list'];
+        return $languageList;
     }
 }
 

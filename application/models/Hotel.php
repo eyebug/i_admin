@@ -1,22 +1,26 @@
 <?php
 
-class GroupModel extends \BaseModel {
+class HotelModel extends \BaseModel {
 
-    public function getGroupList($paramList, $cacheTime = 0) {
+    public function getHotelList($paramList, $cacheTime = 0) {
         do {
             if ($cacheTime == 0) {
+                $paramList['id'] ? $params['id'] = $paramList['id'] : false;
+                $paramList['name'] ? $params['name'] = $paramList['name'] : false;
+                $paramList['groupid'] ? $params['groupid'] = $paramList['groupid'] : false;
+                isset($paramList['status']) ? $params['status'] = $paramList['status'] : false;
                 $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
             }
             $isCache = $cacheTime != 0 ? true : false;
-            $result = $this->rpcClient->getResultRaw('GU001', $params, $isCache, $cacheTime);
+            $result = $this->rpcClient->getResultRaw('GH001', $params, $isCache, $cacheTime);
         } while (false);
         return (array)$result;
     }
 
-    public function saveGroupDataInfo($paramList) {
+    public function saveHotelDataInfo($paramList) {
         $params = $this->initParam($paramList);
         do {
-            $checkParams = Enum_Group::getGroupMustInput();
+            $checkParams = Enum_Hotel::getHotelMustInput();
             $result = array(
                 'code' => 1,
                 'msg' => '参数错误'
@@ -28,10 +32,6 @@ class GroupModel extends \BaseModel {
             }
             $interfaceId = $params['id'] ? 'GU003' : 'GU002';
             $result = $this->rpcClient->getResultRaw($interfaceId, $params);
-            //更新或者新建集团成功后更新全量集团列表缓存
-            if (!$result['code']) {
-                $this->getGroupList(array(), -2);
-            }
         } while (false);
         return $result;
     }

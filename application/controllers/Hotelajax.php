@@ -3,29 +3,39 @@
 /**
  * @author ZXM
  */
-class GroupajaxController extends \BaseController {
+class HotelajaxController extends \BaseController {
 
-    private $groupModal;
+    /**
+     * @var HotelModel
+     */
+    private $hotelModal;
 
-    private $groupConvertor;
+    /**
+     * @var Convertor_Hotel
+     */
+    private $hotelConvertor;
 
     public function init() {
         parent::init();
-        $this->groupModal = new GroupModel();
-        $this->groupConvertor = new Convertor_Group();
+        $this->hotelModal = new HotelModel();
+        $this->hotelConvertor = new Convertor_Hotel();
     }
 
-    public function getGroupListAction() {
-        $paramList['page'] = $this->getPost('page');
-        $result = $this->groupModal->getGroupList($paramList);
-        $result = $this->groupConvertor->groupListConvertor($result);
+    public function getHotelListAction() {
+        $paramList['id'] = intval($this->getPost('id'));
+        $paramList['name'] = $this->getPost('name');
+        $paramList['groupid'] = intval($this->getPost('groupid'));
+        $status = $this->getPost('status');
+        $status !== 'all' && !is_null($status) ? $paramList['status'] = intval($status) : false;
+        $result = $this->hotelModal->getHotelList($paramList);
+        $result = $this->hotelConvertor->hotelListConvertor($result);
         $this->echoJson($result);
     }
 
     /**
      * 新建和编辑集团信息数据
      */
-    private function handlerGroupSaveParams() {
+    private function handlerHotelSaveParams() {
         $paramList = array();
         $paramList['name'] = trim($this->getPost("name"));
         $paramList['enname'] = trim($this->getPost("enname"));
@@ -36,19 +46,19 @@ class GroupajaxController extends \BaseController {
     /**
      * 新建集团信息
      */
-    public function createGroupAction() {
-        $paramList = $this->handlerGroupSaveParams();
-        $result = $this->groupModal->saveGroupDataInfo($paramList);
+    public function createHotelAction() {
+        $paramList = $this->handlerHotelSaveParams();
+        $result = $this->hotelModal->saveHotelDataInfo($paramList);
         $this->echoJson($result);
     }
 
     /**
      * 更新集团信息
      */
-    public function updateGroupAction() {
-        $paramList = $this->handlerGroupSaveParams();
+    public function updateHotelAction() {
+        $paramList = $this->handlerHotelSaveParams();
         $paramList['id'] = intval($this->getPost("id"));
-        $result = $this->groupModal->saveGroupDataInfo($paramList);
+        $result = $this->hotelModal->saveHotelDataInfo($paramList);
         $this->echoJson($result);
     }
 
@@ -58,12 +68,12 @@ class GroupajaxController extends \BaseController {
     public function getUserListAction() {
         $paramList['page'] = $this->getPost('page');
         $paramList['id'] = intval($this->getPost('id'));
-        $paramList['groupid'] = intval($this->getPost('groupid'));
+        $paramList['hotelid'] = intval($this->getPost('hotelid'));
         $paramList['username'] = $this->getPost('username');
         $status = $this->getPost('status');
         $status !== 'all' && !is_null($status) ? $paramList['status'] = intval($status) : false;
-        $result = $this->groupModal->getUserList($paramList);
-        $result = $this->groupConvertor->userListConvertor($result);
+        $result = $this->hotelModal->getUserList($paramList);
+        $result = $this->hotelConvertor->userListConvertor($result);
         $this->echoJson($result);
     }
 
@@ -77,7 +87,7 @@ class GroupajaxController extends \BaseController {
         $paramList['password'] = trim($this->getPost("password"));
         $paramList['remark'] = trim($this->getPost("remark"));
         $paramList['status'] = intval($this->getPost("status"));
-        $paramList['groupid'] = intval($this->getPost("groupid"));
+        $paramList['hotelid'] = intval($this->getPost("hotelid"));
         return $paramList;
     }
 
@@ -87,7 +97,7 @@ class GroupajaxController extends \BaseController {
     public function createUserAction() {
         $paramList = $this->handlerUserSaveParams();
         $paramList['createadmin'] = $this->userInfo['id'];
-        $result = $this->groupModal->saveUserDataInfo($paramList);
+        $result = $this->hotelModal->saveUserDataInfo($paramList);
         $this->echoJson($result);
     }
 
@@ -97,7 +107,7 @@ class GroupajaxController extends \BaseController {
     public function updateUserAction() {
         $paramList = $this->handlerUserSaveParams();
         $paramList['id'] = intval($this->getPost("id"));
-        $result = $this->groupModal->saveUserDataInfo($paramList);
+        $result = $this->hotelModal->saveUserDataInfo($paramList);
         $this->echoJson($result);
     }
 }

@@ -4,29 +4,29 @@
  * @description 说明：用于雷同产品管理列表编辑的场景，可实现在列表点击添加和编辑写入表单默认数据、提交表单的必填验证、表单提交
  */
 var YP = YP || {};
-YP.form = function() {
+YP.form = function () {
 
     var ypForm = {};
     var ajax = YP.ajax, ypRecord = YP.record;
     var formParams = {
-        editorDom : {},// 表单输入框元素对象
-        saveButtonDom : {},// 保存按钮元素对象
-        checkParams : [],// 需要检查的必填元素
-        modelDom : $("#editor"),// 编辑弹出层元素对象
-        saveUrl : "",// 保存ajax地址
-        saveBefore : function(saveParams) {// 生成保存数据发起ajax前回调
+        editorDom: {},// 表单输入框元素对象
+        saveButtonDom: {},// 保存按钮元素对象
+        checkParams: [],// 需要检查的必填元素
+        modelDom: $("#editor"),// 编辑弹出层元素对象
+        saveUrl: "",// 保存ajax地址
+        saveBefore: function (saveParams) {// 生成保存数据发起ajax前回调
             return saveParams;
         },
-        saveSuccess : function(data) {// 保存成功回调
+        saveSuccess: function (data) {// 保存成功回调
         },
-        saveFail : function(data) {// 保存失败回调
+        saveFail: function (data) {// 保存失败回调
         },
     }
 
     /**
      * 初始化
      */
-    ypForm.init = function(option) {
+    ypForm.init = function (option) {
         option = $.extend(formParams, option);
         initFormBlurCheck();
         initFormSubmit();
@@ -35,20 +35,20 @@ YP.form = function() {
     /**
      * 更新参数
      */
-    ypForm.updateParams = function(option) {
+    ypForm.updateParams = function (option) {
         option = $.extend(formParams, option);
     };
 
     /**
      * 写入表单默认数据
      */
-    ypForm.writeEditor = function(option) {
+    ypForm.writeEditor = function (option) {
         params = {
-            editorDom : formParams.editorDom,
-            writeData : {}
+            editorDom: formParams.editorDom,
+            writeData: {}
         }
         option = $.extend(params, option);
-        $.each(option.editorDom.find("[id^='edit_']"), function(key, value) {
+        $.each(option.editorDom.find("[id^='edit_']"), function (key, value) {
             var $editDom = $(value);
             $editDom.parents("[op=editFiled]").removeClass('error');
             var $inputType = $editDom.attr('type'), $editTag = $editDom.prop('tagName').toLowerCase(), $editId = $editDom.attr('id');
@@ -81,6 +81,15 @@ YP.form = function() {
                     $writeValue = option.writeData[$editKey] ? option.writeData[$editKey] : "";
                     $editDom.val($writeValue).data('old', $writeValue);
                     break;
+                case "file":
+                    $writeValue = option.writeData[$editKey] ? option.writeData[$editKey] : "";
+                    if ($writeValue) {
+                        $("#" + $editId + "_show").attr('src', $writeValue).on('click', function () {
+                            window.open($writeValue);
+                        });
+                        $editDom.data('old', $writeValue);
+                    }
+                    break;
             }
         });
     }
@@ -88,9 +97,9 @@ YP.form = function() {
     /**
      * 检查必填元素
      */
-    ypForm.checkSubmit = function(option) {
+    ypForm.checkSubmit = function (option) {
         params = {
-            checkDom : {}
+            checkDom: {}
         }
         option = $.extend(params, option);
         var checkDiv = option.checkDom.parents("div[op=editFiled]");
@@ -107,11 +116,11 @@ YP.form = function() {
      * 必填元素失焦验证
      */
     function initFormBlurCheck() {
-        $.each(formParams.checkParams, function(key, value) {
+        $.each(formParams.checkParams, function (key, value) {
             var checkValue = $("#edit_" + value);
-            checkValue.on('blur', function() {
+            checkValue.on('blur', function () {
                 ypForm.checkSubmit({
-                    checkDom : checkValue
+                    checkDom: checkValue
                 });
             });
         });
@@ -121,20 +130,27 @@ YP.form = function() {
      * 初始化表单提交
      */
     function initFormSubmit() {
-        formParams.saveButtonDom.on('click', function() {
+        formParams.saveButtonDom.on('click', function () {
             formParams.saveButtonDom.button('loading');
             var saveParams = {}, checkStatus = true;
+            var formData = new FormData(), hasFile = false;
 
             // 必填元素验证
-            $.each(formParams.editorDom.find("[id^='edit_']"), function(key, value) {
+            $.each(formParams.editorDom.find("[id^='edit_']"), function (key, value) {
                 var $editDom = $(value), $editId = $editDom.attr('id');
                 var $editKey = $editId.split("_");
                 $editKey = $editKey[1];
                 saveParams[$editKey] = $editDom.val();
+                if ($editDom.attr('type') == 'file') {
+                    hasFile = true;
+                    formData.append($editKey, $editDom[0].files[0]);
+                } else {
+                    formData.append($editKey, $editDom.val());
+                }
                 if ($.inArray($editKey, formParams.checkParams) >= 0) {
                     if (!ypForm.checkSubmit({
-                        checkDom : $editDom
-                    })) {
+                            checkDom: $editDom
+                        })) {
                         checkStatus = false;
                     }
                 }
@@ -150,36 +166,42 @@ YP.form = function() {
                 formParams.saveButtonDom.button('reset');
                 return true;
             }
-            var xhr = ajax.ajax({
-                url : formParams.saveUrl,
-                type : "POST",
-                data : saveParams,
-                cache : false,
-                dataType : "json",
-                timeout : 10000
-            });
-            xhr.done(function(data) {
+            var ajaxParams = {
+                url: formParams.saveUrl,
+                type: "POST",
+                data: saveParams,
+                cache: false,
+                dataType: "json",
+                timeout: 10000
+            };
+            if (hasFile) {
+                ajaxParams.data = formData;
+                ajaxParams.processData = false;
+                ajaxParams.contentType = false;
+            }
+            var xhr = ajax.ajax(ajaxParams);
+            xhr.done(function (data) {
                 formParams.saveSuccess(data);
                 formParams.modelDom.modal('hide');
                 formParams.saveButtonDom.button('reset');
-            }).fail(function(data) {
+            }).fail(function (data) {
                 formParams.saveFail(data);
                 formParams.saveButtonDom.button('reset');
             });
         });
     }
 
-    ypForm.makeRecord = function(params, recordId, recordTitle, insertId, logMsg) {
+    ypForm.makeRecord = function (params, recordId, recordTitle, insertId, logMsg) {
         if (recordId == 0) {
             recordLog = ypRecord.getCreateLog({
-                value : recordTitle
+                value: recordTitle
             });
             if (insertId > 0) {
                 params[YP_RECORD_VARS.recordPostId] = insertId;
             }
         } else {
             var editValue = [];
-            $.each(params, function(key, value) {
+            $.each(params, function (key, value) {
                 var editDom = $("#edit_" + key);
                 if (editDom.length == 0 || (editDom.is(":hidden") && !editDom.next().hasClass('select2'))) {
                     return true;
@@ -193,7 +215,7 @@ YP.form = function() {
                 }
             });
             recordLog = ypRecord.getEditLog({
-                value : editValue
+                value: editValue
             });
             params[YP_RECORD_VARS.recordPostId] = insertId ? insertId : recordId;
         }

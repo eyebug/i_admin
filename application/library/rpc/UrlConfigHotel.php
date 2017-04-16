@@ -1,14 +1,34 @@
 <?php
 
-class Rpc_UrlConfigGroup {
+class Rpc_UrlConfigHotel {
 
     private static $config = array(
-        'GU001' => array(
+        'GH001' => array(
             'name' => '获取列表',
-            'method' => 'getUserInfo',
+            'method' => 'getHotelListList',
             'auth' => true,
-            'url' => '/group/getGroupList',
+            'url' => '/hotelList/getHotelListList',
             'param' => array(
+                'id' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'name' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'groupid' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'status' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
                 'page' => array(
                     'required' => false,
                     'format' => 'int',
@@ -21,7 +41,7 @@ class Rpc_UrlConfigGroup {
                 )
             )
         ),
-        'GU002' => array(
+        'GH002' => array(
             'name' => '新建集团',
             'method' => 'addGroup',
             'auth' => true,
@@ -44,7 +64,7 @@ class Rpc_UrlConfigGroup {
                 )
             )
         ),
-        'GU003' => array(
+        'GH003' => array(
             'name' => '修改集团',
             'method' => 'updateGroupbyId',
             'auth' => true,
@@ -72,7 +92,7 @@ class Rpc_UrlConfigGroup {
                 )
             )
         ),
-        'GU004' => array(
+        'GH004' => array(
             'name' => '修改集团',
             'method' => 'updateGroupbyId',
             'auth' => true,
@@ -110,7 +130,7 @@ class Rpc_UrlConfigGroup {
                 )
             )
         ),
-        'GU005' => array(
+        'GH005' => array(
             'name' => '新建管理员',
             'method' => 'addAdministrator',
             'auth' => true,
@@ -153,7 +173,7 @@ class Rpc_UrlConfigGroup {
                 )
             )
         ),
-        'GU006' => array(
+        'GH006' => array(
             'name' => '更新管理员',
             'method' => 'updateAdministratorById',
             'auth' => true,

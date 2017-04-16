@@ -1,27 +1,21 @@
 var iAdmin = iAdmin || {};
-iAdmin.groupUserList = (function ($, ypGlobal) {
+iAdmin.hotelHotelList = (function ($, ypGlobal) {
 
-    var ajax = YP.ajax, tips = YP.alert, userList = new YP.list, ypForm = new YP.form;
-    var searchButton = $("#searchBtn");
+    var ajax = YP.ajax, tips = YP.alert, groupList = new YP.list, userForm = new YP.form;
 
     /**
      * 初始化列表
      */
-    function initList() {
-        $("#filter_groupid").select2({
-            placeholder: '全部',
-            language: 'zh-CN'
-        });
-
-        userList.init({
-            colCount: 9,
+    function initGroupList() {
+        groupList.init({
+            colCount: 5,
             autoLoad: true,
             listUrl: ypGlobal.listUrl,
             listDomObject: $("#dataList"),
-            searchButtonDomObject: searchButton,
+            searchButtonDomObject: $("#searchBtn"),
             listTemplate: 'dataList_tpl',
             listSuccess: function (data) {
-                userList.writeListData(data);
+                groupList.writeListData(data);
             },
             listFail: function (data) {
                 tips.show('数据加载失败！');
@@ -35,20 +29,20 @@ iAdmin.groupUserList = (function ($, ypGlobal) {
     function initEditor() {
         // 初始化表单保存
         var detailModal = $("#editor");
-        ypForm.init({
+        userForm.init({
             editorDom: $("#listEditor"),
             saveButtonDom: $("#saveListData"),
             checkParams: eval(ypGlobal.checkParams),
             modelDom: detailModal,
             saveBefore: function (saveParams) {
-                ypForm.updateParams({
+                userForm.updateParams({
                     saveUrl: saveParams.id > 0 ? ypGlobal.updateBaseUrl : ypGlobal.createBaseUrl
                 });
-                saveParams = ypForm.makeRecord(saveParams, saveParams.id, saveParams.username);
+                saveParams = userForm.makeRecord(saveParams, saveParams.id, saveParams.name);
                 return saveParams;
             },
             saveSuccess: function (data) {
-                userList.reLoadList();
+                groupList.reLoadList();
             },
             saveFail: function (data) {
                 tips.show(data.msg);
@@ -60,7 +54,7 @@ iAdmin.groupUserList = (function ($, ypGlobal) {
         });
         // 新建产品
         $("#createData").on('click', function () {
-            ypForm.writeEditor({
+            userForm.writeEditor({
                 editorDom: $("#listEditor")
             });
             $("#groupEdit").show();
@@ -75,7 +69,7 @@ iAdmin.groupUserList = (function ($, ypGlobal) {
                     dataList[dataOne.attr('type')] = dataOne.data('value');
                 }
             });
-            ypForm.writeEditor({
+            userForm.writeEditor({
                 editorDom: $("#listEditor"),
                 writeData: dataList
             });
@@ -85,7 +79,7 @@ iAdmin.groupUserList = (function ($, ypGlobal) {
     }
 
     function init() {
-        initList();
+        initGroupList();
         initEditor();
     }
 
@@ -95,5 +89,5 @@ iAdmin.groupUserList = (function ($, ypGlobal) {
 })(jQuery, YP_GLOBAL_VARS);
 
 $(function () {
-    iAdmin.groupUserList.init();
+    iAdmin.hotelHotelList.init();
 })

@@ -21,7 +21,7 @@ class AdminajaxController extends \BaseController {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['username'] = $this->getPost('username');
         $status = $this->getPost('status');
-        $status !== 'all' ? $paramList['status'] = intval($status) : false;
+        $status !== 'all' && !is_null($status) ? $paramList['status'] = intval($status) : false;
         $result = $this->adminModel->getUserList($paramList);
         $result = $this->adminConvertor->userListConvertor($result);
         $this->echoJson($result);

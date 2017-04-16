@@ -11,8 +11,10 @@ class Enum_Request {
 
     public static function getUrlConfigById($interfaceId) {
         $config = array(
+            'B' => 'Rpc_UrlConfigBase',
             'AU' => 'Rpc_UrlConfigAdmin',
             'GU' => 'Rpc_UrlConfigGroup',
+            'GH' => 'Rpc_UrlConfigHotel',
         );
         $fileKey = preg_replace('/\d+/', '', $interfaceId);
         $fileNameKey = $config[$fileKey];
