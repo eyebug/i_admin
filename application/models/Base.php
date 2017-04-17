@@ -15,7 +15,7 @@ class BaseModel {
         $this->partnerId = $userInfo['partnerId'];
     }
 
-    protected function initParam($paramList) {
+    protected function initParam($paramList = array()) {
         return $paramList;
     }
 
@@ -51,6 +51,11 @@ class BaseModel {
         $result = $this->rpcClient->getResultRaw('B001', array(), true, 3600 * 12);
         $languageList = $result['code'] ? array() : $result['data']['list'];
         return $languageList;
+    }
+
+    protected function uploadFile($file, $path) {
+        $result = $this->rpcClient->getResultRaw('B003', array('uploadfile' => $file, 'type' => $path));
+        return $result;
     }
 }
 

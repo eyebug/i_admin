@@ -42,54 +42,264 @@ class Rpc_UrlConfigHotel {
             )
         ),
         'GH002' => array(
-            'name' => '新建集团',
-            'method' => 'addGroup',
+            'name' => '新建酒店',
+            'method' => 'addHotelList',
             'auth' => true,
-            'url' => '/group/addGroup',
+            'url' => '/HotelList/addHotelList',
             'param' => array(
-                'name' => array(
+                'groupid' => array(
                     'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'propertyinterfid' => array(
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
-                'enname' => array(
-                    'required' => true,
+                'lng' => array(
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
-                'porturl' => array(
-                    'required' => true,
+                'lat' => array(
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
-                )
+                ),
+                'cityid' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'tel' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'name_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'name_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'name_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'website' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'logo' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'index_background' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'voice_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'voice_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'voice_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'address_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'address_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'address_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'introduction_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'introduction_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'introduction_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'status' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'lang_list' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'bookurl' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
             )
         ),
         'GH003' => array(
-            'name' => '修改集团',
-            'method' => 'updateGroupbyId',
+            'name' => '更新酒店',
+            'method' => 'updateHotelListById',
             'auth' => true,
-            'url' => '/group/updateGroupbyId',
+            'url' => '/HotelList/updateHotelListById',
             'param' => array(
                 'id' => array(
                     'required' => true,
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'name' => array(
-                    'required' => true,
+                'groupid' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'propertyinterfid' => array(
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
-                'enname' => array(
-                    'required' => true,
+                'lng' => array(
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
-                'porturl' => array(
-                    'required' => true,
+                'lat' => array(
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
-                )
+                ),
+                'cityid' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'tel' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'name_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'name_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'name_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'website' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'logo' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'index_background' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'voice_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'voice_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'voice_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'address_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'address_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'address_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'introduction_lang1' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'introduction_lang2' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'introduction_lang3' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'status' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'lang_list' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'bookurl' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
             )
         ),
         'GH004' => array(

@@ -37,9 +37,29 @@ class HotelajaxController extends \BaseController {
      */
     private function handlerHotelSaveParams() {
         $paramList = array();
-        $paramList['name'] = trim($this->getPost("name"));
-        $paramList['enname'] = trim($this->getPost("enname"));
-        $paramList['porturl'] = trim($this->getPost("porturl"));
+        $paramList['groupid'] = intval($this->getPost("groupid"));
+        $paramList['name_lang1'] = trim($this->getPost("nameLang1"));
+        $paramList['name_lang2'] = trim($this->getPost("nameLang2"));
+        $paramList['name_lang3'] = trim($this->getPost("nameLang3"));
+        $paramList['cityid'] = intval($this->getPost("cityid"));
+        $paramList['propertyinterfid'] = trim($this->getPost("propertyinterfid"));
+        $paramList['lng'] = trim($this->getPost("lng"));
+        $paramList['lat'] = trim($this->getPost("lat"));
+        $paramList['tel'] = trim($this->getPost("tel"));
+        $paramList['website'] = trim($this->getPost("website"));
+        $paramList['logo'] = $_FILES['logo'];
+        $paramList['index_background'] = $_FILES['indexBackground'];
+        $paramList['voice_lang1'] = $_FILES['voiceLang1'];
+        $paramList['voice_lang2'] = $_FILES['voiceLang2'];
+        $paramList['voice_lang3'] = $_FILES['voiceLang3'];
+        $paramList['status'] = intval($this->getPost("status"));
+        $paramList['bookurl'] = trim($this->getPost("bookurl"));
+        $paramList['address_lang1'] = trim($this->getPost("addressLang1"));
+        $paramList['address_lang2'] = trim($this->getPost("addressLang2"));
+        $paramList['address_lang3'] = trim($this->getPost("addressLang3"));
+        $paramList['introduction_lang1'] = trim($this->getPost("introductionLang1"));
+        $paramList['introduction_lang2'] = trim($this->getPost("introductionLang2"));
+        $paramList['introduction_lang3'] = trim($this->getPost("introductionLang3"));
         return $paramList;
     }
 
@@ -59,6 +79,13 @@ class HotelajaxController extends \BaseController {
         $paramList = $this->handlerHotelSaveParams();
         $paramList['id'] = intval($this->getPost("id"));
         $result = $this->hotelModal->saveHotelDataInfo($paramList);
+        $this->echoJson($result);
+    }
+    
+    public function updateHotelLangListAction(){
+        $paramList['id'] = intval($this->getPost("id"));
+        $paramList['lang_list'] = trim($this->getPost("lang"));
+        $result = $this->hotelModal->saveHotelLangList($paramList);
         $this->echoJson($result);
     }
 

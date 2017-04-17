@@ -1,21 +1,21 @@
 var iAdmin = iAdmin || {};
 iAdmin.hotelHotelList = (function ($, ypGlobal) {
 
-    var ajax = YP.ajax, tips = YP.alert, groupList = new YP.list, userForm = new YP.form;
+    var ajax = YP.ajax, tips = YP.alert, hotelList = new YP.list, userForm = new YP.form, ypRecord = YP.record;
 
     /**
      * 初始化列表
      */
     function initGroupList() {
-        groupList.init({
-            colCount: 5,
+        hotelList.init({
+            colCount: 7,
             autoLoad: true,
             listUrl: ypGlobal.listUrl,
             listDomObject: $("#dataList"),
             searchButtonDomObject: $("#searchBtn"),
             listTemplate: 'dataList_tpl',
             listSuccess: function (data) {
-                groupList.writeListData(data);
+                hotelList.writeListData(data);
             },
             listFail: function (data) {
                 tips.show('数据加载失败！');
@@ -42,7 +42,7 @@ iAdmin.hotelHotelList = (function ($, ypGlobal) {
                 return saveParams;
             },
             saveSuccess: function (data) {
-                groupList.reLoadList();
+                hotelList.reLoadList();
             },
             saveFail: function (data) {
                 tips.show(data.msg);
@@ -78,9 +78,102 @@ iAdmin.hotelHotelList = (function ($, ypGlobal) {
         });
     }
 
+    function initLanguageEditor() {
+        var detailModal = $("#languageEditor"), langList = $("#langList"), languageDom = $("#edit_language"), saveLanguage = $("#saveLanguage");
+        $("#dataList").on('click', 'button[op=editLanguage]', function () {
+            var $editId = $(this).data('dataid'), $dataDom = $("#dataList").find("[dataId=" + $editId + "]");
+            var langKeyListStr = $dataDom.find('td[type=langlist]').data('value');
+            saveLanguage.data('dataid', $editId);
+            saveLanguage.data('olddata', langKeyListStr);
+            var oldData = [];
+            languageDom.val('');
+            languageDom.find('option').prop('disabled', false);
+            langList.html('');
+            if (langKeyListStr) {
+                var langNameList = {};
+                var langKeyList = langKeyListStr.split(',');
+                $.each(langKeyList, function (key, value) {
+                    var langOption = languageDom.find('option[value=' + value + ']');
+                    langNameList[value] = langOption.html();
+                    oldData.push(langNameList[value]);
+                    langOption.prop('disabled', true);
+                });
+                langList.html(template('langList_tpl', {langList: langNameList}));
+            }
+            saveLanguage.data('olddataname', oldData.join(','));
+            detailModal.modal('show');
+        });
+        languageDom.on('change', function () {
+            var selectLang = languageDom.val(), selectLangDom = languageDom.find('option:selected');
+            if (selectLang == '') {
+                return false;
+            }
+            if (langList.find('[op=langOne]').length >= 3) {
+                tips.show('最多支持3种语言');
+                return false;
+            }
+            var langNewList = {};
+            langNewList[selectLang] = selectLangDom.html();
+            langList.append(template('langList_tpl', {langList: langNewList}));
+            selectLangDom.prop('disabled', true);
+        });
+
+        langList.sortable().on("sortupdate", function (event, ui) {
+        });
+        langList.on('click', '[op=deleteLang]', function () {
+            if (confirm('确认删除？')) {
+                $(this).parents('[op=langOne]').remove();
+            }
+        });
+
+        saveLanguage.on('click', function () {
+            var saveId = saveLanguage.data('dataid');
+            var selectLangList = [], selectLangeNameList = [];
+            langList.find('[op=langOne]').each(function (key, value) {
+                selectLangList.push($(value).data('lang'));
+                selectLangeNameList.push($(value).data('langname'));
+            });
+            var langSaveParams = {};
+            langSaveParams.id = saveId;
+            langSaveParams.lang = selectLangList.join(',');
+            if (langSaveParams.lang != saveLanguage.data('olddata')) {
+                var editValue = [];
+                editValue.push({
+                    title: '物业语言',
+                    from: saveLanguage.data('olddataname'),
+                    to: selectLangeNameList.join(',')
+                });
+                recordLog = ypRecord.getEditLog({
+                    value: editValue
+                });
+                langSaveParams[YP_RECORD_VARS.recordPostId] = saveId;
+                langSaveParams[YP_RECORD_VARS.recordPostVar] = recordLog;
+            }
+
+            saveLanguage.button('loading');
+            var xhr = ajax.ajax({
+                url: '/hotelajax/updateHotelLangList/',
+                type: 'POST',
+                data: langSaveParams,
+                cache: false,
+                dataType: "json",
+                timeout: 100000
+            });
+            xhr.done(function (data) {
+                hotelList.reLoadList();
+                detailModal.modal('hide');
+                saveLanguage.button('reset');
+            }).fail(function (data) {
+                tips.show(data.msg);
+                saveLanguage.button('reset');
+            });
+        });
+    }
+
     function init() {
         initGroupList();
         initEditor();
+        initLanguageEditor();
     }
 
     return {

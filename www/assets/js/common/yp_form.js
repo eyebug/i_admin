@@ -85,7 +85,7 @@ YP.form = function () {
                     $writeValue = option.writeData[$editKey] ? option.writeData[$editKey] : "";
                     if ($writeValue) {
                         $("#" + $editId + "_show").attr('src', $writeValue).on('click', function () {
-                            window.open($writeValue);
+                            window.open($(this).attr('src'));
                         });
                         $editDom.data('old', $writeValue);
                     }
@@ -161,6 +161,12 @@ YP.form = function () {
                 return false;
             }
             saveParams = formParams.saveBefore(saveParams);
+            if (saveParams[YP_RECORD_VARS.recordPostId]) {
+                formData.append(YP_RECORD_VARS.recordPostId, saveParams[YP_RECORD_VARS.recordPostId]);
+            }
+            if (saveParams[YP_RECORD_VARS.recordPostVar]) {
+                formData.append(YP_RECORD_VARS.recordPostVar, saveParams[YP_RECORD_VARS.recordPostVar]);
+            }
             if (!YP_RECORD_VARS.isChange) {
                 formParams.modelDom.modal('hide');
                 formParams.saveButtonDom.button('reset');

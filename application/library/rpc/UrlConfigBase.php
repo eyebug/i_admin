@@ -28,6 +28,24 @@ class Rpc_UrlConfigBase {
                 ),
             )
         ),
+        'B003' => array(
+            'name' => '上传至oss',
+            'method' => 'uploadToOss',
+            'auth' => true,
+            'url' => '/system/uploadToOss',
+            'param' => array(
+                'uploadfile' => array(
+                    'required' => true,
+                    'format' => 'file',
+                    'style' => 'interface'
+                ),
+                'type' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+            )
+        ),
     );
 
     /**

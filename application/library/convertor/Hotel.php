@@ -28,8 +28,8 @@ class Convertor_Hotel extends Convertor_Base {
                 $dataTemp['name_lang2'] = $value['name_lang2'];
                 $dataTemp['name_lang3'] = $value['name_lang3'];
                 $dataTemp['website'] = $value['website'];
-                $dataTemp['logo'] = $value['logo'];
-                $dataTemp['index_background'] = $value['index_background'];
+                $dataTemp['logo'] = Enum_Img::getPathByKeyAndType($value['logo']);
+                $dataTemp['index_background'] = Enum_Img::getPathByKeyAndType($value['index_background']);
                 $dataTemp['voice_lang1'] = $value['voice_lang1'];
                 $dataTemp['voice_lang2'] = $value['voice_lang2'];
                 $dataTemp['voice_lang3'] = $value['voice_lang3'];
@@ -43,7 +43,11 @@ class Convertor_Hotel extends Convertor_Base {
                 $dataTemp['statusShow'] = $value['status'] ? '启用' : '禁用';
                 $langList = explode(",", $value['lang_list']);
                 $dataTemp['langlist'] = $value['lang_list'];
-                $dataTemp['langListShow'] = implode(',', array_intersect_key($languageList, array_flip($langList)));
+                $dataTemp['langListShow'] = array();
+                foreach ($langList as $langId) {
+                    $dataTemp['langListShow'][] = $languageList[$langId];
+                }
+                $dataTemp['langListShow'] = implode(',', $dataTemp['langListShow']);
                 $dataTemp['bookurl'] = $value['bookurl'];
                 $tmp[] = $dataTemp;
             }

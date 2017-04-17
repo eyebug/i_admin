@@ -3,6 +3,7 @@
 <head>
     <?php include($webConfig['layoutPath'] . '/common/meta.phtml') ?>
     <link type="text/css" rel="stylesheet" href="<?php echo $webConfig['imgDomain']; ?>css/select2.min.css"/>
+    <link type="text/css" rel="stylesheet" href="<?php echo $webConfig['imgDomain']; ?>css/jquery-ui-1.8.22.css"/>
 </head>
 <body>
 <?php include($webConfig['layoutPath'] . '/common/header.phtml') ?>
@@ -49,12 +50,13 @@
     </div>
 </div>
 <?php include($webConfig['layoutPath'] . '/hotel/hotelList_edit.phtml'); ?>
+<?php include($webConfig['layoutPath'] . '/hotel/hotelList_edit_language.phtml'); ?>
 <script type="text/javascript">
     var YP_GLOBAL_VARS = {
         checkParams: '<?php echo json_encode(Enum_Hotel::getHotelMustInput());?>',
         listUrl: '/hotelajax/getHotelList',
         createBaseUrl: '/hotelajax/createHotel',
-        updateBaseUrl: '/hotelajax/updateGroup',
+        updateBaseUrl: '/hotelajax/updateHotel',
     };
 </script>
 
@@ -62,6 +64,7 @@
 <?php include($webConfig['layoutPath'] . '/common/record.phtml') ?>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_list.js"></script>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_form.js"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/lib/jquery-ui.min.js"></script>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/lib/art.js"></script>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/lib/select2/select2.full.min.js" type="text/javascript"></script>
 <script src="<?php echo $webConfig['imgDomain']; ?>js/lib/select2/zh-CN.js" type="text/javascript"></script>
@@ -98,6 +101,11 @@
         <td type="status" data-value="{{info.status}}">{{info.statusShow}}</td>
         <td>
             <button op="editDataOne" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">修改</button>
+            <button op="editLanguage" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">语言设置</button>
+            {{if info.langlist}}
+            <button op="editMuilContent" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">多语言信息</button>
+            {{else}}
+            {{/if}}
         </td>
     </tr>
     {{/each}}

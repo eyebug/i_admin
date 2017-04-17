@@ -34,7 +34,7 @@ class Rpc_HttpDao {
                 'msg' => '接口信息获取失败'
             );
         }
-        $interfaceConfig['httpMethod'] = isset($interfaceConfig['httpMethod']) ? $interfaceConfig['httpMethod'] : 'GET';
+        $interfaceConfig['httpMethod'] = isset($interfaceConfig['httpMethod']) ? $interfaceConfig['httpMethod'] : 'POST';
         $requestUrl = $this->getRequestUrl($interfaceConfig, $params);
         $result = false;
         if (strlen($requestUrl['url']) > 0) {

@@ -1,0 +1,44 @@
+<div class="modal hide fade yulong" id="languageEditor" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     mf="modalfix" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">集团编辑</h4>
+            </div>
+            <div class="modal-body" mf="modalfix">
+                <form class="form-horizontal" id="languageEditorList">
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_language">语言：</label>
+                        <div class="controls">
+                            <select id="edit_language" data-title="集团">
+                                <option value="" selected>请选择</option>
+                                <?php foreach ($languageList as $key => $language) { ?>
+                                    <option value="<?php echo $key; ?>"><?php echo $language; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="">已选：</label>
+                        <div class="controls" id="langList">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" id="saveLanguage" data-loading-text="保存中...">保存</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id='closeEditor'>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script id="langList_tpl" type="text/html">
+    {{each langList as langName langKey}}
+    <span class="fl f14 label label-info cityTip" op="langOne" data-lang="{{langKey}}" data-langname="{{langName}}">
+        <em class="fr clearCity" op="deleteLang" data-lang="{{langKey}}"></em>{{langName}}
+    </span>
+    {{/each}}
+</script>
