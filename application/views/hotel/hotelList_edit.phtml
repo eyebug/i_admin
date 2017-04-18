@@ -71,14 +71,16 @@
                         <label class="control-label" for="edit_logo">公寓LOGO：</label>
                         <div class="controls">
                             <img src="" id="edit_logo_show" style="max-height: 80px;"/>
-                            <input type="file" id="edit_logo" placeholder="公寓LOGO" class="span4" data-title="公寓LOGO">
+                            <input type="file" id="edit_logo" placeholder="公寓LOGO" class="span4" data-title="公寓LOGO"
+                                   accept="<?php echo implode(",", $allowTypeImage); ?>">
                         </div>
                     </div>
                     <div class="control-group" op="editFiled">
                         <label class="control-label" for="edit_indexBackground">APP首页背景图：</label>
                         <div class="controls">
                             <img src="" id="edit_indexBackground_show" style="max-height: 80px;"/>
-                            <input type="file" id="edit_indexBackground" placeholder="APP首页背景图" class="span4" data-title="APP首页背景图">
+                            <input type="file" id="edit_indexBackground" placeholder="APP首页背景图" class="span4" data-title="APP首页背景图"
+                                   accept="<?php echo implode(",", $allowTypeImage); ?>">
                         </div>
                     </div>
                     <div class="control-group" op="editFiled">

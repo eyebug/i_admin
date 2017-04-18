@@ -87,7 +87,7 @@ YP.form = function () {
                         $("#" + $editId + "_show").attr('src', $writeValue).on('click', function () {
                             window.open($(this).attr('src'));
                         });
-                        $editDom.data('old', $writeValue);
+                        $editDom.data('old', '');
                     }
                     break;
             }

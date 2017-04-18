@@ -53,8 +53,24 @@ class BaseModel {
         return $languageList;
     }
 
-    protected function uploadFile($file, $path) {
+    /**
+     * 上传文件
+     * @param $file 待上传的文件
+     * @param $path 待上传的文件类型
+     * @return array
+     */
+    public function uploadFile($file, $path) {
         $result = $this->rpcClient->getResultRaw('B003', array('uploadfile' => $file, 'type' => $path));
+        return $result;
+    }
+
+    /**
+     * 获取允许上传的扩展名
+     * @param $type 待上传的文件类型
+     * @return array
+     */
+    public function getAllowUploadFileType($type) {
+        $result = $this->rpcClient->getResultRaw('B004', array('type' => $type), true, 3600 * 3);
         return $result;
     }
 }

@@ -46,6 +46,19 @@ class Rpc_UrlConfigBase {
                 ),
             )
         ),
+        'B004' => array(
+            'name' => '获取上传允许的文件类型',
+            'method' => 'getAllowUploadFileType',
+            'auth' => true,
+            'url' => '/system/getAllowUploadFileType',
+            'param' => array(
+                'type' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+            )
+        ),
     );
 
     /**

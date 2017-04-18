@@ -1,12 +1,12 @@
 var iAdmin = iAdmin || {};
 iAdmin.hotelHotelList = (function ($, ypGlobal) {
 
-    var ajax = YP.ajax, tips = YP.alert, hotelList = new YP.list, userForm = new YP.form, ypRecord = YP.record;
+    var ajax = YP.ajax, tips = YP.alert, hotelList = new YP.list, hotelForm = new YP.form, ypRecord = YP.record;
 
     /**
      * 初始化列表
      */
-    function initGroupList() {
+    function initHotelList() {
         hotelList.init({
             colCount: 7,
             autoLoad: true,
@@ -29,16 +29,16 @@ iAdmin.hotelHotelList = (function ($, ypGlobal) {
     function initEditor() {
         // 初始化表单保存
         var detailModal = $("#editor");
-        userForm.init({
+        hotelForm.init({
             editorDom: $("#listEditor"),
             saveButtonDom: $("#saveListData"),
             checkParams: eval(ypGlobal.checkParams),
             modelDom: detailModal,
             saveBefore: function (saveParams) {
-                userForm.updateParams({
+                hotelForm.updateParams({
                     saveUrl: saveParams.id > 0 ? ypGlobal.updateBaseUrl : ypGlobal.createBaseUrl
                 });
-                saveParams = userForm.makeRecord(saveParams, saveParams.id, saveParams.name);
+                saveParams = hotelForm.makeRecord(saveParams, saveParams.id, saveParams.name);
                 return saveParams;
             },
             saveSuccess: function (data) {
@@ -54,7 +54,7 @@ iAdmin.hotelHotelList = (function ($, ypGlobal) {
         });
         // 新建产品
         $("#createData").on('click', function () {
-            userForm.writeEditor({
+            hotelForm.writeEditor({
                 editorDom: $("#listEditor")
             });
             $("#groupEdit").show();
@@ -69,7 +69,7 @@ iAdmin.hotelHotelList = (function ($, ypGlobal) {
                     dataList[dataOne.attr('type')] = dataOne.data('value');
                 }
             });
-            userForm.writeEditor({
+            hotelForm.writeEditor({
                 editorDom: $("#listEditor"),
                 writeData: dataList
             });
@@ -170,10 +170,54 @@ iAdmin.hotelHotelList = (function ($, ypGlobal) {
         });
     }
 
+    function initMutilContent() {
+        var mutilForm = new YP.form, languageNameList = eval(ypGlobal.languageList);
+        var mutilCountentEditor = $("#mutilCountentEditor");
+        mutilForm.init({
+            editorDom: $("#mutilContentListEditor"),
+            saveButtonDom: $("#saveMutilContentData"),
+            checkParams: ['nameLang1'],
+            modelDom: mutilCountentEditor,
+            saveUrl: ypGlobal.updateBaseUrl,
+            saveBefore: function (saveParams) {
+                saveParams = hotelForm.makeRecord(saveParams, saveParams.id, saveParams.name);
+                return saveParams;
+            },
+            saveSuccess: function (data) {
+                hotelList.reLoadList();
+            },
+            saveFail: function (data) {
+                tips.show(data.msg);
+            }
+        });
+
+        $("#dataList").on('click', 'button[op=editMutilContent]', function () {
+            var $editId = $(this).data('dataid'), $dataDom = $("#dataList").find("[dataId=" + $editId + "]");
+            var dataList = {};
+            $dataDom.find('td').each(function (key, value) {
+                var dataOne = $(value);
+                if (dataOne.attr('type')) {
+                    dataList[dataOne.attr('type')] = dataOne.data('value');
+                }
+            });
+            var languageKeyList = dataList.langlist.split(',');
+            var languageList = [];
+            $.each(languageKeyList, function (key, value) {
+                languageList.push({key: value, name: languageNameList[value]});
+            });
+            $("#mutilContentListEditor").html(template('mutilContentListEditor_tpl', {
+                languageList: languageList,
+                dataList: dataList
+            }));
+            mutilCountentEditor.modal('show');
+        });
+    }
+
     function init() {
-        initGroupList();
+        initHotelList();
         initEditor();
         initLanguageEditor();
+        initMutilContent();
     }
 
     return {

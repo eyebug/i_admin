@@ -1,0 +1,72 @@
+<div class="modal hide fade yulong" id="mutilCountentEditor" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     mf="modalfix" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">集团编辑</h4>
+            </div>
+            <div class="modal-body" id="detailBody" mf="modalfix">
+                <form class="form-horizontal" id="mutilContentListEditor">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" id="saveMutilContentData" data-loading-text="保存中...">保存</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id='closeEditor'>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script id="mutilContentListEditor_tpl" type="text/html">
+    <input type="hidden" id="edit_id" value="{{dataList.id}}">
+    <input type="hidden" id="edit_groupid" value="{{dataList.groupid}}">
+    <input type="hidden" id="edit_lng" value="{{dataList.lng}}">
+    <input type="hidden" id="edit_lat" value="{{dataList.lat}}">
+    <input type="hidden" id="edit_bookurl" value="{{dataList.bookurl}}">
+    {{each languageList as language index}}
+    <div class="control-group" op="editFiled">
+        <label class="control-label" for="edit_nameLang{{index+1}}">物业名称（{{language.name}}）：</label>
+        <div class="controls">
+            {{if dataNameKey = "nameLang"+(index+1) }} {{/if}}
+            <input type="text" id="edit_nameLang{{index+1}}" placeholder="物业名称（{{language.name}}）" class="span4" data-title="物业名称（{{language.name}}）"
+                   value="{{dataList[dataNameKey]}}" data-old="{{dataList[dataNameKey]}}">
+        </div>
+    </div>
+    {{/each}}
+    {{each languageList as language index}}
+    <div class="control-group" op="editFiled">
+        <label class="control-label" for="edit_voiceLang{{index+1}}">语音介绍（{{language.name}}）：</label>
+        <div class="controls">
+            {{if dataNameKey = "voiceLang"+(index+1) }} {{/if}}
+            {{if dataList[dataNameKey]}}
+            <audio src="{{dataList[dataNameKey]}}" id="edit_voiceLang{{index+1}}_show" controls="controls"></audio>
+            <br/>
+            {{/if}}
+            <input type="file" id="edit_voiceLang{{index+1}}" placeholder="语音介绍（{{language.name}}）" class="span4" data-title="语音介绍（{{language.name}}）"
+                   accept="<?php echo implode(",", $allowTypeVoice); ?>">
+        </div>
+    </div>
+    {{/each}}
+    {{each languageList as language index}}
+    <div class="control-group" op="editFiled">
+        <label class="control-label" for="edit_addressLang{{index+1}}">公寓地址（{{language.name}}）：</label>
+        <div class="controls">
+            {{if dataNameKey = "addressLang"+(index+1) }} {{/if}}
+            <input type="text" id="edit_addressLang{{index+1}}" placeholder="公寓地址（{{language.name}}）" class="span8" data-title="公寓地址（{{language.name}}）"
+                   value="{{dataList[dataNameKey]}}" data-old="{{dataList[dataNameKey]}}">
+        </div>
+    </div>
+    {{/each}}
+    {{each languageList as language index}}
+    <div class="control-group" op="editFiled">
+        <label class="control-label" for="edit_addressLang{{index+1}}">公寓介绍（{{language.name}}）：</label>
+        <div class="controls">
+            {{if dataNameKey = "addressLang"+(index+1) }} {{/if}}
+            <textarea rows="3" id="edit_addressLang{{index+1}}" class="span8" data-title="公寓介绍（{{language.name}}）" data-old="{{dataList[dataNameKey]}}">{{dataList[dataNameKey]}}</textarea>
+        </div>
+    </div>
+    {{/each}}
+</script>

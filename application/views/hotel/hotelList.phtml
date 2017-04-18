@@ -51,12 +51,14 @@
 </div>
 <?php include($webConfig['layoutPath'] . '/hotel/hotelList_edit.phtml'); ?>
 <?php include($webConfig['layoutPath'] . '/hotel/hotelList_edit_language.phtml'); ?>
+<?php include($webConfig['layoutPath'] . '/hotel/hotelList_edit_mutilContent.phtml'); ?>
 <script type="text/javascript">
     var YP_GLOBAL_VARS = {
         checkParams: '<?php echo json_encode(Enum_Hotel::getHotelMustInput());?>',
         listUrl: '/hotelajax/getHotelList',
         createBaseUrl: '/hotelajax/createHotel',
         updateBaseUrl: '/hotelajax/updateHotel',
+        languageList: '(<?php echo json_encode($languageList);?>)'
     };
 </script>
 
@@ -103,8 +105,7 @@
             <button op="editDataOne" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">修改</button>
             <button op="editLanguage" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">语言设置</button>
             {{if info.langlist}}
-            <button op="editMuilContent" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">多语言信息</button>
-            {{else}}
+            <button op="editMutilContent" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">多语言信息</button>
             {{/if}}
         </td>
     </tr>
