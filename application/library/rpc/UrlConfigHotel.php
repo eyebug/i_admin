@@ -303,17 +303,17 @@ class Rpc_UrlConfigHotel {
             )
         ),
         'GH004' => array(
-            'name' => '修改集团',
-            'method' => 'updateGroupbyId',
+            'name' => '获取管理员列表',
+            'method' => 'getAdministratorList',
             'auth' => true,
-            'url' => '/Administrator/getAdministratorList',
+            'url' => '/HotelAdministrator/getHotelAdministratorList',
             'param' => array(
                 'id' => array(
                     'required' => false,
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'groupid' => array(
+                'hotelid' => array(
                     'required' => false,
                     'format' => 'int',
                     'style' => 'interface'
@@ -342,9 +342,9 @@ class Rpc_UrlConfigHotel {
         ),
         'GH005' => array(
             'name' => '新建管理员',
-            'method' => 'addAdministrator',
+            'method' => 'addHotelAdministrator',
             'auth' => true,
-            'url' => '/Administrator/addAdministrator',
+            'url' => '/HotelAdministrator/addHotelAdministrator',
             'param' => array(
                 'username' => array(
                     'required' => true,
@@ -366,7 +366,7 @@ class Rpc_UrlConfigHotel {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
-                'groupid' => array(
+                'hotelid' => array(
                     'required' => false,
                     'format' => 'int',
                     'style' => 'interface'
@@ -385,9 +385,9 @@ class Rpc_UrlConfigHotel {
         ),
         'GH006' => array(
             'name' => '更新管理员',
-            'method' => 'updateAdministratorById',
+            'method' => 'updateHotelAdministratorById',
             'auth' => true,
-            'url' => '/Administrator/updateAdministratorById',
+            'url' => '/HotelAdministrator/updateHotelAdministratorById',
             'param' => array(
                 'id' => array(
                     'required' => true,

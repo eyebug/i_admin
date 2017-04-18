@@ -23,6 +23,9 @@ class HotelController extends \BaseController {
     }
 
     public function userListAction() {
+        $hotelModel = new HotelModel();
+        $hotelList = $hotelModel->getHotelList(array(), 3600 * 6);
+        $this->_view->assign('hotelList', $hotelList['data']['list']);
         $this->_view->display('hotel/userList.phtml');
     }
 }

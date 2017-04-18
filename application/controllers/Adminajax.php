@@ -6,8 +6,14 @@
  */
 class AdminajaxController extends \BaseController {
 
+    /**
+     * @var AdminModel
+     */
     private $adminModel;
 
+    /**
+     * @var Convertor_Admin
+     */
     private $adminConvertor;
 
     public function init() {

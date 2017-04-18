@@ -10,7 +10,7 @@ class AdminModel extends \BaseModel {
             $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
             $result = $this->rpcClient->getResultRaw('AU004', $params);
         } while (false);
-        return (array) $result;
+        return (array)$result;
     }
 
     public function saveDataInfo($paramList) {
@@ -32,6 +32,8 @@ class AdminModel extends \BaseModel {
             }
             if ($params['password']) {
                 $params['password'] = Enum_Login::getMd5Pass($params['password']);
+            } else {
+                unset($params['password']);
             }
             $interfaceId = $params['id'] ? 'AU006' : 'AU005';
             $result = $this->rpcClient->getResultRaw($interfaceId, $params);

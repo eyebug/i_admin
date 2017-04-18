@@ -67,6 +67,8 @@ class GroupModel extends \BaseModel {
             }
             if ($params['password']) {
                 $params['password'] = Enum_Login::getMd5Pass($params['password']);
+            } else {
+                unset($params['password']);
             }
             $interfaceId = $params['id'] ? 'GU006' : 'GU005';
             $result = $this->rpcClient->getResultRaw($interfaceId, $params);

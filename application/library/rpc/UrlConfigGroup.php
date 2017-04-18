@@ -73,8 +73,8 @@ class Rpc_UrlConfigGroup {
             )
         ),
         'GU004' => array(
-            'name' => '修改集团',
-            'method' => 'updateGroupbyId',
+            'name' => '获取管理员列表',
+            'method' => 'getAdministratorList',
             'auth' => true,
             'url' => '/Administrator/getAdministratorList',
             'param' => array(

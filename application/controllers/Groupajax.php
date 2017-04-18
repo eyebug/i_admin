@@ -5,8 +5,14 @@
  */
 class GroupajaxController extends \BaseController {
 
+    /**
+     * @var GroupModel
+     */
     private $groupModal;
 
+    /**
+     * @var Convertor_Group
+     */
     private $groupConvertor;
 
     public function init() {

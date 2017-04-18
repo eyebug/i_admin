@@ -116,11 +116,11 @@ class HotelModel extends \BaseModel {
     public function getUserList($paramList) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;
-            $paramList['groupid'] ? $params['groupid'] = intval($paramList['groupid']) : false;
+            $paramList['hotelid'] ? $params['hotelid'] = intval($paramList['hotelid']) : false;
             $paramList['username'] ? $params['username'] = $paramList['username'] : false;
             isset($paramList['status']) ? $params['status'] = $paramList['status'] : false;
             $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
-            $result = $this->rpcClient->getResultRaw('GU004', $params);
+            $result = $this->rpcClient->getResultRaw('GH004', $params);
         } while (false);
         return (array)$result;
     }
@@ -144,8 +144,10 @@ class HotelModel extends \BaseModel {
             }
             if ($params['password']) {
                 $params['password'] = Enum_Login::getMd5Pass($params['password']);
+            } else {
+                unset($params['password']);
             }
-            $interfaceId = $params['id'] ? 'GU006' : 'GU005';
+            $interfaceId = $params['id'] ? 'GH006' : 'GH005';
             $result = $this->rpcClient->getResultRaw($interfaceId, $params);
         } while (false);
         return $result;

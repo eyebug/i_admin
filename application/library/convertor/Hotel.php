@@ -74,6 +74,8 @@ class Convertor_Hotel extends Convertor_Base {
                 $dataTemp['realName'] = $value['realName'];
                 $dataTemp['remark'] = $value['remark'];
                 $dataTemp['status'] = $value['status'];
+                $dataTemp['hotelId'] = $value['hotelId'];
+                $dataTemp['hotelName'] = $value['hotelName'];
                 $dataTemp['groupId'] = $value['groupId'];
                 $dataTemp['groupName'] = $value['groupName'];
                 $dataTemp['statusShow'] = $value['status'] ? '启用' : '禁用';
