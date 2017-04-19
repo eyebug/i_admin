@@ -221,4 +221,14 @@ class AppModel extends \BaseModel {
         } while (false);
         return $result;
     }
+
+    public function getFeedbackList($paramList) {
+        do {
+            $paramList['id'] ? $params['id'] = $paramList['id'] : false;
+            $paramList['email'] ? $params['email'] = $paramList['email'] : false;
+            $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
+            $result = $this->rpcClient->getResultRaw('APP015', $params);
+        } while (false);
+        return (array)$result;
+    }
 }

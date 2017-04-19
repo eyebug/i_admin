@@ -44,4 +44,8 @@ class AppController extends \BaseController {
     public function pushAction() {
         $this->_view->display('app/push.phtml');
     }
+
+    public function feedbackListAction() {
+        $this->_view->display('app/feedbackList.phtml');
+    }
 }

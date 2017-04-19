@@ -212,4 +212,12 @@ class AppajaxController extends \BaseController {
         $result = $this->appModel->createPush($paramList);
         $this->echoJson($result);
     }
+
+    public function getFeedbackListAction() {
+        $paramList['id'] = intval($this->getPost('id'));
+        $paramList['email'] = intval($this->getPost('email'));
+        $result = $this->appModel->getFeedbackList($paramList);
+        $result = $this->appConvertor->feedbackListConvertor($result);
+        $this->echoJson($result);
+    }
 }

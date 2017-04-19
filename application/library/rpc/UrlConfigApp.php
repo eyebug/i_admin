@@ -450,6 +450,34 @@ class Rpc_UrlConfigApp {
                 ),
             )
         ),
+        'APP015' => array(
+            'name' => '获取APP反馈列表',
+            'method' => 'getIserviceFeedbackList',
+            'auth' => true,
+            'url' => '/IserviceFeedback/getIserviceFeedbackList',
+            'param' => array(
+                'id' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'email' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'page' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'limit' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+            )
+        ),
     );
 
     /**
