@@ -1,0 +1,58 @@
+<div class="hero-unit hero-unit-custom hero-unit-mgdbtm clearfix" id="listFilter">
+    <form class="form-horizontal">
+        <div class="control-group control-group-block">
+            <div class="pull-left control-item">
+                <span class="control-label">ID：</span>
+                <div class="controls">
+                    <input id="dataid" data-paramkey='id' type="number" class="form-control input-medium"
+                           op="filterCase" value=''/>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">状态：</span>
+                <div class="controls">
+                    <select id="filter_status" data-paramkey="status" class="input-medium select-long" op="filterCase">
+                        <option value="all">全部</option>
+                        <option value="0">禁用</option>
+                        <option value="1">启用</option>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">类型：</span>
+                <div class="controls">
+                    <select id="filter_type" data-paramkey="type" class="input-medium select-long" op="filterCase">
+                        <option value="all">全部</option>
+                        <option value="1">物业</option>
+                        <option value="2">集团</option>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-left control-item" id="filter_hotel" style="display: none;">
+                <span class="control-label">物业：</span>
+                <div class="controls">
+                    <select id="filter_hotelid" data-paramkey="dataid" class="input-medium select-long" op="filterCase">
+                        <option value="0">全部</option>
+                        <?php foreach ($hotelList as $hotel) { ?>
+                            <option value="<?php echo $hotel['id']; ?>"><?php echo $hotel['name_lang1']; ?>（<?php echo $hotel['groupName']; ?>）</option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-left control-item" id="filter_group" style="display: none;">
+                <span class="control-label">集团：</span>
+                <div class="controls">
+                    <select id="filter_groupid" data-paramkey="dataid" class="input-medium select-long" op="filterCase">
+                        <option value="0">全部</option>
+                        <?php foreach ($groupList as $group) { ?>
+                            <option value="<?php echo $group['id']; ?>"><?php echo $group['name']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <button id="searchBtn" class="mgtop5 pull-left btn btn-primary" type="button" data-loading-text="查询中...">
+                查询
+            </button>
+        </div>
+    </form>
+</div>

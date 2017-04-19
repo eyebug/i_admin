@@ -1,0 +1,80 @@
+<div class="modal hide fade yulong" id="editor" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     mf="modalfix" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">启动广告编辑</h4>
+            </div>
+            <div class="modal-body" id="detailBody" mf="modalfix">
+                <form class="form-horizontal" id="listEditor">
+                    <input type="hidden" id="edit_id" value="0">
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_type">类型：</label>
+                        <div class="controls">
+                            <select id="edit_type" data-title="类型">
+                                <option value="1">物业</option>
+                                <option value="2">集团</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled" id="editHotel" style="display:none;">
+                        <label class="control-label" for="edit_dataid">物业：</label>
+                        <div class="controls">
+                            <select id="edit_hotelid" data-title="物业">
+                                <?php foreach ($hotelList as $hotel) { ?>
+                                    <option value="<?php echo $hotel['id']; ?>"><?php echo $hotel['name_lang1']; ?>（<?php echo $hotel['groupName']; ?>）</option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled" id="editGroup" style="display:none;">
+                        <label class="control-label" for="edit_dataid">集团：</label>
+                        <div class="controls">
+                            <select id="edit_groupid" data-title="集团">
+                                <?php foreach ($groupList as $group) { ?>
+                                    <option value="<?php echo $group['id']; ?>"><?php echo $group['name']; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_pic">展示图：</label>
+                        <div class="controls">
+                            <img src="" id="edit_pic_show" style="max-height: 80px;"/>
+                            <input type="file" id="edit_pic" placeholder="展示图" class="span4" data-title="展示图"
+                                   accept="<?php echo implode(",", $allowTypeImage); ?>">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_url">跳转URL：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_url" placeholder="跳转URL" class="span8" data-title="跳转URL">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_msg">消息内容：</label>
+                        <div class="controls">
+                            <textarea rows="3" id="edit_msg" class="span8" data-title="消息内容"></textarea>
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_status">状态：</label>
+                        <div class="controls">
+                            <select id="edit_status" data-title="状态">
+                                <option value="0">禁用</option>
+                                <option value="1">启用</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" id="saveListData" data-loading-text="保存中...">保存</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id='closeEditor'>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

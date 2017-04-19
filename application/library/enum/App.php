@@ -19,6 +19,13 @@ class Enum_App {
     public static function getAppImgMustInput() {
         return array();
     }
+
+    public static function getStartMsgMustInput() {
+        return array(
+            'type',
+            'url',
+        );
+    }
 }
 
 ?>

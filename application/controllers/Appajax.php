@@ -142,4 +142,52 @@ class AppajaxController extends \BaseController {
         $result = $this->appModel->saveAppImgDataInfo($paramList);
         $this->echoJson($result);
     }
+
+    public function getStartMsgListAction() {
+        $paramList['id'] = intval($this->getPost('id'));
+        $paramList['type'] = intval($this->getPost('type'));
+        $paramList['dataid'] = intval($this->getPost('dataid'));
+        $status = $this->getPost('status');
+        $status !== 'all' && !is_null($status) ? $paramList['status'] = intval($status) : false;
+        $result = $this->appModel->getStartMsgList($paramList);
+        $result = $this->appConvertor->startMsgListConvertor($result);
+        $this->echoJson($result);
+    }
+
+    /**
+     * 新建和编辑启动消息数据
+     */
+    private function handlerStartMsgSaveParams() {
+        $paramList = array();
+        $paramList['type'] = intval($this->getPost("type"));
+        if ($paramList['type'] == 1) {
+            $paramList['dataid'] = intval($this->getPost("hotelid"));
+        } else {
+            $paramList['dataid'] = intval($this->getPost("groupid"));
+        }
+        $paramList['pic'] = $_FILES['pic'];
+        $paramList['msg'] = trim($this->getPost("msg"));
+        $paramList['url'] = trim($this->getPost("url"));
+        $paramList['status'] = intval($this->getPost("status"));
+        return $paramList;
+    }
+
+    /**
+     * 新建启动消息
+     */
+    public function createStartMsgAction() {
+        $paramList = $this->handlerStartMsgSaveParams();
+        $result = $this->appModel->saveStartMsgDataInfo($paramList);
+        $this->echoJson($result);
+    }
+
+    /**
+     * 更新启动消息
+     */
+    public function updateStartMsgAction() {
+        $paramList = $this->handlerStartMsgSaveParams();
+        $paramList['id'] = intval($this->getPost("id"));
+        $result = $this->appModel->saveStartMsgDataInfo($paramList);
+        $this->echoJson($result);
+    }
 }
