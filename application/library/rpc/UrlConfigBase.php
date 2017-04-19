@@ -59,6 +59,13 @@ class Rpc_UrlConfigBase {
                 ),
             )
         ),
+        'B005' => array(
+            'name' => '获取设备列表',
+            'method' => 'getPlatformList',
+            'auth' => true,
+            'url' => '/system/getPlatformList',
+            'param' => array()
+        ),
     );
 
     /**

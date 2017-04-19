@@ -1,0 +1,47 @@
+<div class="hero-unit hero-unit-custom hero-unit-mgdbtm clearfix" id="listFilter">
+    <form class="form-horizontal">
+        <div class="control-group control-group-block">
+            <div class="pull-left control-item">
+                <span class="control-label">ID：</span>
+                <div class="controls">
+                    <input id="dataid" data-paramkey='id' type="number" class="form-control input-medium"
+                           op="filterCase" value=''/>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">平台：</span>
+                <div class="controls">
+                    <select id="filter_platform" data-paramkey="platform" class="input-medium select-long" op="filterCase">
+                        <option value="all">全部</option>
+                        <?php foreach ($platformList as $key => $platform) { ?>
+                            <option value="<?php echo $key; ?>"><?php echo $platform; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">强制更新：</span>
+                <div class="controls">
+                    <select id="filter_forced" data-paramkey="forced" class="input-medium select-long" op="filterCase">
+                        <option value="all">全部</option>
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">最新版：</span>
+                <div class="controls">
+                    <select id="filter_latest" data-paramkey="latest" class="input-medium select-long" op="filterCase">
+                        <option value="all">全部</option>
+                        <option value="0">否</option>
+                        <option value="1">是</option>
+                    </select>
+                </div>
+            </div>
+            <button id="searchBtn" class="mgtop5 pull-left btn btn-primary" type="button" data-loading-text="查询中...">
+                查询
+            </button>
+        </div>
+    </form>
+</div>

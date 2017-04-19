@@ -1,16 +1,16 @@
 <div class="span2">
     <div class="well side-nav">
         <ul class="nav nav-list" id="navList">
-            <?php if($headerInfo['adminPermission']){?>
-            <li class="nav-header">
+            <?php if ($headerInfo['adminPermission']) { ?>
+                <li class="nav-header">
                 <span class="nav-header-open">
                     <i class="icon-plus icon-plus-opacity pull-right"></i>总后台管理
                 </span>
-                <ul class="nav nav-list nav-li-list hide">
-                    <li><a href="/admin/userList">帐号管理</a></li>
-                </ul>
-            </li>
-            <?php }?>
+                    <ul class="nav nav-list nav-li-list hide">
+                        <li><a href="/admin/userList">帐号管理</a></li>
+                    </ul>
+                </li>
+            <?php } ?>
             <li class="nav-header">
                 <span class="nav-header-open">
                     <i class="icon-plus icon-plus-opacity pull-right"></i>集团后台管理
@@ -27,6 +27,35 @@
                 <ul class="nav nav-list nav-li-list hide">
                     <li><a href="/hotel/hotelList">物业列表</a></li>
                     <li><a href="/hotel/userList">物业帐号列表</a></li>
+                </ul>
+            </li>
+            <li class="nav-header">
+                <span class="nav-header-open">
+                    <i class="icon-plus icon-plus-opacity pull-right"></i>APP管理
+                </span>
+                <ul class="nav nav-list nav-li-list hide">
+                    <li><a href="/app/startPicList">启动广告页管理</a></li>
+                    <li><a href="/app/versionList">版本更新管理</a></li>
+                    <li><a href="/app/appImgList">首屏图片管理</a></li>
+                    <li><a href="/app/startMsgList">启动消息管理</a></li>
+                    <li><a href="/app/push">全员推送</a></li>
+                    <li><a href="/app/feedbackList">意见反馈</a></li>
+                </ul>
+            </li>
+            <li class="nav-header">
+                <span class="nav-header-open">
+                    <i class="icon-plus icon-plus-opacity pull-right"></i>会员管理
+                </span>
+                <ul class="nav nav-list nav-li-list hide">
+                    <li><a href="/user/userList">会员列表</a></li>
+                </ul>
+            </li>
+            <li class="nav-header">
+                <span class="nav-header-open">
+                    <i class="icon-plus icon-plus-opacity pull-right"></i>系统管理
+                </span>
+                <ul class="nav nav-list nav-li-list hide">
+                    <li><a href="/system/operateLog">操作日志</a></li>
                 </ul>
             </li>
         </ul>

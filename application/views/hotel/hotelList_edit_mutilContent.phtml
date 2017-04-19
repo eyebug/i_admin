@@ -62,10 +62,10 @@
     {{/each}}
     {{each languageList as language index}}
     <div class="control-group" op="editFiled">
-        <label class="control-label" for="edit_addressLang{{index+1}}">公寓介绍（{{language.name}}）：</label>
+        <label class="control-label" for="edit_introductionLang{{index+1}}">公寓介绍（{{language.name}}）：</label>
         <div class="controls">
-            {{if dataNameKey = "addressLang"+(index+1) }} {{/if}}
-            <textarea rows="3" id="edit_addressLang{{index+1}}" class="span8" data-title="公寓介绍（{{language.name}}）" data-old="{{dataList[dataNameKey]}}">{{dataList[dataNameKey]}}</textarea>
+            {{if dataNameKey = "introductionLang"+(index+1) }} {{/if}}
+            <textarea rows="3" id="edit_introductionLang{{index+1}}" class="span8" data-title="公寓介绍（{{language.name}}）" data-old="{{dataList[dataNameKey]}}">{{dataList[dataNameKey]}}</textarea>
         </div>
     </div>
     {{/each}}

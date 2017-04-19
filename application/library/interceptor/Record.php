@@ -33,6 +33,9 @@ class Interceptor_Record extends Interceptor_Base {
             if (empty($recordData['dataId']) && $result['data']['insertId']) {
                 $recordData['dataId'] = $result['data']['insertId'];
             }
+            if (empty($recordData['dataId']) && $result['data']['id']) {
+                $recordData['dataId'] = $result['data']['id'];
+            }
         }
         $recordData['otherInfo'] = json_encode($otherInfo);
         $recordModel = new RecordModel();

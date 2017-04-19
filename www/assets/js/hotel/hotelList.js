@@ -38,7 +38,7 @@ iAdmin.hotelHotelList = (function ($, ypGlobal) {
                 hotelForm.updateParams({
                     saveUrl: saveParams.id > 0 ? ypGlobal.updateBaseUrl : ypGlobal.createBaseUrl
                 });
-                saveParams = hotelForm.makeRecord(saveParams, saveParams.id, saveParams.name);
+                saveParams = hotelForm.makeRecord(saveParams, saveParams.id, saveParams.nameLang1);
                 return saveParams;
             },
             saveSuccess: function (data) {

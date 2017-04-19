@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <?php include($webConfig['layoutPath'] . '/common/meta.phtml') ?>
+</head>
+<body>
+<?php include($webConfig['layoutPath'] . '/common/header.phtml') ?>
+<div class="container container-main">
+    <div class="row-fluid">
+        <?php include($webConfig['layoutPath'] . '/common/nav.phtml') ?>
+        <div class="span10">
+            <div class="cont-mod">
+                <div class="page-header page-header-custom">
+                    <h1 class="h1-custom">
+                        版本管理
+                        <button id="createData" class="btn btn-info" style="margin-left: 5px;" type="button"
+                                data-toggle="modal" data-target="#editor">新建
+                        </button>
+                    </h1>
+                </div>
+                <?php include($webConfig['layoutPath'] . '/app/versionList_filter.phtml') ?>
+                <div class="cont-mod">
+                    <div class="page-header page-header-custom"></div>
+                    <div class="reservation">
+                        <div>
+                            <div class="res-table sys-table-auto">
+                                <table width="100%" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>平台</th>
+                                        <th>强制更新</th>
+                                        <th>版本号</th>
+                                        <th>最新版</th>
+                                        <th>创建时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="dataList"></tbody>
+                                </table>
+                            </div>
+                            <div id="pageDiv" style='padding: 20px;'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include($webConfig['layoutPath'] . '/app/versionList_edit.phtml'); ?>
+<script type="text/javascript">
+    var YP_GLOBAL_VARS = {
+        checkParams: '<?php echo json_encode(Enum_app::getVersionMustInput());?>',
+        listUrl: '/appajax/getVersionList',
+        createBaseUrl: '/appajax/createVersion',
+        updateBaseUrl: '/appajax/updateVersion',
+    };
+</script>
+<?php include($webConfig['layoutPath'] . '/common/list_common.phtml'); ?>
+<?php include($webConfig['layoutPath'] . '/common/record.phtml') ?>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_list.js"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_form.js"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/lib/art.js"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/app/versionList.js"></script>
+</body>
+</html>
+<script id="dataList_tpl" type="text/html">
+    {{each list as info i}}
+    <tr dataId="{{info.id}}">
+        <td type="id" data-value="{{info.id}}">{{info.id}}</td>
+        <td type="platform" data-value="{{info.platform}}">{{info.platformShow}}</td>
+        <td type="forced" data-value="{{info.forced}}">{{info.forcedShow}}</td>
+        <td type="version" data-value="{{info.version}}">{{info.version}}</td>
+        <td type="latest" data-value="{{info.latest}}">{{info.latestShow}}</td>
+        <td type="description" data-value="{{info.description}}" style="display:none;"></td>
+        <td>{{info.createtime}}</td>
+        <td>
+            <button op="editDataOne" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">修改</button>
+        </td>
+    </tr>
+    {{/each}}
+</script>

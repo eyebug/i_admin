@@ -40,6 +40,7 @@ iAdmin.adminUserList = (function($, ypGlobal) {
                     saveUrl : saveParams.id > 0 ? ypGlobal.updateBaseUrl : ypGlobal.createBaseUrl
                 });
                 saveParams = ypForm.makeRecord(saveParams, saveParams.id, saveParams.username);
+                console.log(saveParams);
                 return saveParams;
             },
             saveSuccess : function(data) {

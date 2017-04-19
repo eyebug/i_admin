@@ -73,6 +73,16 @@ class BaseModel {
         $result = $this->rpcClient->getResultRaw('B004', array('type' => $type), true, 3600 * 3);
         return $result;
     }
+
+    /**
+     * 获取设备列表
+     * @return array
+     */
+    public function getPlatformList() {
+        $result = $this->rpcClient->getResultRaw('B005', array(), true, 3600 * 12);
+        $languageList = $result['code'] ? array() : $result['data']['list'];
+        return $languageList;
+    }
 }
 
 ?>

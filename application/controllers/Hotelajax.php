@@ -81,8 +81,8 @@ class HotelajaxController extends \BaseController {
         $result = $this->hotelModal->saveHotelDataInfo($paramList);
         $this->echoJson($result);
     }
-    
-    public function updateHotelLangListAction(){
+
+    public function updateHotelLangListAction() {
         $paramList['id'] = intval($this->getPost("id"));
         $paramList['lang_list'] = trim($this->getPost("lang"));
         $result = $this->hotelModal->saveHotelLangList($paramList);

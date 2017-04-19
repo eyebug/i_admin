@@ -48,6 +48,7 @@ YP.form = function () {
             writeData: {}
         }
         option = $.extend(params, option);
+        YP_RECORD_VARS.isChange = 0;
         $.each(option.editorDom.find("[id^='edit_']"), function (key, value) {
             var $editDom = $(value);
             $editDom.parents("[op=editFiled]").removeClass('error');
@@ -83,11 +84,16 @@ YP.form = function () {
                     break;
                 case "file":
                     $writeValue = option.writeData[$editKey] ? option.writeData[$editKey] : "";
+                    $editDom.after($editDom.clone().val(""));
+                    $editDom.remove();
                     if ($writeValue) {
+                        $("#" + $editId + "_show").show();
                         $("#" + $editId + "_show").attr('src', $writeValue).on('click', function () {
                             window.open($(this).attr('src'));
                         });
                         $editDom.data('old', '');
+                    } else {
+                        $("#" + $editId + "_show").hide();
                     }
                     break;
             }
@@ -139,11 +145,16 @@ YP.form = function () {
             $.each(formParams.editorDom.find("[id^='edit_']"), function (key, value) {
                 var $editDom = $(value), $editId = $editDom.attr('id');
                 var $editKey = $editId.split("_");
+                if ($editKey[2] == 'show') {
+                    return true;
+                }
                 $editKey = $editKey[1];
                 saveParams[$editKey] = $editDom.val();
                 if ($editDom.attr('type') == 'file') {
-                    hasFile = true;
-                    formData.append($editKey, $editDom[0].files[0]);
+                    if ($editDom[0].files[0]) {
+                        hasFile = true;
+                        formData.append($editKey, $editDom[0].files[0]);
+                    }
                 } else {
                     formData.append($editKey, $editDom.val());
                 }
