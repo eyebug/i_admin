@@ -43,6 +43,11 @@ class Interceptor_RecordConfig {
                 'updatestartpiclist' => 2,
                 'createversion' => 3,
                 'updateversion' => 4,
+                'createappimg' => 5,
+                'upadteappimg' => 6,
+                'createstartmsg' => 7,
+                'updatestartmsg' => 8,
+                'createpush' => 9,
             )
         ),
     );

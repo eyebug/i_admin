@@ -184,4 +184,41 @@ class AppModel extends \BaseModel {
         } while (false);
         return $result;
     }
+
+    public function getPushList($paramList) {
+        do {
+            $paramList['id'] ? $params['id'] = $paramList['id'] : false;
+            $paramList['type'] ? $params['type'] = $paramList['type'] : false;
+            isset($paramList['result']) ? $params['result'] = $paramList['result'] : false;
+            $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
+            $result = $this->rpcClient->getResultRaw('APP013', $params);
+        } while (false);
+        return (array)$result;
+    }
+
+    public function createPush($paramList) {
+        $params = $this->initParam();
+        do {
+            $result = array(
+                'code' => 1,
+                'msg' => '参数错误'
+            );
+
+            $paramList['type'] ? $params['type'] = $paramList['type'] : false;
+            $paramList['cn_title'] ? $params['cn_title'] = $paramList['cn_title'] : false;
+            $paramList['cn_value'] ? $params['cn_value'] = $paramList['cn_value'] : false;
+            $paramList['en_title'] ? $params['en_title'] = $paramList['en_title'] : false;
+            $paramList['en_value'] ? $params['en_value'] = $paramList['en_value'] : false;
+            $paramList['url'] ? $params['url'] = $paramList['url'] : false;
+
+            $checkParams = Enum_App::getPushMustInput();
+            foreach ($checkParams as $checkParamOne) {
+                if (empty($params[$checkParamOne])) {
+                    break 2;
+                }
+            }
+            $result = $this->rpcClient->getResultRaw('APP014', $params);
+        } while (false);
+        return $result;
+    }
 }

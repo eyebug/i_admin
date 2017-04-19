@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd306756-76e1-4672-a2a0-fa16d0f061f7" name="Default" comment="物业后台">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/app/startMsgList.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/app/startMsgList_edit.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/app/startMsgList_filter.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/js/app/startMsgList.js" />
+    <list default="true" id="fd306756-76e1-4672-a2a0-fa16d0f061f7" name="Default" comment="推送">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/app/push.phtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/app/push_edit.phtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/app/push_filter.phtml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/www/assets/js/app/push.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/App.php" afterPath="$PROJECT_DIR$/application/controllers/App.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Appajax.php" afterPath="$PROJECT_DIR$/application/controllers/Appajax.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/library/convertor/App.php" afterPath="$PROJECT_DIR$/application/library/convertor/App.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/library/enum/App.php" afterPath="$PROJECT_DIR$/application/library/enum/App.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/library/interceptor/RecordConfig.php" afterPath="$PROJECT_DIR$/application/library/interceptor/RecordConfig.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/library/rpc/UrlConfigApp.php" afterPath="$PROJECT_DIR$/application/library/rpc/UrlConfigApp.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/App.php" afterPath="$PROJECT_DIR$/application/models/App.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../i_service/.gitignore" afterPath="$PROJECT_DIR$/../i_service/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../i_service/application/controllers/AppstartMsg.php" afterPath="$PROJECT_DIR$/../i_service/application/controllers/AppstartMsg.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../i_service/application/library/convertor/AppstartMsg.php" afterPath="$PROJECT_DIR$/../i_service/application/library/convertor/AppstartMsg.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../i_service/application/library/dao/AppstartMsg.php" afterPath="$PROJECT_DIR$/../i_service/application/library/dao/AppstartMsg.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../i_service/application/models/AppstartMsg.php" afterPath="$PROJECT_DIR$/../i_service/application/models/AppstartMsg.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../i_service/application/controllers/Push.php" afterPath="$PROJECT_DIR$/../i_service/application/controllers/Push.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,64 +38,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="startMsgList.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/app/startMsgList.phtml">
+      <file leaf-file-name="push.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/app/push.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="70">
-              <caret line="53" column="75" lean-forward="false" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
+            <state relative-caret-position="497">
+              <caret line="68" column="25" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="startMsgList_edit.phtml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/app/startMsgList_edit.phtml">
+      <file leaf-file-name="push_edit.phtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/app/push_edit.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="12" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="52" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="startMsgList.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/www/assets/js/app/startMsgList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="82" column="43" lean-forward="false" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+            <state relative-caret-position="535">
+              <caret line="40" column="112" lean-forward="false" selection-start-line="40" selection-start-column="112" selection-end-line="40" selection-end-column="112" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="yp_form.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/assets/js/common/yp_form.js">
+      <file leaf-file-name="push.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/www/assets/js/app/push.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="167" column="15" lean-forward="true" selection-start-line="167" selection-start-column="15" selection-end-line="167" selection-end-column="15" />
+            <state relative-caret-position="457">
+              <caret line="38" column="94" lean-forward="false" selection-start-line="38" selection-start-column="94" selection-end-line="38" selection-end-column="94" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Appajax.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Appajax.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Appajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
-              <caret line="176" column="7" lean-forward="true" selection-start-line="176" selection-start-column="7" selection-end-line="176" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/App.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="170" column="22" lean-forward="true" selection-start-line="170" selection-start-column="22" selection-end-line="170" selection-end-column="22" />
+            <state relative-caret-position="713">
+              <caret line="211" column="39" lean-forward="false" selection-start-line="211" selection-start-column="39" selection-end-line="211" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -116,7 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>recordPostId</find>
       <find>ajax</find>
       <find>groupList</find>
       <find>console.log</find>
@@ -144,6 +117,7 @@
       <find>YP_RECORD_VARS.isChange</find>
       <find>select2</find>
       <find>initappImgList</find>
+      <find>pushMsg</find>
       <find>appImgList</find>
       <find>appImgForm</find>
     </findStrings>
@@ -171,6 +145,8 @@
       <replace>appImgForm</replace>
       <replace>startMsgList</replace>
       <replace>startMsgForm</replace>
+      <replace>pushList</replace>
+      <replace>pushForm</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -183,15 +159,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/models/Hotel.php" />
-        <option value="$PROJECT_DIR$/application/views/hotel/hotelList_edit_mutilContent.phtml" />
-        <option value="$PROJECT_DIR$/application/views/app/startPicList_edit.phtml" />
-        <option value="$PROJECT_DIR$/www/assets/js/app/startPicList.js" />
-        <option value="$PROJECT_DIR$/www/assets/js/admin/userList.js" />
-        <option value="$PROJECT_DIR$/application/library/interceptor/Record.php" />
-        <option value="$PROJECT_DIR$/www/assets/js/hotel/hotelList.js" />
-        <option value="$PROJECT_DIR$/../i_service/application/controllers/AppstartPic.php" />
-        <option value="$PROJECT_DIR$/../i_service/application/models/AppstartPic.php" />
         <option value="$PROJECT_DIR$/../i_service/application/library/dao/AppstartPic.php" />
         <option value="$PROJECT_DIR$/application/views/app/versionList.phtml.html" />
         <option value="$PROJECT_DIR$/application/views/app/startPicList.phtml" />
@@ -206,12 +173,10 @@
         <option value="$PROJECT_DIR$/../i_service/application/models/AppVersion.php" />
         <option value="$PROJECT_DIR$/../i_service/application/library/dao/AppVersion.php" />
         <option value="$PROJECT_DIR$/../i_service/application/controllers/AppVersion.php" />
-        <option value="$PROJECT_DIR$/application/library/interceptor/RecordConfig.php" />
         <option value="$PROJECT_DIR$/application/views/app/appImgList_filter.phtml" />
         <option value="$PROJECT_DIR$/../i_service/application/library/convertor/AppstartPic.php" />
         <option value="$PROJECT_DIR$/../i_service/application/library/convertor/AppImg.php" />
         <option value="$PROJECT_DIR$/application/views/app/appImgList_edit.phtml" />
-        <option value="$PROJECT_DIR$/../i_service/application/controllers/AppImg.php" />
         <option value="$PROJECT_DIR$/../i_service/application/models/AppImg.php" />
         <option value="$PROJECT_DIR$/../i_service/application/library/dao/AppImg.php" />
         <option value="$PROJECT_DIR$/www/assets/js/app/appImgList.js" />
@@ -221,19 +186,30 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/application/views/app/startMsgList_filter.phtml" />
         <option value="$PROJECT_DIR$/../i_service/application/library/convertor/AppstartMsg.php" />
-        <option value="$PROJECT_DIR$/application/library/convertor/App.php" />
-        <option value="$PROJECT_DIR$/application/controllers/App.php" />
         <option value="$PROJECT_DIR$/application/views/app/startMsgList_edit.phtml" />
-        <option value="$PROJECT_DIR$/application/library/enum/App.php" />
         <option value="$PROJECT_DIR$/application/views/app/startMsgList.phtml" />
         <option value="$PROJECT_DIR$/../i_service/application/controllers/AppstartMsg.php" />
         <option value="$PROJECT_DIR$/../i_service/application/models/AppstartMsg.php" />
         <option value="$PROJECT_DIR$/../i_service/application/library/dao/AppstartMsg.php" />
+        <option value="$PROJECT_DIR$/www/assets/js/common/yp_form.js" />
+        <option value="$PROJECT_DIR$/www/assets/js/app/startMsgList.js" />
+        <option value="$PROJECT_DIR$/../i_service/application/library/enum/Push.php" />
+        <option value="$PROJECT_DIR$/../i_service/application/controllers/AppImg.php" />
+        <option value="$PROJECT_DIR$/../i_service/application/models/Push.php" />
+        <option value="$PROJECT_DIR$/../i_service/application/library/dao/Push.php" />
+        <option value="$PROJECT_DIR$/../i_service/application/library/convertor/Push.php" />
+        <option value="$PROJECT_DIR$/../i_service/application/controllers/Push.php" />
+        <option value="$PROJECT_DIR$/application/controllers/App.php" />
+        <option value="$PROJECT_DIR$/application/views/app/push_filter.phtml" />
+        <option value="$PROJECT_DIR$/application/library/enum/App.php" />
+        <option value="$PROJECT_DIR$/application/library/convertor/App.php" />
+        <option value="$PROJECT_DIR$/application/library/interceptor/RecordConfig.php" />
+        <option value="$PROJECT_DIR$/application/views/app/push.phtml" />
+        <option value="$PROJECT_DIR$/www/assets/js/app/push.js" />
+        <option value="$PROJECT_DIR$/application/views/app/push_edit.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/Appajax.php" />
         <option value="$PROJECT_DIR$/application/library/rpc/UrlConfigApp.php" />
         <option value="$PROJECT_DIR$/application/models/App.php" />
-        <option value="$PROJECT_DIR$/www/assets/js/common/yp_form.js" />
-        <option value="$PROJECT_DIR$/application/controllers/Appajax.php" />
-        <option value="$PROJECT_DIR$/www/assets/js/app/startMsgList.js" />
       </list>
     </option>
   </component>
@@ -733,7 +709,7 @@
       <workItem from="1492409039799" duration="147000" />
       <workItem from="1492409221689" duration="32233000" />
       <workItem from="1492527177937" duration="5110000" />
-      <workItem from="1492568293688" duration="15479000" />
+      <workItem from="1492568293688" duration="21010000" />
     </task>
     <task id="LOCAL-00001" summary="后台管理列表">
       <created>1491805445873</created>
@@ -819,11 +795,25 @@
       <option name="project" value="LOCAL" />
       <updated>1492582334877</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="启动消息管理">
+      <created>1492590255701</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1492590255701</updated>
+    </task>
+    <task id="LOCAL-00014" summary="推送">
+      <created>1492596358436</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1492596358436</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114633000" />
+    <option name="totallyTimeSpent" value="120164000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -839,6 +829,7 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22896698" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="570" y="69" width="540" height="879" />
@@ -930,118 +921,15 @@
     <MESSAGE value="管理员管理修改" />
     <MESSAGE value="物业后台" />
     <MESSAGE value="物业后台修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="物业后台修改" />
+    <MESSAGE value="启动消息管理" />
+    <MESSAGE value="推送" />
+    <option name="LAST_COMMIT_MESSAGE" value="推送" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/hotel/userList_edit.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="45" column="26" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="45" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/assets/js/app/versionList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-236">
-          <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="658" column="52" lean-forward="false" selection-start-line="658" selection-start-column="51" selection-end-line="658" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/library/interceptor/RecordConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="447">
-          <caret line="43" column="24" lean-forward="false" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../i_service/application/controllers/AppVersion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="70" column="73" lean-forward="true" selection-start-line="70" selection-start-column="73" selection-end-line="70" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../i_service/application/models/AppVersion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="76" column="44" lean-forward="true" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../i_service/application/library/dao/AppVersion.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="96" column="13" lean-forward="true" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
-          <folding>
-            <marker date="1492574492000" expanded="true" signature="492:527" ph="select * fro... iservice_app_version" />
-            <marker date="1492574492000" expanded="true" signature="999:1050" ph="select count... " />
-            <marker date="1492574492000" expanded="true" signature="2412:2457" ph="select * fro... iservice_app_version" />
-            <marker date="1492574492000" expanded="true" signature="3533:3601" ph="select * fro... iservice_app_version" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/app/versionList.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="53" column="27" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/app/appImgList_filter.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../i_service/application/library/dao/AppstartPic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="927">
-          <caret line="68" column="24" lean-forward="true" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
-          <folding>
-            <marker date="1492530235000" expanded="true" signature="495:531" ph="select * fro... iservice_appstart_pic" />
-            <marker date="1492530235000" expanded="true" signature="994:1046" ph="select count... " />
-            <marker date="1492530235000" expanded="true" signature="2135:2181" ph="select * fro... iservice_appstart_pic" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../i_service/application/library/convertor/AppstartPic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../i_service/application/controllers/AppstartPic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="78" column="38" lean-forward="true" selection-start-line="67" selection-start-column="8" selection-end-line="78" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../i_service/application/models/AppstartPic.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="393">
@@ -1090,43 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/app/appImgList_edit.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="60" lean-forward="true" selection-start-line="16" selection-start-column="56" selection-end-line="16" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../i_service/application/library/convertor/AppImg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="39" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../i_service/application/library/dao/AppImg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="617">
-          <caret line="62" column="5" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="62" selection-end-column="5" />
-          <folding>
-            <marker date="1492576465000" expanded="true" signature="480:511" ph="select * fro... iservice_app_img" />
-            <marker date="1492576465000" expanded="true" signature="975:1022" ph="select count... " />
-            <marker date="1492576465000" expanded="true" signature="2101:2142" ph="select * fro... iservice_app_img" />
-            <marker date="1492576465000" expanded="true" signature="3057:3129" ph="select * fro... iservice_app_img" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/app/appImgList.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="53" column="31" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/app/startPicList_filter.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -1139,14 +990,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="452">
           <caret line="29" column="22" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/www/assets/js/app/appImgList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="46" column="14" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1223,77 +1066,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/library/convertor/App.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="659">
-          <caret line="106" column="46" lean-forward="false" selection-start-line="106" selection-start-column="46" selection-end-line="106" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/App.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="38" column="37" lean-forward="false" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/app/versionList_edit.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="52" column="26" lean-forward="true" selection-start-line="47" selection-start-column="20" selection-end-line="52" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/app/startMsgList_filter.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="835">
           <caret line="48" column="34" lean-forward="true" selection-start-line="46" selection-start-column="24" selection-end-line="48" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/app/startMsgList_edit.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="12" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="52" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/library/enum/App.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="47" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/app/startMsgList.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="70">
-          <caret line="53" column="75" lean-forward="false" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../i_service/application/models/AppImg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="68" column="84" lean-forward="true" selection-start-line="67" selection-start-column="12" selection-end-line="68" selection-end-column="84" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../i_service/application/controllers/AppImg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="73" column="44" lean-forward="true" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -1326,26 +1102,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/library/rpc/UrlConfigApp.php">
+    <entry file="file://$PROJECT_DIR$/www/assets/js/app/startMsgList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="338" column="15" lean-forward="false" selection-start-line="338" selection-start-column="9" selection-end-line="338" selection-end-column="15" />
+        <state relative-caret-position="180">
+          <caret line="67" column="14" lean-forward="false" selection-start-line="67" selection-start-column="14" selection-end-line="67" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/App.php">
+    <entry file="file://$PROJECT_DIR$/application/views/app/startMsgList_edit.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="170" column="22" lean-forward="true" selection-start-line="170" selection-start-column="22" selection-end-line="170" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="180">
+          <caret line="10" column="12" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="52" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Appajax.php">
+    <entry file="file://$PROJECT_DIR$/application/views/app/startMsgList.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
-          <caret line="176" column="7" lean-forward="true" selection-start-line="176" selection-start-column="7" selection-end-line="176" selection-end-column="7" />
+        <state relative-caret-position="70">
+          <caret line="53" column="75" lean-forward="false" selection-start-line="53" selection-start-column="75" selection-end-line="53" selection-end-column="75" />
           <folding />
         </state>
       </provider>
@@ -1358,10 +1137,219 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/assets/js/app/startMsgList.js">
+    <entry file="file://$PROJECT_DIR$/../i_service/application/library/dao/AppImg.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="82" column="43" lean-forward="false" selection-start-line="82" selection-start-column="43" selection-end-line="82" selection-end-column="43" />
+        <state relative-caret-position="493">
+          <caret line="62" column="5" lean-forward="true" selection-start-line="28" selection-start-column="4" selection-end-line="62" selection-end-column="5" />
+          <folding>
+            <marker date="1492576465000" expanded="true" signature="480:511" ph="select * fro... iservice_app_img" />
+            <marker date="1492576465000" expanded="true" signature="975:1022" ph="select count... " />
+            <marker date="1492576465000" expanded="true" signature="2101:2142" ph="select * fro... iservice_app_img" />
+            <marker date="1492576465000" expanded="true" signature="3057:3129" ph="select * fro... iservice_app_img" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../i_service/application/models/AppImg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="23" column="33" lean-forward="false" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../i_service/application/library/convertor/AppImg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="39" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../i_service/application/controllers/AppImg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="36" column="44" lean-forward="true" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../i_service/application/library/push/Umeng.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../i_service/application/library/convertor/Push.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="32" column="55" lean-forward="false" selection-start-line="32" selection-start-column="55" selection-end-line="32" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../i_service/application/models/Push.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="94" column="52" lean-forward="true" selection-start-line="94" selection-start-column="52" selection-end-line="94" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../i_service/application/library/dao/Push.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="57" column="40" lean-forward="false" selection-start-line="57" selection-start-column="40" selection-end-line="57" selection-end-column="40" />
+          <folding>
+            <marker date="1492595909000" expanded="true" signature="448:476" ph="select * fro... iservice_push" />
+            <marker date="1492595909000" expanded="true" signature="935:979" ph="select count... " />
+            <marker date="1492595909000" expanded="true" signature="2265:2303" ph="select * fro... iservice_push" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/app/appImgList.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="60" column="45" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/app/appImgList_filter.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="18" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/app/push_filter.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="22" lean-forward="true" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/assets/js/app/appImgList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="44" column="22" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../i_service/application/library/enum/Push.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/App.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="44" column="45" lean-forward="false" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/library/interceptor/RecordConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="49" column="27" lean-forward="false" selection-start-line="49" selection-start-column="27" selection-end-line="49" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/app/appImgList_edit.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="34" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/app/versionList_edit.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="38" column="31" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/assets/js/app/push.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="38" column="94" lean-forward="false" selection-start-line="38" selection-start-column="94" selection-end-line="38" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/app/push.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="68" column="25" lean-forward="false" selection-start-line="68" selection-start-column="18" selection-end-line="68" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/app/push_edit.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="40" column="112" lean-forward="false" selection-start-line="40" selection-start-column="112" selection-end-line="40" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/library/convertor/App.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="134" column="72" lean-forward="false" selection-start-line="134" selection-start-column="72" selection-end-line="134" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../i_service/application/controllers/Push.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="87" column="27" lean-forward="true" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/library/enum/App.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="31" column="27" lean-forward="false" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/library/rpc/UrlConfigApp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="414" column="15" lean-forward="false" selection-start-line="414" selection-start-column="9" selection-end-line="414" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/App.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="659">
+          <caret line="219" column="60" lean-forward="false" selection-start-line="219" selection-start-column="60" selection-end-line="219" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Appajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="713">
+          <caret line="211" column="39" lean-forward="false" selection-start-line="211" selection-start-column="39" selection-end-line="211" selection-end-column="39" />
           <folding />
         </state>
       </provider>

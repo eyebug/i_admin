@@ -40,4 +40,8 @@ class AppController extends \BaseController {
         $this->_view->assign('allowTypeImage', array_keys($allowTypeImage['data']['list']));
         $this->_view->display('app/startMsgList.phtml');
     }
+
+    public function pushAction() {
+        $this->_view->display('app/push.phtml');
+    }
 }

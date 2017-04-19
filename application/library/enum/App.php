@@ -2,6 +2,8 @@
 
 class Enum_App {
 
+    const PUSH_TYPE_ALL = 3;
+
     public static function getStartPicMustInput() {
         return array(
             'link',
@@ -23,6 +25,14 @@ class Enum_App {
     public static function getStartMsgMustInput() {
         return array(
             'type',
+            'url',
+        );
+    }
+
+    public static function getPushMustInput() {
+        return array(
+            'cn_title',
+            'en_title',
             'url',
         );
     }
