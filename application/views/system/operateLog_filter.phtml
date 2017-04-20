@@ -1,0 +1,67 @@
+<div class="hero-unit hero-unit-custom hero-unit-mgdbtm clearfix" id="listFilter">
+    <form class="form-horizontal">
+        <div class="control-group control-group-block">
+            <div class="pull-left control-item">
+                <span class="control-label">管理员：</span>
+                <div class="controls">
+                    <select id="filter_operatorid" data-paramkey='operatorid' class="input-medium select-long" op="filterCase">
+                        <option value="0">全部</option>
+                        <?php foreach ($adminUserList as $adminUser) { ?>
+                            <option value="<?php echo $adminUser['id']; ?>"><?php echo $adminUser['realName']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">操作模块：</span>
+                <div class="controls">
+                    <select id="filter_module" data-paramkey='module' class="input-medium select-long" op="filterCase">
+                        <option value="0">全部</option>
+                        <?php foreach ($modelTitleList as $modelId => $modelTitle) { ?>
+                            <option value="<?php echo $modelId; ?>"><?php echo $modelTitle['title']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">操作结果：</span>
+                <div class="controls">
+                    <select id="filter_code" data-paramkey='code' class="input-medium select-long" op="filterCase">
+                        <option value="">全部</option>
+                        <option value="0">成功</option>
+                        <option value="1">失败</option>
+                    </select>
+                </div>
+            </div>
+            <?php if ($groupList) { ?>
+                <div class="pull-left control-item">
+                    <span class="control-label">集团：</span>
+                    <div class="controls">
+                        <select id="filter_group" data-paramkey='admintypeid' class="input-medium select-long" op="filterCase">
+                            <option value="0">全部</option>
+                            <?php foreach ($groupList as $group) { ?>
+                                <option value="<?php echo $group['id']; ?>"><?php echo $group['name']; ?></option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+            <?php } ?>
+            <?php if ($hotelList) { ?>
+                <div class="pull-left control-item">
+                    <span class="control-label">物业：</span>
+                    <div class="controls">
+                        <select id="filter_hotel" data-paramkey='admintypeid' class="input-medium select-long" op="filterCase">
+                            <option value="0">全部</option>
+                            <?php foreach ($hotelList as $hotel) { ?>
+                                <option value="<?php echo $hotel['id']; ?>"><?php echo $hotel['name_lang1']; ?>（<?php echo $hotel['groupName'];?>）</option>
+                            <?php } ?>
+                        </select>
+                    </div>
+                </div>
+            <?php } ?>
+            <button id="searchBtn" class="mgtop5 pull-left btn btn-primary" type="button" data-loading-text="查询中...">
+                查询
+            </button>
+        </div>
+    </form>
+</div>

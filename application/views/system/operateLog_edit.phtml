@@ -1,0 +1,33 @@
+<div class="modal hide fade yulong" id="editor" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+     mf="modalfix" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">查看操作日志信息</h4>
+            </div>
+            <div class="modal-body" id="detailBody" mf="modalfix">
+                <form class="form-horizontal" id="listEditor">
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_ip">IP：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_ip" class="span4" readonly>
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_msg">接口返回信息：</label>
+                        <div class="controls">
+                            <textarea rows="8" id="edit_msg" class="span8" readonly></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" id="saveListData" data-loading-text="保存中...">保存</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id='closeEditor'>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

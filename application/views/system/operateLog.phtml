@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <?php include($webConfig['layoutPath'] . '/common/meta.phtml') ?>
+    <link type="text/css" rel="stylesheet" href="<?php echo $webConfig['imgDomain']; ?>css/select2.min.css"/>
+</head>
+<body>
+<?php include($webConfig['layoutPath'] . '/common/header.phtml') ?>
+<div class="container container-main">
+    <div class="row-fluid">
+        <?php include($webConfig['layoutPath'] . '/common/nav.phtml') ?>
+        <div class="span10">
+            <div class="cont-mod">
+                <div class="page-header page-header-custom">
+                    <h1 class="h1-custom">
+                        总后台操作日志
+                    </h1>
+                </div>
+                <?php include($webConfig['layoutPath'] . '/system/operateLog_filter.phtml') ?>
+                <div class="cont-mod">
+                    <div class="page-header page-header-custom"></div>
+                    <div class="reservation">
+                        <div>
+                            <div class="res-table sys-table-auto">
+                                <table width="100%" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <?php if ($admintype == Enum_Record::RECORD_GROUP_TYPE_ID) { ?>
+                                            <th>集团</th>
+                                        <?php } ?>
+                                        <?php if ($admintype == Enum_Record::RECORD_HOTEL_TYPE_ID) { ?>
+                                            <th>物业</th>
+                                        <?php } ?>
+                                        <th>模块</th>
+                                        <th>动作</th>
+                                        <th>数据ID</th>
+                                        <th>操作人</th>
+                                        <th>时间</th>
+                                        <th>结果</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="dataList"></tbody>
+                                </table>
+                            </div>
+                            <div id="pageDiv" style='padding: 20px;'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include($webConfig['layoutPath'] . '/system/operateLog_edit.phtml'); ?>
+<script type="text/javascript">
+    var YP_GLOBAL_VARS = {
+        listUrl: '/systemajax/getAdminOperateLog',
+        adminType: '<?php echo $admintype;?>'
+    };
+</script>
+<?php include($webConfig['layoutPath'] . '/common/list_common.phtml'); ?>
+<?php include($webConfig['layoutPath'] . '/common/record.phtml') ?>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_list.js"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/common/yp_form.js"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/lib/art.js"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/lib/select2/select2.full.min.js" type="text/javascript"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/lib/select2/zh-CN.js" type="text/javascript"></script>
+<script src="<?php echo $webConfig['imgDomain']; ?>js/system/operateLog.js"></script>
+</body>
+</html>
+<script id="dataList_tpl" type="text/html">
+    {{each list as info i}}
+    <tr dataId="{{info.id}}">
+        <td type="id" data-value="{{info.id}}">{{info.id}}</td>
+        <?php if ($admintype == Enum_Record::RECORD_GROUP_TYPE_ID) { ?>
+            <td type="group" data-value="{{info.group}}">{{info.group}}</td>
+        <?php } ?>
+        <?php if ($admintype == Enum_Record::RECORD_HOTEL_TYPE_ID) { ?>
+            <td type="hotel" data-value="{{info.hotel}}">{{info.hotel}}（{{info.group}}）</td>
+        <?php } ?>
+        <td type="module" data-value="{{info.module}}">{{info.module}}</td>
+        <td type="action" data-value="{{info.action}}">{{info.action}}</td>
+        <td type="dataid" data-value="{{info.dataid}}">{{info.dataid}}</td>
+        <td type="operator" data-value="{{info.operator}}">{{info.operator}}</td>
+        <td type="addtime" data-value="{{info.addtime}}">{{info.addtime}}</td>
+        <td type="result" data-value="{{info.result}}">{{info.result}}</td>
+        <td type="ip" data-value="{{info.ip}}" style="display: none;"></td>
+        <td type="msg" data-value="{{info.msg}}" style="display: none;"></td>
+        <td>
+            <button op="editDataOne" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">查看</button>
+        </td>
+    </tr>
+    {{/each}}
+</script>

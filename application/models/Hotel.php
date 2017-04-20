@@ -10,6 +10,8 @@ class HotelModel extends \BaseModel {
                 $paramList['groupid'] ? $params['groupid'] = $paramList['groupid'] : false;
                 isset($paramList['status']) ? $params['status'] = $paramList['status'] : false;
                 $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
+            } else {
+                $params['limit'] = 0;
             }
             $isCache = $cacheTime != 0 ? true : false;
             $result = $this->rpcClient->getResultRaw('GH001', $params, $isCache, $cacheTime);
@@ -94,6 +96,9 @@ class HotelModel extends \BaseModel {
             }
             $interfaceId = $params['id'] ? 'GH003' : 'GH002';
             $result = $this->rpcClient->getResultRaw($interfaceId, $params);
+            if (!$result['code']) {
+                $this->getHotelList(array(), -2);
+            }
         } while (false);
         return $result;
     }
@@ -113,14 +118,19 @@ class HotelModel extends \BaseModel {
         return $result;
     }
 
-    public function getUserList($paramList) {
+    public function getUserList($paramList, $cacheTime = 0) {
         do {
-            $paramList['id'] ? $params['id'] = $paramList['id'] : false;
-            $paramList['hotelid'] ? $params['hotelid'] = intval($paramList['hotelid']) : false;
-            $paramList['username'] ? $params['username'] = $paramList['username'] : false;
-            isset($paramList['status']) ? $params['status'] = $paramList['status'] : false;
-            $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
-            $result = $this->rpcClient->getResultRaw('GH004', $params);
+            if ($cacheTime == 0) {
+                $paramList['id'] ? $params['id'] = $paramList['id'] : false;
+                $paramList['hotelid'] ? $params['hotelid'] = intval($paramList['hotelid']) : false;
+                $paramList['username'] ? $params['username'] = $paramList['username'] : false;
+                isset($paramList['status']) ? $params['status'] = $paramList['status'] : false;
+                $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
+            } else {
+                $params['limit'] = 0;
+            }
+            $isCache = $cacheTime != 0 ? true : false;
+            $result = $this->rpcClient->getResultRaw('GH004', $params, $isCache, $cacheTime);
         } while (false);
         return (array)$result;
     }

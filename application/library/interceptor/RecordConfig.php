@@ -27,7 +27,7 @@ class Interceptor_RecordConfig {
             )
         ),
         'Hotelajax' => array(
-            'moduleType' => 3,
+            'moduleType' => 4,
             'action' => array(
                 'createhotel' => 1,
                 'updatehotel' => 2,
@@ -37,7 +37,7 @@ class Interceptor_RecordConfig {
             )
         ),
         'Appajax' => array(
-            'moduleType' => 3,
+            'moduleType' => 5,
             'action' => array(
                 'createstartpiclist' => 1,
                 'updatestartpiclist' => 2,

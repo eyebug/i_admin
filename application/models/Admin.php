@@ -2,13 +2,18 @@
 
 class AdminModel extends \BaseModel {
 
-    public function getUserList($paramList) {
+    public function getUserList($paramList, $cacheTime = 0) {
         do {
-            $paramList['id'] ? $params['id'] = $paramList['id'] : false;
-            $paramList['username'] ? $params['username'] = $paramList['username'] : false;
-            isset($paramList['status']) ? $params['status'] = $paramList['status'] : false;
-            $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
-            $result = $this->rpcClient->getResultRaw('AU004', $params);
+            if ($cacheTime == 0) {
+                $paramList['id'] ? $params['id'] = $paramList['id'] : false;
+                $paramList['username'] ? $params['username'] = $paramList['username'] : false;
+                isset($paramList['status']) ? $params['status'] = $paramList['status'] : false;
+                $this->setPageParam($params, $paramList['page'], $paramList['limit'], 15);
+            } else {
+                $params['limit'] = 0;
+            }
+            $isCache = $cacheTime != 0 ? true : false;
+            $result = $this->rpcClient->getResultRaw('AU004', $params, $isCache, $cacheTime);
         } while (false);
         return (array)$result;
     }
@@ -37,6 +42,9 @@ class AdminModel extends \BaseModel {
             }
             $interfaceId = $params['id'] ? 'AU006' : 'AU005';
             $result = $this->rpcClient->getResultRaw($interfaceId, $params);
+            if (!$result['code']) {
+                $this->getUserList(array(), -2);
+            }
         } while (false);
         return $result;
     }

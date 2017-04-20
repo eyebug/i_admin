@@ -210,7 +210,50 @@ class Rpc_UrlConfigAdmin {
                     'style' => 'interface'
                 )
             )
-        )
+        ),
+        'AU007' => array(
+            'name' => '获取后台操作日志列表',
+            'method' => 'getOperateLogList',
+            'auth' => true,
+            'url' => '/OperateLog/getOperateLogList',
+            'param' => array(
+                'operatorid' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'module' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'code' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'admintype' => array(
+                    'required' => true,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'admintypeid' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'page' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'limit' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+            )
+        ),
     );
 
     /**
