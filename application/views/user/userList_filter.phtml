@@ -1,0 +1,56 @@
+<div class="hero-unit hero-unit-custom hero-unit-mgdbtm clearfix" id="listFilter">
+    <form class="form-horizontal">
+        <div class="control-group control-group-block">
+            <div class="pull-left control-item">
+                <span class="control-label">ID：</span>
+                <div class="controls">
+                    <input id="userId" data-paramkey='id' type="number" class="form-control input-medium"
+                           op="filterCase" value=''/>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">房间号：</span>
+                <div class="controls">
+                    <input id="filter_roomno" data-paramkey='room_no' type="text" class="form-control input-medium" op="filterCase"/>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">名称：</span>
+                <div class="controls">
+                    <input id="filter_fullname" data-paramkey='fullname' type="text" class="form-control input-medium" op="filterCase"/>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">最后登录物业：</span>
+                <div class="controls">
+                    <select id="filter_hotelid" data-paramkey='hotelid' class="input-medium select-long" op="filterCase">
+                        <option value="">全部</option>
+                        <?php foreach ($hotelList as $hotel) { ?>
+                            <option value="<?php echo $hotel['id']; ?>"><?php echo $hotel['name_lang1']; ?>（<?php echo $hotel['groupName'];?>）</option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">最后登录集团：</span>
+                <div class="controls">
+                    <select id="filter_groupid" data-paramkey='groupid' class="input-medium select-long" op="filterCase">
+                        <option value="">全部</option>
+                        <?php foreach ($groupList as $group) { ?>
+                            <option value="<?php echo $group['id']; ?>"><?php echo $group['name']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-left control-item">
+                <span class="control-label">OID：</span>
+                <div class="controls">
+                    <input id="filter_oid" data-paramkey='oid' type="text" class="form-control input-medium" op="filterCase"/>
+                </div>
+            </div>
+            <button id="searchBtn" class="mgtop5 pull-left btn btn-primary" type="button" data-loading-text="查询中...">
+                查询
+            </button>
+        </div>
+    </form>
+</div>
