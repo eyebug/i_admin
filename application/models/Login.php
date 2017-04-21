@@ -86,7 +86,7 @@ class LoginModel extends \BaseModel {
             $aId = Util_Http::getCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_AID);
             if ($sId && $aId) {
                 $memKey = Auth_Login::genLoginMemKey($sId, $aId);
-                Cache_MemoryCache::getInstance()->delete($memKey);
+                Cache_Redis::getInstance()->delete($memKey);
             }
             Util_Http::setCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_SID, '', time());
             Util_Http::setCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_AID, '', time());
