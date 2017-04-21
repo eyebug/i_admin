@@ -7,7 +7,7 @@ class Rpc_UrlConfigAdmin {
             'name' => '后台登录',
             'method' => 'getUserInfo',
             'auth' => true,
-            'url' => '/IserviceAdministrator/login',
+            'url' => '/Iserviceadministrator/login',
             'param' => array(
                 'username' => array(
                     'required' => true,
@@ -30,7 +30,7 @@ class Rpc_UrlConfigAdmin {
             'name' => '新增后台操作日志',
             'method' => 'addOperateLog',
             'auth' => true,
-            'url' => '/OperateLog/addOperateLog',
+            'url' => '/Operatelog/addOperateLog',
             'param' => array(
                 'operatorid' => array(
                     'required' => true,
@@ -83,7 +83,7 @@ class Rpc_UrlConfigAdmin {
             'name' => '修改登录密码',
             'method' => 'changePass',
             'auth' => true,
-            'url' => '/IserviceAdministrator/changePass',
+            'url' => '/Iserviceadministrator/changePass',
             'param' => array(
                 'userid' => array(
                     'required' => true,
@@ -106,7 +106,7 @@ class Rpc_UrlConfigAdmin {
             'name' => '获取帐号列表',
             'method' => 'getIserviceAdministratorList',
             'auth' => true,
-            'url' => '/IserviceAdministrator/getIserviceAdministratorList',
+            'url' => '/Iserviceadministrator/getIserviceAdministratorList',
             'param' => array(
                 'id' => array(
                     'required' => false,
@@ -139,7 +139,7 @@ class Rpc_UrlConfigAdmin {
             'name' => '新建管理员',
             'method' => 'addIserviceAdministrator',
             'auth' => true,
-            'url' => '/IserviceAdministrator/addIserviceAdministrator',
+            'url' => '/Iserviceadministrator/addIserviceAdministrator',
             'param' => array(
                 'username' => array(
                     'required' => true,
@@ -177,7 +177,7 @@ class Rpc_UrlConfigAdmin {
             'name' => '更新管理员',
             'method' => 'updateIserviceAdministratorById',
             'auth' => true,
-            'url' => '/IserviceAdministrator/updateIserviceAdministratorById',
+            'url' => '/Iserviceadministrator/updateIserviceAdministratorById',
             'param' => array(
                 'id' => array(
                     'required' => true,
@@ -215,7 +215,7 @@ class Rpc_UrlConfigAdmin {
             'name' => '获取后台操作日志列表',
             'method' => 'getOperateLogList',
             'auth' => true,
-            'url' => '/OperateLog/getOperateLogList',
+            'url' => '/Operatelog/getOperateLogList',
             'param' => array(
                 'operatorid' => array(
                     'required' => false,
