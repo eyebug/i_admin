@@ -42,6 +42,9 @@ class AppController extends \BaseController {
     }
 
     public function pushAction() {
+        $baseModel = new BaseModel();
+        $platform = $baseModel->getPlatformList();
+        $this->_view->assign('platform', $platform);
         $this->_view->display('app/push.phtml');
     }
 

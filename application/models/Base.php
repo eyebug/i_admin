@@ -60,7 +60,16 @@ class BaseModel {
      * @return array
      */
     public function uploadFile($file, $path) {
-        $result = $this->rpcClient->getResultRaw('B003', array('uploadfile' => $file, 'type' => $path));
+        $result['code'] = 1;
+        if ($file['error']) {
+            switch ($file['error']) {
+                case UPLOAD_ERR_INI_SIZE:
+                    $result['msg'] = '上传的文件超过大小限制：' . ini_get('upload_max_filesize');
+                    break;
+            }
+        } else {
+            $result = $this->rpcClient->getResultRaw('B003', array('uploadfile' => $file, 'type' => $path));
+        }
         return $result;
     }
 
