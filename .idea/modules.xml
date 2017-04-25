@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/easyiservice.iml" filepath="$PROJECT_DIR$/.idea/easyiservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/i_admin.iml" filepath="$PROJECT_DIR$/.idea/i_admin.iml" />
     </modules>
   </component>
 </project>

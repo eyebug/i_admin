@@ -82,6 +82,21 @@ class Enum_Record {
                 2 => '修改登录密码',
             )
         ),
+        2 => array(
+            'title' => '集团管理',
+            'action' => array(
+                1 => '创建集团帐号',
+                2 => '修改集团帐号',
+            )
+        ),
+        3 => array(
+            'title' => 'APP管理',
+            'action' => array(
+                1 => '创建启动消息',
+                2 => '修改启动消息信息',
+                3 => '创建集团推送',
+            )
+        ),
     );
 
     public static function getGroupRecordTitle() {

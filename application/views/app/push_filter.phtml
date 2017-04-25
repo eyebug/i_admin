@@ -9,6 +9,17 @@
                 </div>
             </div>
             <div class="pull-left control-item">
+                <span class="control-label">设备类型：</span>
+                <div class="controls">
+                    <select id="filter_platform" data-paramkey="platform" class="input-medium select-long" op="filterCase">
+                        <option value="all">全部</option>
+                        <?php foreach ($platform as $key => $value) { ?>
+                            <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+            </div>
+            <div class="pull-left control-item">
                 <span class="control-label">推送结果：</span>
                 <div class="controls">
                     <select id="filter_result" data-paramkey="result" class="input-medium select-long" op="filterCase">

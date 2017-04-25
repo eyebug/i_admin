@@ -12,6 +12,16 @@
                 <form class="form-horizontal" id="listEditor">
                     <input type="hidden" id="edit_id" value="0">
                     <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_platform">平台：</label>
+                        <div class="controls">
+                            <select id="edit_platform" data-title="平台">
+                                <?php foreach ($platform as $key => $value) { ?>
+                                    <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
                         <label class="control-label" for="edit_cnTitle">标题（中文）：</label>
                         <div class="controls">
                             <input type="text" id="edit_cnTitle" placeholder="标题（中文）" class="span8" data-title="标题（中文）">

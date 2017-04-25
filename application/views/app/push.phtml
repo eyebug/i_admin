@@ -30,6 +30,7 @@
                                         <th>ID</th>
                                         <th>标题（中文）</th>
                                         <th>标题（英文）</th>
+                                        <th>平台</th>
                                         <th>落地URL</th>
                                         <th>推送结果</th>
                                         <th>创建时间</th>
@@ -68,6 +69,7 @@
         <td type="id" data-value="{{info.id}}">{{info.id}}</td>
         <td type="cnTitle" data-value="{{info.cn_title}}">{{info.cn_title}}</td>
         <td type="enTitle" data-value="{{info.en_title}}">{{info.en_title}}</td>
+        <td type="platform" data-value="{{info.platform}}">{{info.platformShow}}</td>
         <td type="url" data-value="{{info.url}}">
             {{if info.url}}
             <a href="{{info.url}}" target="_blank">
