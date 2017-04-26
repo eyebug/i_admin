@@ -418,8 +418,20 @@ class Rpc_UrlConfigHotel {
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
+                ),
+                'permission' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
                 )
             )
+        ),
+        'GH007' => array(
+            'name' => '获取物业后台管理员帐号权限列表',
+            'method' => 'getHotelPermission',
+            'auth' => true,
+            'url' => '/HotelAdministrator/getHotelPermission',
+            'param' => array()
         )
     );
 

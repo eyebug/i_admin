@@ -78,6 +78,7 @@ class Convertor_Hotel extends Convertor_Base {
                 $dataTemp['hotelName'] = $value['hotelName'];
                 $dataTemp['groupId'] = $value['groupId'];
                 $dataTemp['groupName'] = $value['groupName'];
+                $dataTemp['permission'] = $value['permission'];
                 $dataTemp['statusShow'] = $value['status'] ? '启用' : '禁用';
                 $dataTemp['createTime'] = $value['createTime'] ? date('Y-m-d H:i:s', $value['createTime']) : '';
                 $dataTemp['lastLoginTime'] = $value['lastLoginTime'] ? date('Y-m-d H:i:s', $value['lastLoginTime']) : '';

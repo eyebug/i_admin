@@ -1,0 +1,29 @@
+<div class="modal hide fade yulong" id="permissionEditor" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" mf="modalfix" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">权限修改</h4>
+            </div>
+            <div class="modal-body" id="detailBody" mf="modalfix">
+                <form class="form-horizontal" id="permissionEditorList">
+                    <?php foreach ($permissionList as $key => $permission) { ?>
+                        <div class="control-group" op="editFiled">
+                            <label class="control-label" for="edit_permission<?php echo $key; ?>"><?php echo $permission; ?>：</label>
+                            <div class="controls">
+                                <input type="checkbox" op="edit_permission" id="edit_permission<?php echo $key; ?>" value="<?php echo $key; ?>"
+                                       data-title="<?php echo $permission; ?>">
+                            </div>
+                        </div>
+                    <?php } ?>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" id="savePermission" data-loading-text="保存中...">保存</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id='closeEditor'>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

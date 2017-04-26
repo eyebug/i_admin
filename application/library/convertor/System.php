@@ -22,7 +22,7 @@ class Convertor_System extends Convertor_Base {
                 $dataTemp['addtime'] = $value['addtime'] ? date('Y-m-d H:i:s', $value['addtime']) : '';
                 $miscinfo = json_decode($value['miscinfo'], true);
                 $dataTemp['result'] = $value['code'] ? '失败' : '成功';
-                $dataTemp['msg'] = $miscinfo['msg'];
+                $dataTemp['resultMsg'] = $miscinfo['msg'];
                 $dataTemp['ip'] = Util_Tools::ntoip($value['ip']);
                 $dataTemp['hotel'] = $value['hotelName'];
                 $dataTemp['group'] = $value['groupName'];

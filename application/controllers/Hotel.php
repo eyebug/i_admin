@@ -26,6 +26,8 @@ class HotelController extends \BaseController {
         $hotelModel = new HotelModel();
         $hotelList = $hotelModel->getHotelList(array(), 3600 * 6);
         $this->_view->assign('hotelList', $hotelList['data']['list']);
+        $permissionList = $hotelModel->getHotelPermission(3600 * 6);
+        $this->_view->assign('permissionList', $permissionList['data']['list']);
         $this->_view->display('hotel/userList.phtml');
     }
 }

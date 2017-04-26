@@ -51,6 +51,7 @@
     </div>
 </div>
 <?php include($webConfig['layoutPath'] . '/hotel/userList_edit.phtml'); ?>
+<?php include($webConfig['layoutPath'] . '/hotel/userList_permission.phtml'); ?>
 <script type="text/javascript">
     var YP_GLOBAL_VARS = {
         checkParams: '<?php echo json_encode(Enum_Admin::getAdminUserMustInput());?>',
@@ -81,8 +82,10 @@
         <td>{{info.lastLoginTime}}</td>
         <td>{{info.lastLoginIp}}</td>
         <td>{{info.createTime}}</td>
+        <td type="permission" data-value="{{info.permission}}" style="display:none;"></td>
         <td>
             <button op="editDataOne" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">修改</button>
+            <button op="editPermission" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">权限管理</button>
         </td>
     </tr>
     {{/each}}

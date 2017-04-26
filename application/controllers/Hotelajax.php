@@ -115,6 +115,7 @@ class HotelajaxController extends \BaseController {
         $paramList['remark'] = trim($this->getPost("remark"));
         $paramList['status'] = intval($this->getPost("status"));
         $paramList['hotelid'] = intval($this->getPost("hotelid"));
+        $paramList['permission'] = trim($this->getPost("permission"));
         return $paramList;
     }
 
