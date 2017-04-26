@@ -34,6 +34,7 @@ class Interceptor_RecordConfig {
                 'createuser' => 3,
                 'updateuser' => 4,
                 'updatehotellanglist' => 5,
+                'updateuserpermission' => 6,
             )
         ),
         'Appajax' => array(

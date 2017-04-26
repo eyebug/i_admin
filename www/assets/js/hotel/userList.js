@@ -131,6 +131,10 @@ iAdmin.hotelUserList = (function ($, ypGlobal) {
             if (statusDelete.length > 0) {
                 statusRecord += '减少了' + statusDelete.join(",") + ';';
             }
+            if (statusInsert.length == 0 && statusDelete.length == 0) {
+                permissionModal.modal('hide');
+                return false;
+            }
             var saveParams = {};
             saveParams.id = savePermission.data('userid');
             saveParams.permission = permission.join(',');
@@ -142,7 +146,7 @@ iAdmin.hotelUserList = (function ($, ypGlobal) {
             saveParams[YP_RECORD_VARS.recordPostVar] = recordLog;
 
             var xhr = ajax.ajax({
-                url: ypGlobal.updateBaseUrl,
+                url: '/hotelajax/updateUserPermission',
                 type: "POST",
                 data: saveParams,
                 cache: false,

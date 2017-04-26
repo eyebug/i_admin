@@ -115,7 +115,6 @@ class HotelajaxController extends \BaseController {
         $paramList['remark'] = trim($this->getPost("remark"));
         $paramList['status'] = intval($this->getPost("status"));
         $paramList['hotelid'] = intval($this->getPost("hotelid"));
-        $paramList['permission'] = trim($this->getPost("permission"));
         return $paramList;
     }
 
@@ -136,6 +135,13 @@ class HotelajaxController extends \BaseController {
         $paramList = $this->handlerUserSaveParams();
         $paramList['id'] = intval($this->getPost("id"));
         $result = $this->hotelModal->saveUserDataInfo($paramList);
+        $this->echoJson($result);
+    }
+
+    public function updateUserPermissionAction() {
+        $paramList['id'] = intval($this->getPost("id"));
+        $paramList['permission'] = trim($this->getPost("permission"));
+        $result = $this->hotelModal->saveUserPermission($paramList);
         $this->echoJson($result);
     }
 }

@@ -395,12 +395,12 @@ class Rpc_UrlConfigHotel {
                     'style' => 'interface'
                 ),
                 'username' => array(
-                    'required' => true,
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),
                 'realname' => array(
-                    'required' => true,
+                    'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
                 ),

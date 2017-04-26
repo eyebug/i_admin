@@ -143,16 +143,14 @@ class HotelModel extends \BaseModel {
                 'code' => 1,
                 'msg' => '参数错误'
             );
-            if (empty($params['permission'])) {
-                foreach ($checkParams as $checkParamOne) {
-                    if (empty($params[$checkParamOne])) {
-                        break 2;
-                    }
+            foreach ($checkParams as $checkParamOne) {
+                if (empty($params[$checkParamOne])) {
+                    break 2;
                 }
-                if (empty($params['id']) && empty($params['password'])) {
-                    $result['msg'] = '新建密码不能为空';
-                    break;
-                }
+            }
+            if (empty($params['id']) && empty($params['password'])) {
+                $result['msg'] = '新建密码不能为空';
+                break;
             }
             if ($params['password']) {
                 $params['password'] = Enum_Login::getMd5Pass($params['password']);
@@ -171,5 +169,20 @@ class HotelModel extends \BaseModel {
             $result = $this->rpcClient->getResultRaw('GH007', array(), $isCache, $cacheTime);
         } while (false);
         return (array)$result;
+    }
+
+    public function saveUserPermission($paramList) {
+        $params = $this->initParam($paramList);
+        do {
+            $result = array(
+                'code' => 1,
+                'msg' => '参数错误'
+            );
+            if (empty($params['id'])) {
+                break;
+            }
+            $result = $this->rpcClient->getResultRaw('GH006', $params);
+        } while (false);
+        return $result;
     }
 }
