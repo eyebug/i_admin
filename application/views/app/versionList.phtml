@@ -50,7 +50,7 @@
 <?php include($webConfig['layoutPath'] . '/app/versionList_edit.phtml'); ?>
 <script type="text/javascript">
     var YP_GLOBAL_VARS = {
-        checkParams: '<?php echo json_encode(Enum_app::getVersionMustInput());?>',
+        checkParams: '<?php echo json_encode(Enum_App::getVersionMustInput());?>',
         listUrl: '/appajax/getVersionList',
         createBaseUrl: '/appajax/createVersion',
         updateBaseUrl: '/appajax/updateVersion',

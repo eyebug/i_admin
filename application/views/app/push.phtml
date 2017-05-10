@@ -50,7 +50,7 @@
 <?php include($webConfig['layoutPath'] . '/app/push_edit.phtml'); ?>
 <script type="text/javascript">
     var YP_GLOBAL_VARS = {
-        checkParams: '<?php echo json_encode(Enum_app::getPushMustInput());?>',
+        checkParams: '<?php echo json_encode(Enum_App::getPushMustInput());?>',
         listUrl: '/appajax/getPushList',
         createBaseUrl: '/appajax/createPush',
     };

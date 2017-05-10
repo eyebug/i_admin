@@ -48,7 +48,7 @@
 <?php include($webConfig['layoutPath'] . '/app/startPicList_edit.phtml'); ?>
 <script type="text/javascript">
     var YP_GLOBAL_VARS = {
-        checkParams: '<?php echo json_encode(Enum_app::getStartPicMustInput());?>',
+        checkParams: '<?php echo json_encode(Enum_App::getStartPicMustInput());?>',
         listUrl: '/appajax/getStartPicList',
         createBaseUrl: '/appajax/createStartPicList',
         updateBaseUrl: '/appajax/updateStartPicList',
