@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author ZXM
+ * APP请求
  */
 class AppajaxController extends \BaseController {
 
@@ -21,6 +21,9 @@ class AppajaxController extends \BaseController {
         $this->appConvertor = new Convertor_App();
     }
 
+    /**
+     * 获取广告图列表
+     */
     public function getStartPicListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $status = $this->getPost('status');
@@ -51,7 +54,7 @@ class AppajaxController extends \BaseController {
     }
 
     /**
-     * 更新集团信息
+     * 更新启动广告图
      */
     public function updateStartPicListAction() {
         $paramList = $this->handlerStartPicSaveParams();
@@ -60,6 +63,9 @@ class AppajaxController extends \BaseController {
         $this->echoJson($result);
     }
 
+    /**
+     * 获取版本列表
+     */
     public function getVersionListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['platform'] = intval($this->getPost('platform'));
@@ -104,6 +110,9 @@ class AppajaxController extends \BaseController {
         $this->echoJson($result);
     }
 
+    /**
+     * 获取启动图列表
+     */
     public function getAppImgListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $status = $this->getPost('status');
@@ -143,6 +152,9 @@ class AppajaxController extends \BaseController {
         $this->echoJson($result);
     }
 
+    /**
+     * 获取启动消息列表
+     */
     public function getStartMsgListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['type'] = intval($this->getPost('type'));
@@ -191,6 +203,9 @@ class AppajaxController extends \BaseController {
         $this->echoJson($result);
     }
 
+    /**
+     * 获取推送列表
+     */
     public function getPushListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['type'] = Enum_App::PUSH_TYPE_ALL;
@@ -203,6 +218,9 @@ class AppajaxController extends \BaseController {
         $this->echoJson($result);
     }
 
+    /**
+     * 新建全量推送
+     */
     public function createPushAction() {
         $paramList = array();
         $paramList['type'] = Enum_App::PUSH_TYPE_ALL;
@@ -216,6 +234,9 @@ class AppajaxController extends \BaseController {
         $this->echoJson($result);
     }
 
+    /**
+     * 获取问题反馈列表
+     */
     public function getFeedbackListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['email'] = intval($this->getPost('email'));

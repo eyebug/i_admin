@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author ZXM
+ * 物业请求
  */
 class HotelajaxController extends \BaseController {
 
@@ -21,6 +21,9 @@ class HotelajaxController extends \BaseController {
         $this->hotelConvertor = new Convertor_Hotel();
     }
 
+    /**
+     * 获取物业列表
+     */
     public function getHotelListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['name'] = $this->getPost('name');
@@ -33,7 +36,7 @@ class HotelajaxController extends \BaseController {
     }
 
     /**
-     * 新建和编辑集团信息数据
+     * 新建和编辑物业信息数据
      */
     private function handlerHotelSaveParams() {
         $paramList = array();
@@ -64,7 +67,7 @@ class HotelajaxController extends \BaseController {
     }
 
     /**
-     * 新建集团信息
+     * 新建物业信息
      */
     public function createHotelAction() {
         $paramList = $this->handlerHotelSaveParams();
@@ -73,7 +76,7 @@ class HotelajaxController extends \BaseController {
     }
 
     /**
-     * 更新集团信息
+     * 更新物业信息
      */
     public function updateHotelAction() {
         $paramList = $this->handlerHotelSaveParams();
@@ -82,6 +85,9 @@ class HotelajaxController extends \BaseController {
         $this->echoJson($result);
     }
 
+    /**
+     * 更新物业语言
+     */
     public function updateHotelLangListAction() {
         $paramList['id'] = intval($this->getPost("id"));
         $paramList['lang_list'] = trim($this->getPost("lang"));
@@ -90,7 +96,7 @@ class HotelajaxController extends \BaseController {
     }
 
     /**
-     * 获取用户列表
+     * 获取物业管理员列表
      */
     public function getUserListAction() {
         $paramList['page'] = $this->getPost('page');
@@ -105,7 +111,7 @@ class HotelajaxController extends \BaseController {
     }
 
     /**
-     * 新建和编辑集团信息数据
+     * 新建和编辑物业管理员数据
      */
     private function handlerUserSaveParams() {
         $paramList = array();
@@ -119,7 +125,7 @@ class HotelajaxController extends \BaseController {
     }
 
     /**
-     * 新建集团信息
+     * 新建物业管理员
      */
     public function createUserAction() {
         $paramList = $this->handlerUserSaveParams();
@@ -129,7 +135,7 @@ class HotelajaxController extends \BaseController {
     }
 
     /**
-     * 更新集团信息
+     * 更新物业管理员
      */
     public function updateUserAction() {
         $paramList = $this->handlerUserSaveParams();
@@ -138,6 +144,9 @@ class HotelajaxController extends \BaseController {
         $this->echoJson($result);
     }
 
+    /**
+     * 更新物业管理员权限
+     */
     public function updateUserPermissionAction() {
         $paramList['id'] = intval($this->getPost("id"));
         $paramList['permission'] = trim($this->getPost("permission"));

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author ZXM
+ * 用户请求
  */
 class UserajaxController extends \BaseController {
 
@@ -21,6 +21,9 @@ class UserajaxController extends \BaseController {
         $this->userConvertor = new Convertor_User();
     }
 
+    /**
+     * 获取用户列表
+     */
     public function getUserListAction() {
         $paramList['page'] = intval($this->getPost('page'));
         $paramList['id'] = intval($this->getPost('id'));

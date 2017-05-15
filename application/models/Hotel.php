@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 物业Model
+ */
 class HotelModel extends \BaseModel {
 
+    /**
+     * 获取物业列表
+     */
     public function getHotelList($paramList, $cacheTime = 0) {
         do {
             if ($cacheTime == 0) {
@@ -19,6 +25,9 @@ class HotelModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建和编辑物业信息数据
+     */
     public function saveHotelDataInfo($paramList) {
         $params = $this->initParam();
         do {
@@ -103,6 +112,9 @@ class HotelModel extends \BaseModel {
         return $result;
     }
 
+    /**
+     * 更新物业语言
+     */
     public function saveHotelLangList($paramList) {
         $params = $this->initParam($paramList);
         do {
@@ -118,6 +130,9 @@ class HotelModel extends \BaseModel {
         return $result;
     }
 
+    /**
+     * 获取物业管理员列表
+     */
     public function getUserList($paramList, $cacheTime = 0) {
         do {
             if ($cacheTime == 0) {
@@ -135,6 +150,9 @@ class HotelModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建和编辑物业管理员数据
+     */
     public function saveUserDataInfo($paramList) {
         $params = $this->initParam($paramList);
         do {
@@ -163,6 +181,9 @@ class HotelModel extends \BaseModel {
         return $result;
     }
 
+    /**
+     * 获取物业管理权限
+     */
     public function getHotelPermission($cacheTime = 0) {
         do {
             $isCache = $cacheTime != 0 ? true : false;
@@ -171,6 +192,9 @@ class HotelModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 更新物业管理员权限
+     */
     public function saveUserPermission($paramList) {
         $params = $this->initParam($paramList);
         do {

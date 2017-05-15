@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 集团Model
+ */
 class GroupModel extends \BaseModel {
 
+    /**
+     * 获取集团列表
+     */
     public function getGroupList($paramList, $cacheTime = 0) {
         do {
             if ($cacheTime == 0) {
@@ -15,6 +21,9 @@ class GroupModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建和编辑集团信息数据
+     */
     public function saveGroupDataInfo($paramList) {
         $params = $this->initParam($paramList);
         do {
@@ -38,6 +47,9 @@ class GroupModel extends \BaseModel {
         return $result;
     }
 
+    /**
+     * 获取用户列表
+     */
     public function getUserList($paramList, $cacheTime = 0) {
         do {
             if ($cacheTime == 0) {
@@ -55,6 +67,9 @@ class GroupModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建和编辑集团管理员数据
+     */
     public function saveUserDataInfo($paramList) {
         $params = $this->initParam($paramList);
         do {

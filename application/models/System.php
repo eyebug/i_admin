@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 系统管理Model
+ */
 class SystemModel extends \BaseModel {
 
+    /**
+     * 获取操作日志列表
+     */
     public function getOperateLogList($paramList) {
         do {
             $paramList['operatorid'] ? $params['operatorid'] = $paramList['operatorid'] : false;

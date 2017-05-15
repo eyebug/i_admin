@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author ZXM
+ * 集团请求
  */
 class GroupajaxController extends \BaseController {
 
@@ -21,6 +21,9 @@ class GroupajaxController extends \BaseController {
         $this->groupConvertor = new Convertor_Group();
     }
 
+    /**
+     * 获取集团列表
+     */
     public function getGroupListAction() {
         $paramList['page'] = $this->getPost('page');
         $result = $this->groupModal->getGroupList($paramList);
@@ -74,7 +77,7 @@ class GroupajaxController extends \BaseController {
     }
 
     /**
-     * 新建和编辑集团信息数据
+     * 新建和编辑集团管理员数据
      */
     private function handlerUserSaveParams() {
         $paramList = array();
@@ -88,7 +91,7 @@ class GroupajaxController extends \BaseController {
     }
 
     /**
-     * 新建集团信息
+     * 新建集团管理员
      */
     public function createUserAction() {
         $paramList = $this->handlerUserSaveParams();
@@ -98,7 +101,7 @@ class GroupajaxController extends \BaseController {
     }
 
     /**
-     * 更新集团信息
+     * 更新集团管理员
      */
     public function updateUserAction() {
         $paramList = $this->handlerUserSaveParams();

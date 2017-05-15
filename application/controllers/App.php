@@ -1,11 +1,13 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: ZXM
+ * APP管理
  */
 class AppController extends \BaseController {
 
+    /**
+     * 启动广告图管理
+     */
     public function startPicListAction() {
         $baseModel = new BaseModel();
         $allowTypeImage = $baseModel->getAllowUploadFileType(Enum_Oss::OSS_PATH_IMAGE);
@@ -13,6 +15,9 @@ class AppController extends \BaseController {
         $this->_view->display('app/startPicList.phtml');
     }
 
+    /**
+     * 版本管理
+     */
     public function versionListAction() {
         $baseModel = new BaseModel();
         $platformList = $baseModel->getPlatformList();
@@ -20,6 +25,9 @@ class AppController extends \BaseController {
         $this->_view->display('app/versionList.phtml');
     }
 
+    /**
+     * APP启动图管理
+     */
     public function appImgListAction() {
         $baseModel = new BaseModel();
         $allowTypeImage = $baseModel->getAllowUploadFileType(Enum_Oss::OSS_PATH_IMAGE);
@@ -27,6 +35,9 @@ class AppController extends \BaseController {
         $this->_view->display('app/appImgList.phtml');
     }
 
+    /**
+     * 启动消息管理
+     */
     public function startMsgListAction() {
         $groupModel = new GroupModel();
         $groupList = $groupModel->getGroupList(array(), 3600 * 6);
@@ -41,6 +52,9 @@ class AppController extends \BaseController {
         $this->_view->display('app/startMsgList.phtml');
     }
 
+    /**
+     * 全量推送
+     */
     public function pushAction() {
         $baseModel = new BaseModel();
         $platform = $baseModel->getPlatformList();
@@ -48,6 +62,9 @@ class AppController extends \BaseController {
         $this->_view->display('app/push.phtml');
     }
 
+    /**
+     * APP问题反馈列表
+     */
     public function feedbackListAction() {
         $this->_view->display('app/feedbackList.phtml');
     }

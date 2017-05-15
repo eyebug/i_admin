@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * 集团管理数据转换
+ */
 class Convertor_Group extends Convertor_Base {
 
+    /**
+     * 集团列表
+     * @param $list
+     * @return array
+     */
     public function groupListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),
@@ -26,6 +34,11 @@ class Convertor_Group extends Convertor_Base {
         return $data;
     }
 
+    /**
+     * 集团管理员
+     * @param $list
+     * @return array
+     */
     public function userListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),

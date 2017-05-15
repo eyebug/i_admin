@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 城市Model
+ */
 class CityModel extends \BaseModel {
 
+    /**
+     * 获取城市列表
+     */
     public function getCityList($paramList, $cacheTime = 0) {
         do {
             if ($cacheTime == 0) {

@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * APP管理
+ */
 class AppModel extends \BaseModel {
 
+    /**
+     * 获取广告图列表
+     */
     public function getStartPicList($paramList) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;
@@ -12,6 +18,9 @@ class AppModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建和编辑启动广告图数据
+     */
     public function saveStartPicDataInfo($paramList) {
         $params = $this->initParam();
         do {
@@ -46,6 +55,9 @@ class AppModel extends \BaseModel {
         return $result;
     }
 
+    /**
+     * 获取版本列表
+     */
     public function getVersionList($paramList) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;
@@ -58,6 +70,9 @@ class AppModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建和编辑版本数据
+     */
     public function saveVersionDataInfo($paramList) {
         $params = $this->initParam();
         do {
@@ -85,6 +100,9 @@ class AppModel extends \BaseModel {
         return $result;
     }
 
+    /**
+     * 获取启动图列表
+     */
     public function getAppImgList($paramList) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;
@@ -95,6 +113,9 @@ class AppModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建和编辑启动图数据
+     */
     public function saveAppImgDataInfo($paramList) {
         $params = $this->initParam();
         do {
@@ -132,6 +153,9 @@ class AppModel extends \BaseModel {
         return $result;
     }
 
+    /**
+     * 获取启动消息列表
+     */
     public function getStartMsgList($paramList) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;
@@ -146,6 +170,9 @@ class AppModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建和编辑启动消息数据
+     */
     public function saveStartMsgDataInfo($paramList) {
         $params = $this->initParam();
         do {
@@ -185,6 +212,9 @@ class AppModel extends \BaseModel {
         return $result;
     }
 
+    /**
+     * 获取推送列表
+     */
     public function getPushList($paramList) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;
@@ -197,6 +227,9 @@ class AppModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建全量推送
+     */
     public function createPush($paramList) {
         $params = $this->initParam();
         do {
@@ -224,6 +257,9 @@ class AppModel extends \BaseModel {
         return $result;
     }
 
+    /**
+     * 获取问题反馈列表
+     */
     public function getFeedbackList($paramList) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;

@@ -1,11 +1,13 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: ZXM
+ * 系统管理
  */
 class SystemController extends \BaseController {
 
+    /**
+     * 总后台管理员操作日志
+     */
     public function adminOperateLogAction() {
         $adminModel = new AdminModel();
         $adminUserList = $adminModel->getUserList(array(), 3600 * 3);
@@ -15,6 +17,9 @@ class SystemController extends \BaseController {
         $this->_view->display('system/operateLog.phtml');
     }
 
+    /**
+     * 集团后台操作日志
+     */
     public function groupOperateLogAction() {
         $groupModel = new GroupModel();
         $adminUserList = $groupModel->getUserList(array(), 3600 * 3);
@@ -26,6 +31,9 @@ class SystemController extends \BaseController {
         $this->_view->display('system/operateLog.phtml');
     }
 
+    /**
+     * 物业后台操作日志
+     */
     public function hotelOperateLogAction() {
         $hotelModel = new HotelModel();
         $adminUserList = $hotelModel->getUserList(array(), 3600 * 3);

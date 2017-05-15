@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 用户Model
+ */
 class UserModel extends \BaseModel {
 
+    /**
+     * 获取用户列表
+     */
     public function getUserList($paramList) {
         do {
             $paramList['id'] ? $params['id'] = $paramList['id'] : false;

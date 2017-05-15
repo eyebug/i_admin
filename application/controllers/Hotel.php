@@ -1,11 +1,13 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: ZXM
+ * 物业管理
  */
 class HotelController extends \BaseController {
 
+    /**
+     * 物业列表
+     */
     public function hotelListAction() {
         $groupModel = new GroupModel();
         $cityModel = new CityModel();
@@ -22,6 +24,9 @@ class HotelController extends \BaseController {
         $this->_view->display('hotel/hotelList.phtml');
     }
 
+    /**
+     * 物业管理员
+     */
     public function userListAction() {
         $hotelModel = new HotelModel();
         $hotelList = $hotelModel->getHotelList(array(), 3600 * 6);

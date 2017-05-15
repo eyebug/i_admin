@@ -1,11 +1,13 @@
 <?php
 
 /**
- * Created by PhpStorm.
- * User: ZXM
+ * APP用户
  */
 class UserController extends \BaseController {
 
+    /**
+     * 获取用户列表
+     */
     public function userListAction() {
         $groupModel = new GroupModel();
         $groupList = $groupModel->getGroupList(array(), 3600 * 6);

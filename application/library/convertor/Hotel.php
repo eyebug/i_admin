@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * 物业管理数据转换
+ */
 class Convertor_Hotel extends Convertor_Base {
 
+    /**
+     * 物业列表
+     * @param $list
+     * @return array
+     */
     public function hotelListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),
@@ -59,6 +67,11 @@ class Convertor_Hotel extends Convertor_Base {
         return $data;
     }
 
+    /**
+     * 物业管理员列表
+     * @param $list
+     * @return array
+     */
     public function userListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),

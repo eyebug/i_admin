@@ -7,7 +7,7 @@
  */
 class Enum_Request {
 
-    const RPC_REQUEST_UA = "YoupuTrip/1.0(rop;)";
+    const RPC_REQUEST_UA = "Iservice/1.0(admin;)";
 
     public static function getUrlConfigById($interfaceId) {
         $config = array(

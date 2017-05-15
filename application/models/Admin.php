@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 总后台管理
+ */
 class AdminModel extends \BaseModel {
 
+    /**
+     * 获取管理员列表
+     */
     public function getUserList($paramList, $cacheTime = 0) {
         do {
             if ($cacheTime == 0) {
@@ -18,6 +24,9 @@ class AdminModel extends \BaseModel {
         return (array)$result;
     }
 
+    /**
+     * 新建和编辑管理员信息数据
+     */
     public function saveDataInfo($paramList) {
         $params = $this->initParam($paramList);
         do {

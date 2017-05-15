@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * APP管理数据转换
+ */
 class Convertor_App extends Convertor_Base {
 
+    /**
+     * 启动广告图
+     * @param $list
+     * @return array
+     */
     public function startPicListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),
@@ -27,6 +35,11 @@ class Convertor_App extends Convertor_Base {
         return $data;
     }
 
+    /**
+     * 版本管理
+     * @param $list
+     * @return array
+     */
     public function versionListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),
@@ -60,6 +73,11 @@ class Convertor_App extends Convertor_Base {
         return $data;
     }
 
+    /**
+     * APP启动图
+     * @param $list
+     * @return array
+     */
     public function appImgListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),
@@ -85,6 +103,11 @@ class Convertor_App extends Convertor_Base {
         return $data;
     }
 
+    /**
+     * 启动消息
+     * @param $list
+     * @return array
+     */
     public function startMsgListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),
@@ -115,6 +138,11 @@ class Convertor_App extends Convertor_Base {
         return $data;
     }
 
+    /**
+     * 全量推送列表
+     * @param $list
+     * @return array
+     */
     public function pushListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),
@@ -148,6 +176,11 @@ class Convertor_App extends Convertor_Base {
         return $data;
     }
 
+    /**
+     * 问题反馈列表
+     * @param $list
+     * @return array
+     */
     public function feedbackListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),

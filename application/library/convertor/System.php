@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * 系统管理数据转换
+ */
 class Convertor_System extends Convertor_Base {
 
+    /**
+     * 操作日志列表
+     * @param $list
+     * @return array
+     */
     public function operateLogListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),

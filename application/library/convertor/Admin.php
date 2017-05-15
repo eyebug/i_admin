@@ -1,13 +1,21 @@
 <?php
 
+/**
+ * 总后台管理数据转换
+ */
 class Convertor_Admin extends Convertor_Base {
 
+    /**
+     * 管理员列表
+     * @param $list
+     * @return array
+     */
     public function userListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),
             'msg' => $list['msg']
         );
-        if (isset($list['code']) && ! $list['code']) {
+        if (isset($list['code']) && !$list['code']) {
             $result = $list['data'];
             $tmp = array();
             foreach ($result['list'] as $key => $value) {

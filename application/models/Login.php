@@ -1,23 +1,24 @@
 <?php
 
+/**
+ * 登录Model
+ */
 class LoginModel extends \BaseModel {
 
     /**
      * 获取登陆用户信息
-     * ---
-     *
-     * @param $username 用户名            
-     * @param $password 密码            
+     * @param $username 用户名
+     * @param $password 密码
      * @return array
      */
     public function getUserInfo($paramList) {
         $params = $this->initParam($paramList);
-        
+
         do {
             $params['username'] = trim($paramList['username']);
             $params['password'] = trim($paramList['password']);
-            
-            if (! $params['username'] || ! $params['password']) {
+
+            if (!$params['username'] || !$params['password']) {
                 $result = array(
                     'code' => 1,
                     'msg' => '用户名或密码不能为空！'
@@ -33,8 +34,7 @@ class LoginModel extends \BaseModel {
 
     /**
      * 执行登录
-     *
-     * @param array $paramList            
+     * @param array $paramList
      * @return Ambigous <multitype:number string , multitype:>
      */
     public function doLogin($paramList) {
@@ -56,16 +56,16 @@ class LoginModel extends \BaseModel {
             $userInfo['sId'] = $auth['sId'];
             $key = Auth_Login::genLoginMemKey($auth['sId'], $auth['aId']);
             $cache = Cache_Redis::getInstance();
-            if (! $cache->set($key, json_encode($userInfo), Enum_Login::LOGIN_TIMEOUT)) {
+            if (!$cache->set($key, json_encode($userInfo), Enum_Login::LOGIN_TIMEOUT)) {
                 $result = $errorResult;
                 break;
             }
             $cookieTime = time() + Enum_Login::LOGIN_TIMEOUT;
-            if (! Util_Http::setCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_AID, $auth['aId'], $cookieTime)) {
+            if (!Util_Http::setCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_AID, $auth['aId'], $cookieTime)) {
                 $result = $errorResult;
                 break;
             }
-            if (! Util_Http::setCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_SID, $auth['sId'], $cookieTime)) {
+            if (!Util_Http::setCookie(Enum_Login::LOGIN_INFO_COOKIE_KEY_SID, $auth['sId'], $cookieTime)) {
                 $result = $errorResult;
                 break;
             }
@@ -77,7 +77,6 @@ class LoginModel extends \BaseModel {
 
     /**
      * 退出登录
-     *
      * @return boolean
      */
     public function loginOut() {
@@ -96,21 +95,19 @@ class LoginModel extends \BaseModel {
 
     /**
      * 修改用户密码
-     * ---
-     *
-     * @param $oldPass 原密码            
-     * @param $newPass 新密码            
+     * @param $oldPass 原密码
+     * @param $newPass 新密码
      * @return array
      */
     public function changePass($paramList) {
         $params = $this->initParam($paramList);
-        
+
         do {
             $params['userid'] = intval($paramList['userId']);
             $params['oldpass'] = trim($paramList['oldPass']);
             $params['newpass'] = trim($paramList['newPass']);
-            
-            if (! $params['userid'] || ! $params['oldpass'] || ! $params['newpass']) {
+
+            if (!$params['userid'] || !$params['oldpass'] || !$params['newpass']) {
                 $result = array(
                     'code' => 1,
                     'msg' => '参数错误'

@@ -1,7 +1,15 @@
 <?php
 
+/**
+ * APP用户管理数据转换
+ */
 class Convertor_User extends Convertor_Base {
 
+    /**
+     * 用户列表
+     * @param $list
+     * @return array
+     */
     public function userListConvertor($list) {
         $data = array(
             'code' => intval($list['code']),

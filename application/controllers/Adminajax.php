@@ -22,6 +22,9 @@ class AdminajaxController extends \BaseController {
         $this->adminConvertor = new Convertor_Admin();
     }
 
+    /**
+     * 获取管理员列表
+     */
     public function getUserListAction() {
         $paramList['page'] = $this->getPost('page');
         $paramList['id'] = intval($this->getPost('id'));
@@ -34,7 +37,7 @@ class AdminajaxController extends \BaseController {
     }
 
     /**
-     * 新建和编辑基础信息数据
+     * 新建和编辑管理员信息数据
      */
     private function handlerSaveParams() {
         $paramList = array();
@@ -47,7 +50,7 @@ class AdminajaxController extends \BaseController {
     }
 
     /**
-     * 新建基础信息
+     * 新建管理员信息
      */
     public function createAction() {
         $paramList = $this->handlerSaveParams();
@@ -57,7 +60,7 @@ class AdminajaxController extends \BaseController {
     }
 
     /**
-     * 更新基础信息
+     * 更新管理员信息
      */
     public function updateAction() {
         $paramList = $this->handlerSaveParams();

@@ -1,7 +1,13 @@
 <?php
 
+/**
+ * 基础控制类
+ */
 class BaseController extends \Yaf_Controller_Abstract {
 
+    /**
+     * 用户登录信息
+     */
     protected $userInfo;
 
     public function init() {
@@ -10,6 +16,9 @@ class BaseController extends \Yaf_Controller_Abstract {
         $this->setPageHeaderInfo($this->userInfo);
     }
 
+    /**
+     * 设置公共页面变量
+     */
     private function setPageWebConfig() {
         $sysConfig = Yaf_Registry::get('sysConfig');
         $webConfig['layoutPath'] = $sysConfig->application->layout->directory;
@@ -20,6 +29,9 @@ class BaseController extends \Yaf_Controller_Abstract {
         $this->getView()->assign('webConfig', $webConfig);
     }
 
+    /**
+     * 设置头部信息
+     */
     private function setPageHeaderInfo($loginInfo) {
         $headerInfo['userName'] = $loginInfo['realName'] ? $loginInfo['realName'] : $loginInfo['userName'];
         $headerInfo['adminPermission'] = $loginInfo['createAdmin'] ? 0 : 1;
@@ -50,6 +62,9 @@ class BaseController extends \Yaf_Controller_Abstract {
         $paramList['limit'] = empty($limit) ? 5 : $limit;
     }
 
+    /**
+     * 跳转404
+     */
     protected function jump404() {
         header('Location:/error/notfound');
         exit();

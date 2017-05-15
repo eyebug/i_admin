@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author ZXM
+ * 操作日志请求
  */
 class SystemajaxController extends \BaseController {
 
@@ -21,6 +21,9 @@ class SystemajaxController extends \BaseController {
         $this->systemConvertor = new Convertor_System();
     }
 
+    /**
+     * 获取操作日志列表
+     */
     public function getAdminOperateLogAction() {
         $paramList['page'] = $this->getPost('page');
         $paramList['operatorid'] = intval($this->getPost('operatorid'));
