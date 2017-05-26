@@ -31,7 +31,7 @@ iAdmin.loginIndex = (function ($, ypRecordVar) {
             data: params,
             cache: false,
             dataType: 'json',
-            timeout: 1000,
+            timeout: 10000
         });
         xhr.done(function () {
             location.href = "/index/index";
