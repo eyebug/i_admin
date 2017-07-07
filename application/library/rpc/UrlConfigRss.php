@@ -32,6 +32,11 @@ class Rpc_UrlConfigRss {
                     'format' => 'string',
                     'style' => 'interface'
                 ),
+                'title_en' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
             )
         ),
         'R003' => array(
@@ -46,6 +51,11 @@ class Rpc_UrlConfigRss {
                     'style' => 'interface'
                 ),
                 'title' => array(
+                    'required' => true,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'title_en' => array(
                     'required' => true,
                     'format' => 'string',
                     'style' => 'interface'

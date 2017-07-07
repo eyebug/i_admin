@@ -22,6 +22,7 @@ class Convertor_Rss extends Convertor_Base {
                 $dataTemp = array();
                 $dataTemp['id'] = $value['id'];
                 $dataTemp['title'] = $value['title'];
+                $dataTemp['titleEn'] = $value['title_en'];
                 $tmp[] = $dataTemp;
             }
             $data['data']['list'] = $tmp;

@@ -38,6 +38,7 @@ class RssajaxController extends \BaseController {
     private function handlerTypeSaveParams() {
         $paramList = array();
         $paramList['title'] = trim($this->getPost("title"));
+        $paramList['title_en'] = trim($this->getPost("titleEn"));
         return $paramList;
     }
 
