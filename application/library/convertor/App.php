@@ -62,7 +62,7 @@ class Convertor_App extends Convertor_Base {
                 $dataTemp['dataid'] = $value['dataid'];
                 $dataTemp['cn_title'] = $value['cn_title'];
                 $dataTemp['en_title'] = $value['en_title'];
-                $dataTemp['url'] = $value['url'];
+                $dataTemp['url'] = $value['content_value'];
                 $dataTemp['result'] = $value['result'];
                 $dataTemp['resultShow'] = $value['result'] ? '失败' : '成功';
                 $dataTemp['platform'] = $value['platform'];

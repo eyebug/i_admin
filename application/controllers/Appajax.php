@@ -22,7 +22,6 @@ class AppajaxController extends \BaseController {
     }
 
 
-
     /**
      * 获取启动消息列表
      */
@@ -80,6 +79,7 @@ class AppajaxController extends \BaseController {
     public function getPushListAction() {
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['type'] = Enum_App::PUSH_TYPE_ALL;
+        $paramList['content_type'] = Enum_App::PUSH_CONTENT_TYPE_URL;
         $result = $this->getPost('result');
         $result !== 'all' && !is_null($result) ? $paramList['result'] = intval($result) : false;
         $platform = $this->getPost('platform');

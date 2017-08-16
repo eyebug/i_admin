@@ -3,6 +3,7 @@
 class Enum_App {
 
     const PUSH_TYPE_ALL = 3;
+    const PUSH_CONTENT_TYPE_URL = 'url';
 
     public static function getStartPicMustInput() {
         return array(

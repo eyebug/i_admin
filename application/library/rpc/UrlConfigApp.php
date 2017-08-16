@@ -148,6 +148,11 @@ class Rpc_UrlConfigApp {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
+                'content_type' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
                 'page' => array(
                     'required' => false,
                     'format' => 'int',
