@@ -84,6 +84,14 @@
                         </div>
                     </div>
                     <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_listpic">列表展示图：</label>
+                        <div class="controls">
+                            <img src="" id="edit_listpic_show" style="max-height: 80px;"/>
+                            <input type="file" id="edit_listpic" placeholder="列表展示图" class="span4" data-title="列表展示图"
+                                   accept="<?php echo implode(",", $allowTypeImage); ?>">
+                        </div>
+                    </div>
+                    <div class="control-group" op="editFiled">
                         <label class="control-label" for="edit_status">状态：</label>
                         <div class="controls">
                             <select id="edit_status" data-title="状态">

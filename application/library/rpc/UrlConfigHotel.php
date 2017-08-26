@@ -107,6 +107,11 @@ class Rpc_UrlConfigHotel {
                     'format' => 'string',
                     'style' => 'interface'
                 ),
+                'listpic' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
                 'voice_lang1' => array(
                     'required' => false,
                     'format' => 'string',
@@ -236,6 +241,11 @@ class Rpc_UrlConfigHotel {
                     'style' => 'interface'
                 ),
                 'index_background' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'listpic' => array(
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'

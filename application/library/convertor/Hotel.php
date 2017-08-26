@@ -38,6 +38,7 @@ class Convertor_Hotel extends Convertor_Base {
                 $dataTemp['website'] = $value['website'];
                 $dataTemp['logo'] = Enum_Img::getPathByKeyAndType($value['logo']);
                 $dataTemp['index_background'] = Enum_Img::getPathByKeyAndType($value['index_background']);
+                $dataTemp['listpic'] = Enum_Img::getPathByKeyAndType($value['listpic']);
                 $dataTemp['voice_lang1'] = Enum_Img::getPathByKeyAndType($value['voice_lang1']);
                 $dataTemp['voice_lang2'] = Enum_Img::getPathByKeyAndType($value['voice_lang2']);
                 $dataTemp['voice_lang3'] = Enum_Img::getPathByKeyAndType($value['voice_lang3']);

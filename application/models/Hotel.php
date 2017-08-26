@@ -79,6 +79,14 @@ class HotelModel extends \BaseModel {
                 }
                 $params['index_background'] = $uploadResult['data']['picKey'];
             }
+            if ($paramList['listpic']) {
+                $uploadResult = $this->uploadFile($paramList['listpic'], Enum_Oss::OSS_PATH_IMAGE);
+                if ($uploadResult['code']) {
+                    $result['msg'] = '列表展示图上传失败:' . $uploadResult['msg'];
+                    break;
+                }
+                $params['listpic'] = $uploadResult['data']['picKey'];
+            }
             if ($paramList['voice_lang1']) {
                 $uploadResult = $this->uploadFile($paramList['voice_lang1'], Enum_Oss::OSS_PATH_VOICE);
                 if ($uploadResult['code']) {

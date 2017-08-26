@@ -52,6 +52,7 @@ class HotelajaxController extends \BaseController {
         $paramList['website'] = trim($this->getPost("website"));
         $paramList['logo'] = $_FILES['logo'];
         $paramList['index_background'] = $_FILES['indexBackground'];
+        $paramList['listpic'] = $_FILES['listpic'];
         $paramList['voice_lang1'] = $_FILES['voiceLang1'];
         $paramList['voice_lang2'] = $_FILES['voiceLang2'];
         $paramList['voice_lang3'] = $_FILES['voiceLang3'];
