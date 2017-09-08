@@ -6,7 +6,7 @@ class Enum_System {
 
     const SYSTEM_NAME = 'EASYISERVICE管理后台';
 
-    const SERVICE_API_DOMAIN = 'https://service.easyiservice.com/';
+    const SERVICE_API_DOMAIN = 'http://service.easyiservice.com/';
 
 //        const SERVICE_API_DOMAIN = 'http://api-dev.easyiservice.com';
 
