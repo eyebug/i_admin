@@ -3,7 +3,7 @@
 class Enum_Img {
 
     // 阿里云图片服务地址
-    const OSS_IMGURL = 'https://iservice.oss-cn-beijing.aliyuncs.com';
+    const OSS_IMGURL = '//storage.easyiservice.com';
 
     const APP_INDEX_LIST_V1 = 'app_index_list';
 
