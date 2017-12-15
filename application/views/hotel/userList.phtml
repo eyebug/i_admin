@@ -52,12 +52,14 @@
 </div>
 <?php include($webConfig['layoutPath'] . '/hotel/userList_edit.phtml'); ?>
 <?php include($webConfig['layoutPath'] . '/hotel/userList_permission.phtml'); ?>
+<?php include($webConfig['layoutPath'] . '/hotel/userList_service_permission.phtml'); ?>
 <script type="text/javascript">
     var YP_GLOBAL_VARS = {
         checkParams: '<?php echo json_encode(Enum_Admin::getAdminUserMustInput());?>',
         listUrl: '/hotelajax/getUserList',
         createBaseUrl: '/hotelajax/createUser',
         updateBaseUrl: '/hotelajax/updateUser',
+        updateTaskPermission: '/hotelajax/updateUserServicePermission',
     };
 </script>
 <?php include($webConfig['layoutPath'] . '/common/list_common.phtml'); ?>
@@ -83,8 +85,15 @@
         <td>{{info.lastLoginIp}}</td>
         <td>{{info.createTime}}</td>
         <td type="permission" data-value="{{info.permission}}" style="display:none;"></td>
+        <td type="taskPermission" data-value="{{info.taskPermission}}" style="display:none;"></td>
+        <td type="phone" data-value="{{info.phone}}" style="display: none"></td>
+        <td type="email" data-value="{{info.email}}" style="display: none"></td>
+        <td type="department" data-value="{{info.department}}" style="display: none"></td>
+        <td type="level" data-value="{{info.level}}" style="display: none"></td>
+
         <td>
             <button op="editDataOne" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">修改</button>
+            <button op="editServicePermission" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">任务权限管理</button>
             <button op="editPermission" type="button" class="btn btn-info btn-sm" data-dataid="{{info.id}}">权限管理</button>
         </td>
     </tr>

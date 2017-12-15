@@ -90,7 +90,7 @@ iAdmin.hotelUserList = (function ($, ypGlobal) {
         $("#dataList").on('click', 'button[op=editPermission]', function () {
             var $editId = $(this).data('dataid'), $dataDom = $("#dataList").find("[dataId=" + $editId + "]");
             var permissionList = [];
-            $.each($dataDom.find('td[type=permission]').data('value').split(','), function (key, value) {
+            $.each($dataDom.find('td[type=permission]').data('value').toString().split(','), function (key, value) {
                 if (value) {
                     permissionList.push(parseInt(value));
                 }
@@ -132,6 +132,7 @@ iAdmin.hotelUserList = (function ($, ypGlobal) {
                 statusRecord += '减少了' + statusDelete.join(",") + ';';
             }
             if (statusInsert.length == 0 && statusDelete.length == 0) {
+                savePermission.button('reset');
                 permissionModal.modal('hide');
                 return false;
             }
@@ -164,10 +165,91 @@ iAdmin.hotelUserList = (function ($, ypGlobal) {
         });
     }
 
+    function initServicePermission() {
+        var servicePermissionModal = $("#servicePermissionEditor"), servicePermissionEditorList = $("#servicePermissionEditorList"), saveServicePermission = $("#saveServicePermission");
+        $("#dataList").on('click', 'button[op=editServicePermission]', function () {
+            var $editId = $(this).data('dataid'), $dataDom = $("#dataList").find("[dataId=" + $editId + "]");
+            var permissionList = [];
+            $.each($dataDom.find('td[type=taskPermission]').data('value').toString().split(','), function (key, value) {
+                if (value) {
+                    permissionList.push(parseInt(value));
+                }
+            });
+            servicePermissionEditorList.find('[op=edit_taskPermission]').each(function (key, value) {
+                var permissionOne = $(value), permissionKey = parseInt(permissionOne.attr('value'));
+                if ($.inArray(permissionKey, permissionList) >= 0) {
+                    permissionOne.prop('checked', true).data('old', 1);
+                } else {
+                    permissionOne.prop('checked', false).data('old', 0);
+                }
+            });
+            saveServicePermission.data('userid', $editId);
+            servicePermissionModal.modal('show');
+        });
+
+        saveServicePermission.on('click', function () {
+            saveServicePermission.button('loading');
+            var statusInsert = [];
+            var statusDelete = [];
+            var taskpermission = [];
+            servicePermissionEditorList.find('[op=edit_taskPermission]').each(function (key, value) {
+                var permissionOne = $(value);
+                if (permissionOne.prop('checked')) {
+                    taskpermission.push(permissionOne.attr('value'));
+                }
+                if (permissionOne.prop('checked') && permissionOne.data('old') == 0) {
+                    statusInsert.push(permissionOne.data('title'));
+                }
+                if (!permissionOne.prop('checked') && permissionOne.data('old') == 1) {
+                    statusDelete.push(permissionOne.data('title'));
+                }
+            });
+            var statusRecord = '';
+            if (statusInsert.length > 0) {
+                statusRecord += '增加了' + statusInsert.join(",") + ';';
+            }
+            if (statusDelete.length > 0) {
+                statusRecord += '减少了' + statusDelete.join(",") + ';';
+            }
+            if (statusInsert.length == 0 && statusDelete.length == 0) {
+                saveServicePermission.button('reset');
+                servicePermissionModal.modal('hide');
+                return false;
+            }
+            var saveParams = {};
+            saveParams.id = saveServicePermission.data('userid');
+            saveParams.taskpermission = taskpermission.join(',');
+            recordLog = ypRecord.getCreateLog({
+                modelName: '任务权限',
+                value: statusRecord
+            });
+            saveParams[YP_RECORD_VARS.recordPostId] = saveParams.id;
+            saveParams[YP_RECORD_VARS.recordPostVar] = recordLog;
+
+            var xhr = ajax.ajax({
+                url: ypGlobal.updateTaskPermission,
+                type: "POST",
+                data: saveParams,
+                cache: false,
+                dataType: "json",
+                timeout: 10000
+            });
+            xhr.done(function (data) {
+                saveServicePermission.button('reset');
+                servicePermissionModal.modal('hide');
+                userList.reLoadList();
+            }).fail(function (data) {
+                tips.show(data.msg);
+                saveServicePermission.button('reset');
+            });
+        });
+    }
+
     function init() {
         initList();
         initEditor();
         initPermission();
+        initServicePermission();
     }
 
     return {

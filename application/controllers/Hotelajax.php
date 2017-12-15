@@ -25,6 +25,7 @@ class HotelajaxController extends \BaseController {
      * 获取物业列表
      */
     public function getHotelListAction() {
+	    $paramList['page'] = intval($this->getPost('page'));
         $paramList['id'] = intval($this->getPost('id'));
         $paramList['name'] = $this->getPost('name');
         $paramList['groupid'] = intval($this->getPost('groupid'));
@@ -122,6 +123,10 @@ class HotelajaxController extends \BaseController {
         $paramList['remark'] = trim($this->getPost("remark"));
         $paramList['status'] = intval($this->getPost("status"));
         $paramList['hotelid'] = intval($this->getPost("hotelid"));
+        $paramList['phone'] = trim($this->getPost('phone'));
+        $paramList['email'] = trim($this->getPost('email'));
+        $paramList['department'] = intval($this->getPost('department'));
+        $paramList['level'] = intval($this->getPost('level'));
         return $paramList;
     }
 
@@ -152,6 +157,17 @@ class HotelajaxController extends \BaseController {
         $paramList['id'] = intval($this->getPost("id"));
         $paramList['permission'] = trim($this->getPost("permission"));
         $result = $this->hotelModal->saveUserPermission($paramList);
+        $this->echoJson($result);
+    }
+
+    /**
+     * Update admin's task permission
+     */
+    public function updateUserServicePermissionAction()
+    {
+        $paramList['id'] = intval($this->getPost("id"));
+        $paramList['taskpermission'] = trim($this->getPost("taskpermission"));
+        $result = $this->hotelModal->saveTaskPermission($paramList);
         $this->echoJson($result);
     }
 }

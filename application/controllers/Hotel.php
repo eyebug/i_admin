@@ -5,6 +5,7 @@
  */
 class HotelController extends \BaseController {
 
+
     /**
      * 物业列表
      */
@@ -30,9 +31,22 @@ class HotelController extends \BaseController {
     public function userListAction() {
         $hotelModel = new HotelModel();
         $hotelList = $hotelModel->getHotelList(array(), 3600 * 6);
+
+        $permissionResult = $hotelModel->getHotelPermission(array('type' => HotelModel::PERMISSION_TYPE_ALL), 6 * 3600);
+        $departmentAndLevel = $hotelModel->getDepartmentAndLevelListAction(array(), 6 * 3600);
+        $departmentList = $departmentAndLevel['data']['department'];
+        $levelList = $departmentAndLevel['data']['level'];
+        $permissionResult = $permissionResult['data']['list'];
+        $taskPermissionList = $permissionResult[HotelModel::PERMISSION_TYPE_TASK];
+        $permissionList = $permissionResult[HotelModel::PERMISSION_TYPE_BASE];
+
+        $this->_view->assign('permissionList', $permissionList);
+        $this->_view->assign('taskPermissionList', $taskPermissionList);
+        $this->_view->assign('departmentList', $departmentList);
+        $this->_view->assign('levelList', $levelList);
         $this->_view->assign('hotelList', $hotelList['data']['list']);
-        $permissionList = $hotelModel->getHotelPermission(3600 * 6);
-        $this->_view->assign('permissionList', $permissionList['data']['list']);
+
         $this->_view->display('hotel/userList.phtml');
+
     }
 }

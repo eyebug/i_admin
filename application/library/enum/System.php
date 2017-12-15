@@ -1,6 +1,7 @@
 <?php
 
-class Enum_System {
+class Enum_System
+{
 
     const RPC_REQUEST_PACKAGE = 'ia';
 
@@ -8,10 +9,21 @@ class Enum_System {
 
     const SERVICE_API_DOMAIN = 'http://service.easyiservice.com/';
 
-//        const SERVICE_API_DOMAIN = 'http://api-dev.easyiservice.com';
+    private static $_apiDomain;
 
-    public static function getServiceApiUrlByLink($url) {
-        $url = strpos('http', $url) ? $url : self::SERVICE_API_DOMAIN . $url;
+    /**
+     * Get the api domain from config file
+     *
+     * @param $url
+     * @return string
+     */
+    public static function getServiceApiUrlByLink($url)
+    {
+        if (!self::$_apiDomain) {
+            $sysConfig = Yaf_Registry::get('sysConfig');
+            self::$_apiDomain = $sysConfig->api->domain;
+        }
+        $url = strpos('http', $url) ? $url : self::$_apiDomain . $url;
         return $url;
     }
 }

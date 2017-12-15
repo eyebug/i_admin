@@ -381,6 +381,26 @@ class Rpc_UrlConfigHotel {
                     'format' => 'int',
                     'style' => 'interface'
                 ),
+                'phone' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'email' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'department' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'level' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
                 'createadmin' => array(
                     'required' => false,
                     'format' => 'int',
@@ -433,16 +453,62 @@ class Rpc_UrlConfigHotel {
                     'required' => false,
                     'format' => 'string',
                     'style' => 'interface'
-                )
+                ),
+                'taskpermission' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'phone' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'email' => array(
+                    'required' => false,
+                    'format' => 'string',
+                    'style' => 'interface'
+                ),
+                'department' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+                'level' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
             )
         ),
+
         'GH007' => array(
             'name' => '获取物业后台管理员帐号权限列表',
             'method' => 'getHotelPermission',
             'auth' => true,
             'url' => '/HotelAdministrator/getHotelPermission',
-            'param' => array()
-        )
+            'param' => array(
+                'type' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+            ),
+        ),
+
+        'GH008' => array(
+            'name' => 'Get department list and level list',
+            'method' => 'getDepartmentAndLevelList',
+            'auth' => true,
+            'url' => '/HotelAdministrator/getDepartmentAndLevelList',
+            'param' => array(
+                'hotelid' => array(
+                    'required' => false,
+                    'format' => 'int',
+                    'style' => 'interface'
+                ),
+            ),
+        ),
     );
 
     /**

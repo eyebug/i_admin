@@ -32,6 +32,43 @@
                             <input type="text" id="edit_realname" placeholder="真实姓名" class="span3" data-title="真实姓名">
                         </div>
                     </div>
+
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_phone">手机：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_phone" placeholder="手机" class="span3" data-title="手机">
+                        </div>
+                    </div>
+
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_email">邮箱：</label>
+                        <div class="controls">
+                            <input type="text" id="edit_email" placeholder="邮箱" class="span3" data-title="邮箱">
+                        </div>
+                    </div>
+
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_department">部门：</label>
+                        <div class="controls">
+                            <select id="edit_department" data-title="部门">
+                                <?php foreach ($departmentList as $value => $name) { ?>
+                                    <option value="<?php echo $value; ?>"><?php echo $name; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control-group" op="editFiled">
+                        <label class="control-label" for="edit_level">级别：</label>
+                        <div class="controls">
+                            <select id="edit_level" data-title="级别">
+                                <?php foreach ($levelList as $value => $name) { ?>
+                                    <option value="<?php echo $value; ?>"><?php echo $name; ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="control-group" op="editFiled">
                         <label class="control-label" for="edit_password">密码：</label>
                         <div class="controls">

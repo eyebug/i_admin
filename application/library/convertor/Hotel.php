@@ -93,6 +93,12 @@ class Convertor_Hotel extends Convertor_Base {
                 $dataTemp['groupId'] = $value['groupId'];
                 $dataTemp['groupName'] = $value['groupName'];
                 $dataTemp['permission'] = $value['permission'];
+                $dataTemp['taskPermission'] = $value['taskPermission'];
+                $dataTemp['department'] = $value['department'];
+                $dataTemp['level'] = $value['level'];
+                $dataTemp['email'] = $value['email'];
+                $dataTemp['onduty'] = $value['onduty'];
+                $dataTemp['phone'] = $value['phone'];
                 $dataTemp['statusShow'] = $value['status'] ? '启用' : '禁用';
                 $dataTemp['createTime'] = $value['createTime'] ? date('Y-m-d H:i:s', $value['createTime']) : '';
                 $dataTemp['lastLoginTime'] = $value['lastLoginTime'] ? date('Y-m-d H:i:s', $value['lastLoginTime']) : '';

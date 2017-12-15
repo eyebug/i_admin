@@ -1,0 +1,33 @@
+<div class="modal hide fade yulong" id="servicePermissionEditor" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true" mf="modalfix" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">任务权限修改</h4>
+            </div>
+            <div class="modal-body" id="detailBody" mf="modalfix">
+                <form class="form-horizontal" id="servicePermissionEditorList">
+                    <?php foreach ($taskPermissionList as $index => $permission) { ?>
+                        <div class="control-group" op="editFiled">
+                            <label class="control-label"
+                                   for="edit_taskPermission<?php echo $permission['id']; ?>"><?php echo $permission['name_lang1']; ?>：</label>
+                            <div class="controls">
+                                <input type="checkbox" op="edit_taskPermission"
+                                       id="edit_taskPermission<?php echo $permission['id']; ?>" value="<?php echo $permission['id']; ?>"
+                                       data-title="<?php echo $permission['name_lang1']; ?>">
+                            </div>
+                        </div>
+                    <?php } ?>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" id="saveServicePermission" data-loading-text="保存中...">保存
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id='closeEditor'>关闭</button>
+            </div>
+        </div>
+    </div>
+</div>

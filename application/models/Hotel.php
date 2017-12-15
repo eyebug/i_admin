@@ -5,6 +5,12 @@
  */
 class HotelModel extends \BaseModel {
 
+    const LACK_PARAM = '参数错误';
+
+    const PERMISSION_TYPE_BASE = 1;
+    const PERMISSION_TYPE_TASK = 2;
+    const PERMISSION_TYPE_ALL = 3;
+
     /**
      * 获取物业列表
      */
@@ -192,10 +198,30 @@ class HotelModel extends \BaseModel {
     /**
      * 获取物业管理权限
      */
-    public function getHotelPermission($cacheTime = 0) {
+    public function getHotelPermission($paramList, $cacheTime = 0) {
         do {
+            $params = array();
+            $paramList['type'] ? $params['type'] = $paramList['type']: false;
             $isCache = $cacheTime != 0 ? true : false;
-            $result = $this->rpcClient->getResultRaw('GH007', array(), $isCache, $cacheTime);
+            $result = $this->rpcClient->getResultRaw('GH007', $params, $isCache, $cacheTime);
+        } while (false);
+        return (array)$result;
+    }
+
+    /**
+     * Get department list and level list
+     *
+     * @param $paramList
+     * @param int $cacheTime
+     * @return array
+     */
+    public function getDepartmentAndLevelListAction($paramList, $cacheTime = 0)
+    {
+        do {
+            $params = array();
+            $paramList['hotelid'] ? $params['hotelid'] = $paramList['hotelid'] : false;
+            $isCache = $cacheTime != 0 ? true : false;
+            $result = $this->rpcClient->getResultRaw('GH008', $params, $isCache, $cacheTime);
         } while (false);
         return (array)$result;
     }
@@ -215,6 +241,28 @@ class HotelModel extends \BaseModel {
             }
             $result = $this->rpcClient->getResultRaw('GH006', $params);
         } while (false);
+        return $result;
+    }
+
+    /**
+     * Update user's task permission
+     *
+     * @param array $paramList
+     * @return Ambigous|array
+     */
+    public function saveTaskPermission(array $paramList)
+    {
+
+        try {
+            $params['taskpermission'] = $paramList['taskpermission'];
+            $paramList['id'] ? $params['id'] = intval($paramList['id']) : $this->throwException(self::LACK_PARAM, 1);
+            $result = $this->rpcClient->getResultRaw('GH006', $params);
+        } catch (Exception $e) {
+            $result = array(
+                'code' => $e->getCode(),
+                'msg' => $e->getMessage()
+            );
+        }
         return $result;
     }
 }
